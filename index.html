@@ -43,7 +43,7 @@
         <a href="#production" class="hover:text-white transition-colors">Batches</a>
       </div>
       <div class="hidden md:flex items-center gap-4">
-        <a href="#newsletter" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Stay Updated</a>
+        <a href="#preorder" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Preorder Interest</a>
       </div>
       <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
         <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
@@ -56,7 +56,7 @@
         <a href="#products" class="hover:text-white transition-colors" onclick="closeMenu()">Products</a>
         <a href="#approach" class="hover:text-white transition-colors" onclick="closeMenu()">Approach</a>
         <a href="#production" class="hover:text-white transition-colors" onclick="closeMenu()">Batches</a>
-        <a href="#newsletter" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Stay Updated</a>
+        <a href="#preorder" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Preorder Interest</a>
       </div>
     </div>
   </header>
@@ -163,7 +163,7 @@
                 <span class="text-xl sm:text-2xl font-bold text-white">$129 <span class="text-xs font-normal text-neutral-500">USD</span></span>
                 <p class="text-xs text-neutral-500 mt-1">Schematics free &mdash; build your own</p>
               </div>
-              <a href="#" class="inline-flex items-center px-6 py-2.5 bg-[#6f26de] text-white text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#5a1eb2] transition-colors rounded-full">Preorder</a>
+              <a href="#preorder" data-preorder-product="Polydeck" class="inline-flex items-center px-6 py-2.5 bg-[#6f26de] text-white text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#5a1eb2] transition-colors rounded-full">Preorder</a>
             </div>
             <div class="mt-4 pt-4 border-t border-neutral-800">
               <a href="#" class="text-xs text-[#6f26de] hover:text-white transition-colors font-semibold">DIY Kit →</a>
@@ -187,7 +187,7 @@
               <div>
                 <span class="text-xl sm:text-2xl font-bold text-white">Coming soon</span>
               </div>
-              <span class="inline-flex items-center px-6 py-2.5 bg-neutral-800 text-neutral-500 text-xs font-bold tracking-[0.15em] uppercase cursor-default rounded-full">More info soon</span>
+              <a href="#preorder" data-preorder-product="Kaiser-1" class="inline-flex items-center px-6 py-2.5 bg-neutral-800 text-neutral-300 text-xs font-bold tracking-[0.15em] uppercase hover:bg-neutral-700 transition-colors rounded-full">Register interest</a>
             </div>
           </div>
         </div>
@@ -208,7 +208,7 @@
               <div>
                 <span class="text-xl sm:text-2xl font-bold text-white">Coming soon</span>
               </div>
-              <span class="inline-flex items-center px-6 py-2.5 bg-neutral-800 text-neutral-500 text-xs font-bold tracking-[0.15em] uppercase cursor-default rounded-full">More info soon</span>
+              <a href="#preorder" data-preorder-product="Drumstream DS-8" class="inline-flex items-center px-6 py-2.5 bg-neutral-800 text-neutral-300 text-xs font-bold tracking-[0.15em] uppercase hover:bg-neutral-700 transition-colors rounded-full">Register interest</a>
             </div>
           </div>
         </div>
@@ -288,22 +288,53 @@
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section id="newsletter" class="border-t border-neutral-200 bg-neutral-50 scroll-mt-20 fade-section">
+  <!-- Preorder -->
+  <section id="preorder" class="border-t border-neutral-200 bg-neutral-50 scroll-mt-20 fade-section">
     <div class="w-full px-3 lg:px-16 py-24">
-      <div class="max-w-lg mx-auto text-center">
+      <div class="max-w-2xl mx-auto">
         <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-6 terminal-label">
-          <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 10">Newsletter</span> <span class="term-block text-[#6f26de]">■</span>
+          <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 8">Preorder</span> <span class="term-block text-[#6f26de]">■</span>
         </p>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-neutral-900">Get preorder updates, batch windows,<br class="hidden sm:block">and product news.</h2>
-        <form class="flex flex-col sm:flex-row gap-3 mt-8" onsubmit="event.preventDefault(); this.reset();">
-          <input type="email" placeholder="Email address" required
-            class="flex-1 bg-white border border-neutral-300 rounded-full px-5 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#6f26de] transition-colors">
-          <button type="submit"
-             class="px-6 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-[#5a1eb2] transition-colors text-sm whitespace-nowrap">
-            Subscribe
-          </button>
-        </form>
+        <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-neutral-900">Join the interest list for the next production run.</h2>
+            <p class="text-sm sm:text-base text-neutral-500 leading-relaxed mb-5">
+              No payment yet. This just helps estimate batch size and shipping regions. When a run is ready, I&rsquo;ll follow up with a proper payment link.
+            </p>
+            <ul class="flex flex-col gap-3 text-sm text-neutral-500">
+              <li class="flex items-start gap-2"><span class="text-[#6f26de] mt-0.5">■</span> Records product interest and country</li>
+              <li class="flex items-start gap-2"><span class="text-[#6f26de] mt-0.5">■</span> Lets you batch builds once demand is real</li>
+              <li class="flex items-start gap-2"><span class="text-[#6f26de] mt-0.5">■</span> Keeps the current site fully static</li>
+            </ul>
+          </div>
+          <form id="preorder-form" class="bg-white border border-neutral-200 p-5 sm:p-7" novalidate>
+            <div class="grid gap-4">
+              <div>
+                <label for="preorder-product" class="block text-xs font-semibold tracking-[0.15em] uppercase text-neutral-500 mb-2">Product</label>
+                <select id="preorder-product" name="product" required
+                  class="w-full bg-white border border-neutral-300 px-4 py-3 text-sm text-neutral-900 focus:outline-none focus:border-[#6f26de] transition-colors">
+                  <option value="Polydeck">Polydeck</option>
+                  <option value="Kaiser-1">Kaiser-1</option>
+                  <option value="Drumstream DS-8">Drumstream DS-8</option>
+                  <option value="General interest">General interest</option>
+                </select>
+              </div>
+              <div>
+                <label for="preorder-country" class="block text-xs font-semibold tracking-[0.15em] uppercase text-neutral-500 mb-2">Country</label>
+                <input id="preorder-country" name="country" type="text" placeholder="Singapore" required
+                  class="w-full bg-white border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#6f26de] transition-colors">
+              </div>
+              <button type="submit" id="preorder-submit"
+                 class="px-6 py-3 bg-[#6f26de] text-white font-semibold hover:bg-[#5a1eb2] transition-colors text-sm whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed">
+                Continue to Google Form
+              </button>
+              <p id="preorder-status" class="min-h-[1.25rem] text-sm text-neutral-500" aria-live="polite"></p>
+              <p class="text-xs text-neutral-400 leading-relaxed">
+                This prefills the Google Form, then the user completes submission there so Google can handle email collection properly.
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -339,7 +370,7 @@
         </div>
         <div>
           <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Stay in touch</p>
-          <a href="#newsletter" class="text-sm text-neutral-500 hover:text-[#6f26de] transition-colors">Newsletter</a>
+          <a href="#preorder" class="text-sm text-neutral-500 hover:text-[#6f26de] transition-colors">Preorder list</a>
         </div>
       </div>
       <div class="border-t border-neutral-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -353,6 +384,14 @@
   </footer>
 
   <script>
+    const preorderConfig = {
+      formId: '1FAIpQLSfe2xR1AIReXivFOCHPhWrc5Ktr_Y6SwDIyHt7f_AppAZg-tw',
+      fields: {
+        country: '235803725',
+        product: '1870252213',
+      },
+    };
+
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => {
@@ -422,6 +461,57 @@
         }, 2000);
       }
     }
+
+    const preorderForm = document.getElementById('preorder-form');
+    const preorderProduct = document.getElementById('preorder-product');
+    const preorderStatus = document.getElementById('preorder-status');
+    const preorderSubmit = document.getElementById('preorder-submit');
+    const preorderLinks = document.querySelectorAll('[data-preorder-product]');
+
+    function setPreorderStatus(message, tone = 'neutral') {
+      preorderStatus.textContent = message;
+      preorderStatus.className = 'min-h-[1.25rem] text-sm';
+      if (tone === 'success') preorderStatus.classList.add('text-green-700');
+      else if (tone === 'error') preorderStatus.classList.add('text-red-600');
+      else preorderStatus.classList.add('text-neutral-500');
+    }
+
+    function setSelectedProduct(product) {
+      if (!product) return;
+      const match = Array.from(preorderProduct.options).find(option => option.value === product);
+      if (match) preorderProduct.value = product;
+    }
+
+    preorderLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setSelectedProduct(link.dataset.preorderProduct);
+      });
+    });
+
+    const requestedProduct = new URLSearchParams(window.location.search).get('product');
+    setSelectedProduct(requestedProduct);
+
+    preorderForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!preorderForm.reportValidity()) return;
+
+      const { formId, fields } = preorderConfig;
+      const missingConfig = !formId || !fields.country || !fields.product;
+      if (missingConfig) {
+        setPreorderStatus('Set the Google Form ID plus the country and product entry IDs in preorderConfig before publishing this form.', 'error');
+        return;
+      }
+
+      const params = new URLSearchParams({
+        [`entry.${fields.country}`]: document.getElementById('preorder-country').value.trim(),
+        [`entry.${fields.product}`]: preorderProduct.value,
+      });
+      const prefilledUrl = `https://docs.google.com/forms/d/e/${formId}/viewform?${params.toString()}`;
+
+      setPreorderStatus('Opening the Google Form...');
+      window.location.href = prefilledUrl;
+    });
   </script>
 </body>
 </html>

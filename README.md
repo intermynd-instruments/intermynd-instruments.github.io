@@ -2,6 +2,53 @@
 
 A lightweight design system for Intermynd Instruments websites, web editors, and product pages. One CSS file, one base template.
 
+## Preorder Form
+
+`index.html` now includes a static preorder-interest form that prefills a Google Form, then sends the visitor to Google Forms to complete the submission there. This keeps the site backend-free while letting Google handle email collection and response storage.
+
+### Recommended setup
+
+1. Create a Google Form with these short-answer fields:
+   - `Country`
+   - `Product`
+2. In the form settings, enable Google Forms email collection if you want Google to record the respondent email automatically.
+3. In Google Forms, open `Get pre-filled link`.
+4. Enter dummy values once and generate the link.
+5. In the generated URL, copy the form ID from:
+
+```text
+https://docs.google.com/forms/d/e/THIS_PART_IS_FORM_ID/viewform?...
+```
+
+6. Copy each field's `entry.<number>` ID from the prefilled query string.
+7. In [`index.html`](/Users/pierlo/Development/intermynd-instruments/index.html), fill in:
+
+```js
+const preorderConfig = {
+  formId: '...',
+  fields: {
+    country: '...',
+    product: '...',
+  },
+};
+```
+
+8. In the Google Form `Responses` tab, link the form to a Sheet.
+
+### Runtime behavior
+
+- The site collects `Country` and `Product`.
+- On submit, it redirects the visitor to the Google Form `viewform` URL with those fields prefilled.
+- The user finishes the submission on Google Forms, where Google can handle email collection and the final response write.
+
+### Why this approach
+
+- No backend to host or maintain
+- No exposed Sheets API credentials in the browser
+- Google Sheets becomes the lightweight CRM for follow-up and batch planning
+
+If you later want richer validation, spam protection, or automated follow-up emails, switch the form submission target from Google Forms to a small Apps Script or serverless endpoint.
+
 ## Quick start
 
 Drop three lines into the `<head>` of any HTML file:
