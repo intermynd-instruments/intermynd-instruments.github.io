@@ -72,13 +72,15 @@
             <div class="ds8-product-stage">
               <video
                 id="hero-video"
-                src="img/vid.mp4"
                 poster="ds8.png"
                 muted
                 playsinline
                 loop
                 class="relative z-10 w-full h-auto object-contain opacity-0 transition-opacity duration-1000"
-              ></video>
+              >
+                <source src="img/vid.webm" type="video/webm">
+                <source src="img/vid.mp4" type="video/mp4">
+              </video>
               <div class="ds8-pulse-ring ds8-pulse-ring-one"></div>
               <div class="ds8-pulse-ring ds8-pulse-ring-two"></div>
             </div>
