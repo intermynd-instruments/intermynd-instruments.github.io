@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DS-8 Drumstream is a homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.">
+  <meta property="og:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
+  <meta property="og:description" content="Eight drum tracks, real-time synthesis, sampler recording, Step FX, preset browsing, and portable sequencing on modified PS Vita systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="ds8.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
+  <meta name="twitter:description" content="A homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.">
+  <title>DS-8 Drumstream - Intermynd Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
+            pixel: ['Pixel', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="intermynd.css">
+</head>
+<body class="bg-white text-neutral-900 font-sans antialiased">
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
+    <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+        <a href="index.html#products" class="hover:text-white transition-colors">Products</a>
+        <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#disclaimer" class="hover:text-white transition-colors">Disclaimer</a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
+        <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
+        <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
+        <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-[#6f26de]">
+      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-white/70">
+        <a href="index.html#products" class="hover:text-white transition-colors" onclick="closeMenu()">Products</a>
+        <a href="#sampler" class="hover:text-white transition-colors" onclick="closeMenu()">Sampler</a>
+        <a href="#features" class="hover:text-white transition-colors" onclick="closeMenu()">Features</a>
+        <a href="#disclaimer" class="hover:text-white transition-colors" onclick="closeMenu()">Disclaimer</a>
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="pt-16 relative bg-[#0a0a0a] text-white">
+      <div class="absolute inset-0 dot-grid"></div>
+      <div class="w-full px-3 lg:px-16 pt-8 pb-32 sm:pb-36 lg:pb-40 relative z-10">
+        <div class="grid gap-8 lg:gap-12 items-start min-h-[calc(100vh-5rem)]">
+          <div class="max-w-4xl">
+            <span class="hero-blink text-white/60 text-xl sm:text-2xl mb-4 block">■</span>
+            <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-white/70 mb-5">Homebrew drum synth and performance groovebox for PS Vita</p>
+            <h1 class="font-pixel text-[clamp(2.8rem,11vw,11rem)] leading-[1.15] sm:leading-[1.1] tracking-[-0.03em] mb-8 sm:mb-12 text-white">
+              DRUMSTREAM<br>DS-8
+            </h1>
+            <p class="text-xl sm:text-2xl lg:text-3xl text-white/85 max-w-3xl mb-5 font-light leading-tight">
+              Drumstream turns the PS Vta console into an eight-track drum synthesizer, sampler, and performance groovebox.
+            </p>
+            <p class="text-sm sm:text-base text-white/65 max-w-2xl mb-8 leading-relaxed">
+              Built for sketching ideas, building grooves, recording samples, resampling patterns, and performing anywhere with direct physical controls.
+            </p>
+            <div class="flex flex-wrap gap-3 mb-8">
+              <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
+                Download on Itch.io
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#overview" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-white/85 hover:border-white hover:text-white transition-all text-sm font-semibold">
+                Explore v0.3
+              </a>
+            </div>
+            <p class="max-w-2xl text-xs leading-relaxed text-white/50">
+              DS-8 Drumstream is independent homebrew software. It is not affiliated with, sponsored by, endorsed by, or connected to Sony Interactive Entertainment, Sony Group Corporation, PlayStation, or PS Vita trademarks.
+            </p>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-6xl">
+            <div class="ds8-product-stage">
+              <img src="ds8.png" alt="DS-8 Drumstream running on a PS Vita" class="relative z-10 w-full h-auto object-contain">
+              <div class="ds8-pulse-ring ds8-pulse-ring-one"></div>
+              <div class="ds8-pulse-ring ds8-pulse-ring-two"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="border-t border-neutral-200 bg-white scroll-mt-20 fade-section">
+      <div class="w-full px-3 lg:px-16 py-24">
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
+              <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 8">Overview</span> <span class="term-block text-[#6f26de]">■</span>
+            </p>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-neutral-900">A compact drum machine hiding inside the Vita.</h2>
+            <p class="text-neutral-500 leading-relaxed text-sm sm:text-base mb-5">
+              DS-8 Drumstream is a drum synthesizer and groovebox for the PlayStation Vita homebrew scene. It turns the Vita into a portable instrument built around eight drum tracks, a step sequencer up to sixty-four steps, and immediate control through the device's physical buttons.
+            </p>
+            <p class="text-neutral-500 leading-relaxed text-sm sm:text-base">
+              The sound engine is real-time and performance-focused: synthesis, samples, automation, mutes, pattern generation, project saving, presets, and recording all live in one handheld workflow.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-0 border border-neutral-200">
+            <div class="p-6 sm:p-8 border-b sm:border-b-0 sm:border-r border-neutral-200">
+              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Synthesis</span>
+              <h3 class="text-xl font-bold mt-2 mb-3">Real-time drum engines</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Kick, snare, tom, zap, hi-hat, FM voices, drive, pitch, decay, tuning, noise, level, and shaping controls for per-track sound design.</p>
+            </div>
+            <div class="p-6 sm:p-8 border-b border-neutral-200">
+              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Sequencing</span>
+              <h3 class="text-xl font-bold mt-2 mb-3">64-step pattern control</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Mute, solo, step copy and paste, pattern length, metronome, automation, page changes, and generative pattern tools.</p>
+            </div>
+            <div class="p-6 sm:p-8 border-b sm:border-b-0 sm:border-r border-neutral-200">
+              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Sampler</span>
+              <h3 class="text-xl font-bold mt-2 mb-3">Record and resample</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Capture mic or line input, monitor while recording, or bounce the running engine back into the SP sampler track.</p>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Files</span>
+              <h3 class="text-xl font-bold mt-2 mb-3">Projects and presets</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Save full <code>.ds8p</code> projects and browse <code>.ds8s</code> sound presets with preview, rename, delete, and load actions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#0a0a0a] text-white fade-section">
+      <div class="w-full px-3 lg:px-16 py-6">
+        <div class="ds8-media-window">
+          <div class="ds8-video-frame">
+            <button
+              id="media-slot"
+              type="button"
+              class="group absolute inset-0 block h-full w-full overflow-hidden text-left"
+              aria-label="Play DS-8 demo video"
+              data-video-embed="https://www.youtube.com/embed/nkWesS4dpuw?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=1"
+            >
+              <img src="img/ds8-slicer.jpg" alt="DS-8 sampler slicer preview" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10"></div>
+              <div class="absolute inset-0 z-20 flex items-center justify-center">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-5 py-2 text-[10px] font-bold tracking-[0.18em] uppercase text-white transition-colors group-hover:border-white/60 group-hover:bg-black/55">
+                  Play video
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3.5L10 7l-5 3.5V3.5Z" fill="currentColor"/></svg>
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sampler" class="border-t border-neutral-200 bg-neutral-50 scroll-mt-20 fade-section">
+      <div class="w-full px-3 lg:px-16 py-24">
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
+          <div>
+            <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
+              <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 12">V0.3 Sampler</span> <span class="term-block text-[#6f26de]">■</span>
+            </p>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-neutral-900">The SP track brings recording, slicing, and resampling into the pattern.</h2>
+            <p class="text-neutral-500 leading-relaxed text-sm sm:text-base mb-8">
+              Record from mic or line input, monitor the input through the main output, or resample the engine output into a sampler track with beat-synced arming and feedback prevention.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-white border border-neutral-200 p-5">
+                <h3 class="font-bold mb-2">Waveform editor</h3>
+                <p class="text-sm text-neutral-500 leading-relaxed">Trim, crop, inspect the waveform, and prepare recordings without leaving the device.</p>
+              </div>
+              <div class="bg-white border border-neutral-200 p-5">
+                <h3 class="font-bold mb-2">Slice editor</h3>
+                <p class="text-sm text-neutral-500 leading-relaxed">Detect transients, create grid slices, and shape each slice with ADSR and reverse playback.</p>
+              </div>
+              <div class="bg-white border border-neutral-200 p-5">
+                <h3 class="font-bold mb-2">Tone controls</h3>
+                <p class="text-sm text-neutral-500 leading-relaxed">Bass, mid, treble boost, low-pass filtering, and high-pass filtering per sample workflow.</p>
+              </div>
+              <div class="bg-white border border-neutral-200 p-5">
+                <h3 class="font-bold mb-2">One-shot mode</h3>
+                <p class="text-sm text-neutral-500 leading-relaxed">Trigger samples directly for drum hits, stabs, captured phrases, and performance gestures.</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-white">
+            <figure class="space-y-4">
+              <img src="img/device-hands.jpeg" alt="DS-8 on a PS Vita in hand" class="w-full h-auto object-cover">
+              <figcaption class="inline-flex max-w-full bg-black px-3 py-2 text-sm leading-relaxed text-white">
+                Build your own and <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="ml-1 text-white underline underline-offset-4 hover:text-[#a98cff] transition-colors">see the current DS-8 release on Itch.io</a>.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="border-t border-neutral-200 bg-white scroll-mt-20 fade-section">
+      <div class="w-full px-3 lg:px-16 pt-24 pb-14">
+        <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
+          <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 12">Feature set</span> <span class="term-block text-[#6f26de]">■</span>
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 text-neutral-900">Built for fast rhythm decisions.</h2>
+        <p class="text-neutral-500 max-w-2xl leading-relaxed text-sm sm:text-base">
+          Version 0.3 folds the sampler into the existing synth, sequencer, preset, and project workflow.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 bg-[#0a0a0a] products-grid w-full px-2">
+        <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
+          <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">01</span>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">New percussion engines</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Tom 808, Tom 909, Zap, and FM Hi-Hat join the existing drum synthesis voices.</p>
+        </div>
+        <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
+          <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">02</span>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Step FX</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Per-step play conditions for every 1st, 2nd, 3rd, or 4th pass, ratchets with flat, fade, and rise velocity shapes, and microtiming nudge up to &plusmn;6 ticks.</p>
+        </div>
+        <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
+          <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">03</span>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Preset browser</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Save, load, preview, rename, and delete <code>.ds8s</code> presets. A preview voice lets you audition sounds without changing the current track.</p>
+        </div>
+        <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
+          <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">04</span>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Smoother workflow</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Track mute fades avoid abrupt cuts, and the improved keyboard interface makes saving projects and presets faster.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-neutral-200 bg-neutral-50 fade-section">
+      <div class="w-full px-3 lg:px-16 py-24">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div>
+            <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
+              <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 11">Foundation</span> <span class="term-block text-[#6f26de]">■</span>
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-5 text-neutral-900">Everything from earlier builds still matters.</h2>
+            <p class="text-neutral-500 leading-relaxed text-sm sm:text-base">
+              DS-8 already includes FM Kick, FM Snare, click-free monophonic retrigger crossfades, binary <code>.ds8p</code> project saving, cursor-based naming, unsaved change detection, toast notifications, and a deep pattern generator.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white border border-neutral-200 p-5">
+              <h3 class="font-bold mb-2">Pattern generator</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Manual, All On, All Off, Alternate, Every N, Euclidean, Random, and Preset seed types with velocity and trigger overrides.</p>
+            </div>
+            <div class="bg-white border border-neutral-200 p-5">
+              <h3 class="font-bold mb-2">Transport</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Step Edit auto-advance, 16/32/64-step patterns, beat-start emphasis dots, page toasts, and CPU overload indication.</p>
+            </div>
+            <div class="bg-white border border-neutral-200 p-5">
+              <h3 class="font-bold mb-2">Automation</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Per-step parameter changes, precision mode, automated-parameter filtering, analog acceleration, and send automation.</p>
+            </div>
+            <div class="bg-white border border-neutral-200 p-5">
+              <h3 class="font-bold mb-2">Project system</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Save, load, Save As, delete, and new project flows with confirmations and on-screen keyboard naming.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="disclaimer" class="border-t border-neutral-800 bg-[#0a0a0a] text-white scroll-mt-20">
+      <div class="w-full px-3 lg:px-16 py-20">
+        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-20 items-start">
+          <div>
+            <p class="text-xs font-semibold text-white/70 tracking-[0.2em] uppercase mb-4">/ Disclaimer</p>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Independent homebrew software.</h2>
+          </div>
+          <div class="space-y-4 text-sm sm:text-base leading-relaxed text-white/75">
+            <p>
+              DS-8 Drumstream is homebrew software and requires a jailbroken PS Vita console capable of installing <code>.vpk</code> files.
+            </p>
+            <p>
+              DS-8 Drumstream and Intermynd Instruments are not affiliated with, sponsored by, endorsed by, or connected to Sony Interactive Entertainment, Sony Group Corporation, PlayStation, or PS Vita trademarks. Product names and trademarks belong to their respective owners and are used only to describe platform compatibility.
+            </p>
+            <p>
+              DS-8 is in active development. Bugs, rough edges, performance behavior, audio behavior, file compatibility, and controls may change in future versions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-neutral-800 bg-[#0a0a0a] text-white">
+      <div class="w-full px-3 lg:px-16 py-24">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="text-xs font-semibold text-[#a98cff] tracking-[0.2em] uppercase mb-6">/ Download</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-white">Get the current DS-8 build.</h2>
+          <p class="text-neutral-300 max-w-xl mx-auto mb-8 leading-relaxed text-sm sm:text-base">
+            The latest public download is hosted on Itch.io. Install only if you understand the homebrew requirements for your Vita.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-[#5a1eb2] transition-colors text-sm">
+              Download on Itch.io
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@intermynd-instruments" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-white/20 text-white/80 font-semibold hover:border-[#a98cff] hover:text-white transition-colors text-sm">
+              Subscribe on YouTube
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-neutral-800 bg-[#0a0a0a] text-white">
+    <div class="w-full px-3 lg:px-16 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+            <span class="text-white/60 font-medium text-xs tracking-wider uppercase">Intermynd</span>
+          </a>
+          <p class="text-sm text-white/55 mt-3 max-w-xs leading-relaxed">
+            Small-batch instruments for musicians who want a more modern workflow.
+          </p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#a98cff] mb-4">/ DS-8</p>
+          <div class="flex flex-col gap-2 text-sm text-white/60">
+            <a href="#overview" class="hover:text-white transition-colors">Overview</a>
+            <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
+            <a href="#features" class="hover:text-white transition-colors">Features</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#a98cff] mb-4">/ Product</p>
+          <div class="flex flex-col gap-2 text-sm text-white/60">
+            <a href="index.html#products" class="hover:text-white transition-colors">All products</a>
+            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Itch.io page</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#a98cff] mb-4">/ Notice</p>
+          <a href="#disclaimer" class="text-sm text-white/60 hover:text-white transition-colors">Homebrew disclaimer</a>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-white/40">Intermynd Instruments &copy; 2026</p>
+        <a href="#" class="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1">
+          Back to top
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.classList.toggle('mobile-menu-open');
+    });
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.classList.remove('mobile-menu-open');
+    }
+
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeSections.forEach(s => fadeObserver.observe(s));
+
+    const termLabels = document.querySelectorAll('.terminal-label');
+    const termObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('terminal-active'), 200);
+          termObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    termLabels.forEach(l => termObserver.observe(l));
+
+    const mediaSlot = document.getElementById('media-slot');
+    if (mediaSlot) {
+      mediaSlot.addEventListener('click', () => {
+        const embedUrl = mediaSlot.dataset.videoEmbed;
+        if (!embedUrl) return;
+        mediaSlot.outerHTML = `
+          <iframe
+            src="${embedUrl}"
+            title="DS-8 demo video"
+            class="absolute inset-0 h-full w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>

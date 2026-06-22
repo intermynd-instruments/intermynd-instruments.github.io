@@ -237,3 +237,155 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- DS-8 Product Page --------------------------------------------------- */
+
+.ds8-product-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(20rem, 42vw, 40rem);
+  background: #000;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ds8-product-stage::before {
+  content: none;
+}
+
+.ds8-product-stage::after {
+  content: none;
+}
+
+.ds8-pulse-ring {
+  display: none;
+}
+
+.ds8-pulse-ring-one {
+  inset: 18% auto auto 9%;
+}
+
+.ds8-pulse-ring-two {
+  inset: auto 7% 19% auto;
+  transform: rotate(5deg);
+}
+
+.ds8-media-window {
+  min-height: 54vw;
+  display: grid;
+  place-items: center;
+}
+
+.ds8-video-frame {
+  position: relative;
+  width: 100%;
+  min-height: clamp(28rem, 58vw, 48rem);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+  background: #000;
+}
+
+.ds8-step-row {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 7%;
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: clamp(0.2rem, 0.8vw, 0.7rem);
+  z-index: 3;
+}
+
+.ds8-step-row span {
+  height: clamp(1.25rem, 3vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ds8-step-row span:nth-child(4n + 1),
+.ds8-step-row span:nth-child(7),
+.ds8-step-row span:nth-child(14) {
+  background: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 24px rgba(111, 38, 222, 0.7);
+}
+
+.ds8-waveform {
+  position: absolute;
+  top: 16%;
+  left: 8%;
+  right: 8%;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.46;
+  z-index: 1;
+}
+
+.ds8-waveform span {
+  flex: 1;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.ds8-waveform span:nth-child(3n) { height: 78%; }
+.ds8-waveform span:nth-child(4n) { height: 58%; }
+.ds8-waveform span:nth-child(5n) { height: 92%; }
+
+.ds8-editor-panel {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    #111;
+  background-size: 24px 24px;
+  padding: 1rem;
+}
+
+.ds8-editor-wave {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ds8-editor-wave span {
+  flex: 1;
+  min-width: 0.5rem;
+  background: #fff;
+  height: 36%;
+}
+
+.ds8-editor-wave span:nth-child(2n) { height: 62%; }
+.ds8-editor-wave span:nth-child(3n) { height: 82%; }
+.ds8-editor-wave span:nth-child(7n) { height: 100%; }
+
+.ds8-pad {
+  display: block;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ds8-pad.is-active {
+  background: var(--color-primary);
+  box-shadow: 0 0 18px rgba(111, 38, 222, 0.65);
+}
+
+@media (max-width: 640px) {
+  .ds8-product-stage {
+    min-height: 18rem;
+  }
+
+  .ds8-video-frame {
+    min-height: 30rem;
+  }
+
+  .ds8-step-row {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
