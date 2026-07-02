@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DS-8 Drumstream v0.5 user manual for PS Vita and desktop builds.">
+  <meta property="og:title" content="DS-8 User Manual v0.5 - Intermynd Instruments">
+  <meta property="og:description" content="Controls, workflows, sampler recording, Step FX, playlist performance, projects, and quick references for DS-8 Drumstream v0.5.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="ds8.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DS-8 User Manual v0.5">
+  <meta name="twitter:description" content="Versioned DS-8 Drumstream user manual for PS Vita and desktop builds.">
+  <title>DS-8 User Manual v0.5 - Intermynd Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
+            pixel: ['Pixel', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="intermynd.css">
+</head>
+<body class="bg-white text-neutral-900 font-sans antialiased">
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
+    <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+        <a href="ds8.html" class="hover:text-white transition-colors">DS-8</a>
+        <a href="#manual" class="hover:text-white transition-colors">Manual</a>
+        <a href="#quick-reference" class="hover:text-white transition-colors">Quick Reference</a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
+        <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
+        <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
+        <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-[#6f26de]">
+      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-white/70">
+        <a href="ds8.html" class="hover:text-white transition-colors" onclick="closeMenu()">DS-8</a>
+        <a href="#manual" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
+        <a href="#quick-reference" class="hover:text-white transition-colors" onclick="closeMenu()">Quick Reference</a>
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="pt-16 bg-[#0a0a0a] text-white relative overflow-hidden">
+      <div class="absolute inset-0 dot-grid-primary opacity-70"></div>
+      <div class="w-full px-3 lg:px-16 py-20 sm:py-24 lg:py-28 relative z-10">
+        <div class="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-end">
+          <div>
+            <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#a98cff] mb-5">/ Versioned documentation</p>
+            <h1 class="font-pixel text-[clamp(2.8rem,10vw,9rem)] leading-[1.12] text-white mb-8">DS-8 USER<br>MANUAL</h1>
+            <p class="text-xl sm:text-2xl text-white/80 max-w-3xl font-light leading-tight mb-6">
+              Controls, workflows, sampler recording, Step FX, playlist performance, projects, and quick references for DS-8 Drumstream.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
+                Read v0.5
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
+            </div>
+          </div>
+          <aside class="manual-version-panel border border-white/15 bg-white/[0.04] p-6 sm:p-8">
+            <img src="ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
+            <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#a98cff] mb-4">Current manual</p>
+            <div class="flex items-baseline gap-3 mb-4">
+              <span class="text-5xl font-black text-white">v0.5</span>
+              <span class="text-sm text-white/50">HTML edition</span>
+            </div>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">Built from the DS-8 source documentation at <code>docs/README.md</code>. Older manual URLs should remain stable as later versions are added.</p>
+            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#a98cff] transition-colors">Download DS-8 on Itch.io</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="manual" class="manual-layout border-t border-neutral-200 bg-white scroll-mt-20">
+      <div class="w-full px-3 lg:px-16 py-14 lg:py-20">
+        <div class="grid lg:grid-cols-[18rem_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
+          <aside class="manual-toc lg:sticky lg:top-24">
+            <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4">/ Contents</p>
+            <nav aria-label="Manual contents" class="flex flex-col gap-1">
+              <a href="#desktop-key-map" class="manual-toc-link">Desktop Key Map</a>
+              <a href="#core-ideas" class="manual-toc-link">Core Ideas</a>
+              <a href="#starting-and-moving-around" class="manual-toc-link">Starting and Moving Around</a>
+              <a href="#transport" class="manual-toc-link">Transport</a>
+              <a href="#settings-and-projects" class="manual-toc-link">Settings and Projects</a>
+              <a href="#sequencer" class="manual-toc-link">Sequencer</a>
+              <a href="#step-automation" class="manual-toc-link">Step Automation</a>
+              <a href="#voice-editing" class="manual-toc-link">Voice Editing</a>
+              <a href="#sampler-workflow" class="manual-toc-link">Sampler Workflow</a>
+              <a href="#playlist-and-performance" class="manual-toc-link">Playlist and Performance</a>
+              <a href="#fast-workflows" class="manual-toc-link">Fast Workflows</a>
+              <a href="#quick-reference" class="manual-toc-link">Quick Reference</a>
+            </nav>
+          </aside>
+          <article class="manual-article max-w-4xl">
+            <h1 id="ds-8-user-manual">DS-8 User Manual</h1>
+            <p>This manual documents the main controls and workflows for using DS-8 on PS Vita or the desktop build. The UI is controlled by focus: move the focus to a section or control, then use the button shown in the footer to act on it.</p>
+            <h2 id="desktop-key-map">Desktop Key Map</h2>
+            <p>The desktop build uses keyboard keys that mirror the Vita controls.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Vita control</th><th>Desktop key</th></tr></thead><tbody>
+            <tr><td><code>DPAD</code></td><td>Arrow keys</td></tr>
+            <tr><td>Left stick</td><td><code>W</code> / <code>A</code> / <code>S</code> / <code>D</code></td></tr>
+            <tr><td><code>CROSS</code></td><td><code>X</code></td></tr>
+            <tr><td><code>CIRCLE</code></td><td><code>C</code></td></tr>
+            <tr><td><code>SQUARE</code></td><td><code>Z</code></td></tr>
+            <tr><td><code>TRIANGLE</code></td><td><code>V</code></td></tr>
+            <tr><td><code>SELECT</code></td><td><code>1</code></td></tr>
+            <tr><td><code>START</code></td><td><code>2</code></td></tr>
+            <tr><td><code>L</code> / <code>R</code></td><td><code>Q</code> / <code>E</code></td></tr>
+            <tr><td>Toggle Vita frame</td><td><code>Tab</code></td></tr>
+            <tr><td>Change Vita frame scale</td><td><code>+</code> / <code>-</code></td></tr>
+            <tr><td>Quit desktop build</td><td><code>Esc</code></td></tr>
+            </tbody></table></div>
+            <p>Gamepads follow the SDL layout: face-button south is <code>CROSS</code>, east is <code>CIRCLE</code>, west is <code>SQUARE</code>, north is <code>TRIANGLE</code>, back is <code>SELECT</code>, and start is <code>START</code>.</p>
+            <h2 id="core-ideas">Core Ideas</h2>
+            <p>DS-8 has three normal work areas: <code>Transport</code>, <code>Sequencer</code>, and <code>Voice</code>. Playlist mode adds a playlist arranger and XY performance area.</p>
+            <p>Most screens follow the same rules:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Main use</th></tr></thead><tbody>
+            <tr><td><code>DPAD</code></td><td>Move focus, choose rows, or make coarse changes.</td></tr>
+            <tr><td>Left/right stick</td><td>Edit the focused value continuously.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Enter, confirm, toggle, launch, or open the focused item.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Back, close, cancel, or open lane operations in the sequencer.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Secondary action: presets, mute/solo popup, precision hold, page swap, or picker set.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Locks/automation, preview, copy, reseed, or next parameter.</td></tr>
+            <tr><td><code>L</code> / <code>R</code></td><td>Switch major areas, or switch steps/pages/ranges inside modals.</td></tr>
+            <tr><td><code>START</code></td><td>Play/stop in most places. In name-entry screens it saves the entered name.</td></tr>
+            <tr><td><code>SELECT</code></td><td>Open Settings from normal screens. Some sampler edit screens use it to assign the pending sample.</td></tr>
+            </tbody></table></div>
+            <p>Footer hints at the bottom of the screen are the source of truth for the current focus. If a button seems inactive, move focus and check the footer.</p>
+            <h2 id="starting-and-moving-around">Starting and Moving Around</h2>
+            <p>Press <code>START</code> to play or stop the transport. Press <code>SELECT</code> to open Settings. Press <code>L</code> / <code>R</code> to move between top-level areas.</p>
+            <p>When a section frame is focused, press <code>CROSS</code> to enter that section's controls. Use <code>CIRCLE</code> to back out through the current hierarchy. In many lists and grids, moving past an edge returns focus to the parent section.</p>
+            <p>Hold a D-pad direction to repeat movement. DS-8 distinguishes a single press from a held repeat, especially in the sequencer and picker popups.</p>
+            <h2 id="transport">Transport</h2>
+            <p>Transport contains play state, BPM, pattern navigation, the pattern menu, the pattern/playlist switch, and playlist-specific controls when Playlist view is active.</p>
+            <p>Common transport actions:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Focus</th><th>Action</th></tr></thead><tbody>
+            <tr><td>Play/stop</td><td><code>START</code> toggles playback globally.</td></tr>
+            <tr><td>BPM</td><td><code>DPAD UP/DOWN</code> changes tempo; stick left/right gives continuous adjustment in Settings.</td></tr>
+            <tr><td>Pattern selector</td><td><code>CROSS</code> opens the pattern menu.</td></tr>
+            <tr><td>Pattern menu</td><td><code>DPAD UP/DOWN</code> chooses a pattern, <code>APPEND EMPTY</code>, or <code>APPEND CLONE</code>; <code>CROSS</code> confirms; <code>CIRCLE</code> closes.</td></tr>
+            <tr><td>Pattern/playlist switch</td><td><code>CROSS</code> opens Playlist view, or returns to Pattern view when Playlist view is active.</td></tr>
+            <tr><td>Playlist ON/OFF</td><td>In Playlist view, <code>CROSS</code> toggles playlist playback following.</td></tr>
+            <tr><td>Playlist END action</td><td>In Playlist view, <code>CROSS</code> cycles end behavior.</td></tr>
+            <tr><td>Playlist ADD</td><td>In Playlist view, <code>CROSS</code> opens the pattern picker for adding a playlist row.</td></tr>
+            </tbody></table></div>
+            <p>Pattern length is edited from the Voice parameter grid with the <code>LENGTH</code> card. Press <code>CROSS</code> on <code>LENGTH</code> to cycle the active pattern between available page counts.</p>
+            <h2 id="settings-and-projects">Settings and Projects</h2>
+            <p>Press <code>SELECT</code> from a normal screen to open Settings. Use <code>DPAD UP/DOWN</code> to choose a row and <code>DPAD LEFT/RIGHT</code> to change rows that have values. Press <code>CIRCLE</code> to close.</p>
+            <p>Settings rows:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Row</th><th>Use</th></tr></thead><tbody>
+            <tr><td><code>BPM</code></td><td>Change tempo. Stick left/right also edits BPM.</td></tr>
+            <tr><td><code>AUDIO KHZ</code></td><td>Change desktop audio sample rate.</td></tr>
+            <tr><td><code>BUFFER</code></td><td>Change audio buffer size.</td></tr>
+            <tr><td><code>EXTEND CLONE</code></td><td>Choose how added pattern pages are initialized.</td></tr>
+            <tr><td><code>THEME</code></td><td>Change color theme.</td></tr>
+            <tr><td><code>LOAD/SAVE</code></td><td>Press <code>CROSS</code> to open Projects.</td></tr>
+            <tr><td><code>CLEAR PATTERN</code></td><td>Press <code>CROSS</code> to clear the current pattern.</td></tr>
+            </tbody></table></div>
+            <p>Projects stores complete <code>.ds8p</code> songs. In the Projects modal:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>View</th><th>Controls</th></tr></thead><tbody>
+            <tr><td>Actions</td><td><code>DPAD UP/DOWN</code> selects <code>NEW</code>, <code>SAVE</code>, <code>SAVE AS</code>, <code>LOAD</code>, or <code>DELETE</code>; <code>CROSS</code> opens or runs it; <code>CIRCLE</code> closes.</td></tr>
+            <tr><td>List</td><td><code>DPAD UP/DOWN</code> selects a project; <code>CROSS</code> loads or prepares delete; <code>CIRCLE</code> returns to actions.</td></tr>
+            <tr><td>Confirm</td><td><code>CROSS</code> confirms; <code>CIRCLE</code> cancels. Dirty-load prompts may use <code>DPAD</code> to choose the option before <code>CROSS</code>.</td></tr>
+            <tr><td>Name entry</td><td><code>DPAD LEFT/RIGHT</code> moves the cursor, <code>DPAD UP/DOWN</code> cycles characters, hold <code>SQUARE</code> for the keyboard popup, <code>TRIANGLE</code> deletes, <code>START</code> saves, <code>CIRCLE</code> backs out.</td></tr>
+            </tbody></table></div>
+            <p>The name keyboard is also used by preset saving.</p>
+            <h2 id="sequencer">Sequencer</h2>
+            <p>The sequencer shows tracks as rows and steps as columns. Move around with the D-pad.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD</code></td><td>Move selected track/step. Left/right can cross page boundaries.</td></tr>
+            <tr><td><code>CROSS</code> release</td><td>Toggle the selected step.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Open Step Automation for the selected step.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Open the Track Action popup.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Open Lane Actions when available.</td></tr>
+            </tbody></table></div>
+            <h3 id="track-action-popup">Track Action Popup</h3>
+            <p>Press <code>SQUARE</code> on an editable track in the sequencer to manage mute and solo states. The popup opens on the current active state when possible.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Action</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><code>MUTE</code></td><td>Toggle mute immediately.</td></tr>
+            <tr><td><code>SOLO</code> / <code>SOLO +</code></td><td>Solo the selected track immediately.</td></tr>
+            <tr><td><code>UNMUTE ALL</code></td><td>Clear all mutes.</td></tr>
+            <tr><td><code>UNSOLO ALL</code></td><td>Clear all solos.</td></tr>
+            <tr><td><code>MUTE Q</code></td><td>Queue a mute toggle for the next bar boundary.</td></tr>
+            <tr><td><code>SOLO Q</code></td><td>Queue a solo toggle for the next bar boundary.</td></tr>
+            </tbody></table></div>
+            <p>Use <code>DPAD</code> to pick an action, release <code>SQUARE</code> to set it, or press <code>CIRCLE</code> to cancel. <code>START</code> still toggles playback.</p>
+            <h3 id="lane-actions">Lane Actions</h3>
+            <p>Press <code>CIRCLE</code> on a valid sequencer lane to open lane operations.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Action</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><code>COPY TRK</code> / <code>PASTE TRK</code></td><td>Copy or paste the track sound/settings.</td></tr>
+            <tr><td><code>COPY STEPS</code></td><td>Copy a selected range of steps on the current page.</td></tr>
+            <tr><td><code>COPY ALL</code></td><td>Copy the full active pattern lane.</td></tr>
+            <tr><td><code>PASTE</code></td><td>Paste copied lane data from the selected step.</td></tr>
+            <tr><td><code>PASTE TO END</code></td><td>Paste the copied range repeatedly to the end.</td></tr>
+            <tr><td><code>CLEAR TRK</code></td><td>Clear the track sound/settings.</td></tr>
+            <tr><td><code>CLEAR SEQ</code></td><td>Clear sequencer hits for the lane.</td></tr>
+            <tr><td><code>CLEAR AUTO</code></td><td>Clear automation for the lane.</td></tr>
+            </tbody></table></div>
+            <p>Use <code>DPAD</code> to choose an action. For copy range actions, use <code>L</code> / <code>R</code> to adjust the copied range. Release <code>CIRCLE</code> to apply the focused action, or press <code>SQUARE</code> to cancel.</p>
+            <h2 id="step-automation">Step Automation</h2>
+            <p>Press <code>TRIANGLE</code> on a sequencer step to open Step Automation. The modal edits the selected step while keeping playback available.</p>
+            <p>Main controls:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>CIRCLE</code></td><td>Close the modal.</td></tr>
+            <tr><td><code>START</code></td><td>Play/stop.</td></tr>
+            <tr><td><code>L</code> / <code>R</code></td><td>Move to previous/next step while keeping the modal open.</td></tr>
+            <tr><td><code>DPAD</code></td><td>Move through pages and parameter cards.</td></tr>
+            <tr><td>Stick left/right</td><td>Edit the focused value.</td></tr>
+            <tr><td>Hold <code>SQUARE</code></td><td>Precision mode. While held, <code>DPAD LEFT/RIGHT</code> edits one display step at a time.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Copy current step, or reseed on the Generate page.</td></tr>
+            <tr><td>Release <code>SQUARE</code></td><td>Paste current step, or reset on the Generate page, unless it was being held for precision.</td></tr>
+            <tr><td><code>CROSS</code> on a page tab</td><td>Toggle <code>All Params</code> / <code>Only Autos</code> where supported.</td></tr>
+            <tr><td><code>CROSS</code> on a step card</td><td>Toggle the step or FX-lane step.</td></tr>
+            </tbody></table></div>
+            <p>Pages:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Page</th><th>Use</th></tr></thead><tbody>
+            <tr><td><code>SYNTH</code></td><td>Per-step synth and sampler values.</td></tr>
+            <tr><td><code>FX</code></td><td>Per-step insert FX values.</td></tr>
+            <tr><td><code>STEP FX</code></td><td>Ratchets, timing nudge, repeats, and conditional triggering.</td></tr>
+            <tr><td><code>GENERATE</code></td><td>Build and apply generated blocks from the selected step.</td></tr>
+            </tbody></table></div>
+            <p>Automation notes:</p>
+            <ul>
+            <li><code>LEVEL</code> and <code>VELOCITY</code> are absolute per-step values.</li>
+            <li>Most other synth and FX automation is relative to the track's global Voice value.</li>
+            <li>Returning a relative automation value to zero removes that automation for the step.</li>
+            <li><code>Only Autos</code> filters the current page to values that already have automation.</li>
+            <li><code>NUDGE</code> shifts a step and its full ratchet group by clock ticks.</li>
+            <li>Generate applies from the selected step across the active pattern range.</li>
+            </ul>
+            <h2 id="voice-editing">Voice Editing</h2>
+            <p>Voice edits the selected track's sound. The top row contains <code>TYPE</code>, <code>ENG</code>, and <code>FX</code>; the parameter grid edits synth, sampler, or FX values.</p>
+            <p>Top-row controls:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD LEFT/RIGHT</code></td><td>Move between top controls.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Enter edit mode for protected top controls, or enter the focused area.</td></tr>
+            <tr><td>In edit mode, <code>DPAD UP/DOWN</code></td><td>Preview/change the pending value.</td></tr>
+            <tr><td>In edit mode, <code>CROSS</code></td><td>Confirm.</td></tr>
+            <tr><td>In edit mode, <code>CIRCLE</code></td><td>Cancel.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Open Presets from top controls on normal synth/sampler tracks.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Back toward the Voice section root.</td></tr>
+            </tbody></table></div>
+            <p>Parameter controls:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD</code></td><td>Move between parameter cards.</td></tr>
+            <tr><td>Stick left/right</td><td>Edit the focused value.</td></tr>
+            <tr><td>Hold <code>SQUARE</code></td><td>Precision edit with <code>DPAD LEFT/RIGHT</code>.</td></tr>
+            <tr><td>Release <code>SQUARE</code></td><td>Toggle Synth/FX parameter pages when the track has insert FX.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Jump to the next parameter on the current page.</td></tr>
+            <tr><td><code>CROSS</code> on <code>REC</code></td><td>Open sampler recording/editing.</td></tr>
+            <tr><td><code>CROSS</code> on <code>LENGTH</code></td><td>Change pattern page count.</td></tr>
+            </tbody></table></div>
+            <p>Some top controls require <code>CROSS</code> before changing so accidental D-pad movement does not rewrite the track type or engine.</p>
+            <h3 id="presets">Presets</h3>
+            <p>Press <code>SQUARE</code> from Voice top controls to open Presets.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>View</th><th>Controls</th></tr></thead><tbody>
+            <tr><td>Actions</td><td><code>DPAD UP/DOWN</code> chooses save/load/delete actions; <code>CROSS</code> opens; <code>CIRCLE</code> closes.</td></tr>
+            <tr><td>List</td><td><code>DPAD UP/DOWN</code> chooses a preset; <code>TRIANGLE</code> previews; <code>CROSS</code> loads or deletes; <code>CIRCLE</code> backs out.</td></tr>
+            <tr><td>Confirm</td><td><code>CROSS</code> confirms; <code>CIRCLE</code> cancels.</td></tr>
+            <tr><td>Name entry</td><td>Same name-entry controls as Projects.</td></tr>
+            </tbody></table></div>
+            <p>Loading a preset replaces the selected track's sound profile. Sampler presets include their PCM sample data.</p>
+            <h3 id="syn-note-picker">SYN Note Picker</h3>
+            <p>On compatible SYN controls, hold <code>CROSS</code> to open the <code>SYN NOTE</code> picker. Use <code>DPAD</code> to choose a note, <code>L</code> / <code>R</code> to change octave, <code>CROSS</code> release to set, and <code>CIRCLE</code> to cancel.</p>
+            <h2 id="sampler-workflow">Sampler Workflow</h2>
+            <p>Sampler tracks use the <code>SP</code> type and fixed sampler engine. The <code>ENG</code> top card selects <code>ONESHOT</code> or <code>BEATSLICER</code>. The <code>REC</code> parameter card opens recording or editing.</p>
+            <h3 id="recording">Recording</h3>
+            <p>Focus <code>REC</code> and press <code>CROSS</code>.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD UP/DOWN</code></td><td>Select capture source.</td></tr>
+            <tr><td><code>DPAD LEFT/RIGHT</code> or stick</td><td>Adjust MIC gain when MIC source is selected.</td></tr>
+            <tr><td><code>TRIANGLE</code> on MIC</td><td>Toggle input monitor.</td></tr>
+            <tr><td><code>TRIANGLE</code> on RESAMPLE</td><td>Cycle sync mode.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Arm/start capture, disarm, or stop recording depending on state.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Cancel without replacing the current sample.</td></tr>
+            <tr><td><code>START</code></td><td>Play/stop unless the recorder is armed in a state where transport must not be interrupted.</td></tr>
+            </tbody></table></div>
+            <p>Vita capture expects 48 kHz RAW input. If RAW input is unavailable, the record screen shows the relevant retry status instead of silently using lower-quality voice input.</p>
+            <h3 id="cropping">Cropping</h3>
+            <p>After recording or opening an assigned sample, DS-8 shows a crop editor.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD UP/DOWN</code></td><td>Choose <code>IN</code> or <code>OUT</code>.</td></tr>
+            <tr><td><code>DPAD LEFT/RIGHT</code></td><td>Fine-move the selected marker in the zoom view.</td></tr>
+            <tr><td>Stick left/right</td><td>Move the marker coarsely in the overview.</td></tr>
+            <tr><td><code>L</code> / <code>R</code></td><td>Switch pending sample type between one-shot and beat-slicer where available.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Preview the cropped range.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Take the crop. One-shots assign immediately; beat-slicer advances to slicing.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Record a replacement take.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Cancel without replacing the assigned sample.</td></tr>
+            </tbody></table></div>
+            <h3 id="beat-slicing">Beat Slicing</h3>
+            <p>Beat-slicer mode adds a slice stage after cropping.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Area</th><th>Controls</th></tr></thead><tbody>
+            <tr><td>Slice method controls</td><td><code>DPAD LEFT/RIGHT</code> chooses <code>MODE</code>, <code>VALUE</code>, or <code>APPLY</code>; <code>DPAD UP/DOWN</code> changes <code>MODE</code> or <code>VALUE</code>; <code>CROSS</code> applies only on <code>APPLY</code>.</td></tr>
+            <tr><td>Waveform controls</td><td><code>DPAD UP/DOWN</code> switches between the add cursor and slice cue cursor; <code>DPAD LEFT/RIGHT</code> fine-moves; stick left/right coarse-moves.</td></tr>
+            <tr><td>Global slice actions</td><td><code>L</code> / <code>R</code> switches between method controls and waveform row; <code>CROSS</code> adds a cue from the add cursor; <code>SQUARE</code> deletes the focused cue; <code>TRIANGLE</code> previews the current slice; <code>SELECT</code> assigns; <code>CIRCLE</code> cancels.</td></tr>
+            </tbody></table></div>
+            <p>Slice modes are <code>MANUAL</code>, <code>GRID</code>, and <code>TRANSIENT</code>. Grid values are <code>4</code>, <code>8</code>, <code>12</code>, <code>16</code>, <code>24</code>, and <code>32</code>; transient values are <code>LOW</code>, <code>MID</code>, and <code>HIGH</code>. Cue 1 is fixed at the beginning of the sample.</p>
+            <h2 id="playlist-and-performance">Playlist and Performance</h2>
+            <p>Use the pattern/playlist switch in Transport to enter Playlist view. If the playlist has rows, focus enters the first actionable table cell. If it is empty, focus lands on the add-pattern transport control.</p>
+            <p>Playlist table controls:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Focus</th><th>Action</th></tr></thead><tbody>
+            <tr><td>Row launch cell</td><td><code>CROSS</code> launches or stops the row.</td></tr>
+            <tr><td>Pattern cell</td><td><code>SQUARE</code> opens the pattern picker. Hold <code>SQUARE</code> for momentary picker behavior.</td></tr>
+            <tr><td>Mute cells</td><td><code>CROSS</code> toggles that lane mute for the row.</td></tr>
+            <tr><td>Cycle cell</td><td><code>SQUARE</code> opens the repeat-count picker.</td></tr>
+            <tr><td>Any row</td><td><code>SQUARE</code> toggles row-move mode; then <code>DPAD UP/DOWN</code> reorders rows; <code>SQUARE</code> exits row-move mode.</td></tr>
+            <tr><td>Touch/tap</td><td>Tapping launch and mute cells uses the same action as focusing and pressing the button.</td></tr>
+            </tbody></table></div>
+            <p>Playlist pickers:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Picker</th><th>Controls</th></tr></thead><tbody>
+            <tr><td>Pattern picker</td><td><code>DPAD</code> picks a pattern or row action, <code>L</code> / <code>R</code> changes pages, <code>SQUARE</code> or <code>CROSS</code> sets depending on the footer, <code>CIRCLE</code> cancels.</td></tr>
+            <tr><td>Cycle picker</td><td><code>DPAD</code> picks repeat count or loop, release <code>SQUARE</code> to set, <code>CIRCLE</code> cancels.</td></tr>
+            </tbody></table></div>
+            <p>Press <code>L</code> / <code>R</code> while Playlist view is active to cycle focus between Transport, the playlist table, and XY performance.</p>
+            <p>XY performance controls:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Effect</th></tr></thead><tbody>
+            <tr><td>Left stick</td><td>Move the XY point.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Hold for <code>COMB</code>.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Hold for <code>DLY</code>.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Hold for <code>REPEAT</code>.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Hold for <code>DJ FILTER</code>.</td></tr>
+            </tbody></table></div>
+            <p>The XY area is performance-only state; it is not saved as the persistent UI section.</p>
+            <h2 id="fast-workflows">Fast Workflows</h2>
+            <h3 id="make-a-basic-beat">Make a Basic Beat</h3>
+            <ol>
+            <li>Enter <code>Sequencer</code>.</li>
+            <li>Use <code>DPAD</code> to choose a track and step.</li>
+            <li>Release <code>CROSS</code> to toggle steps on.</li>
+            <li>Press <code>START</code> to listen.</li>
+            <li>Press <code>SQUARE</code> for mute/solo options, or <code>TRIANGLE</code> on a step for automation.</li>
+            </ol>
+            <h3 id="change-a-sound">Change a Sound</h3>
+            <ol>
+            <li>Enter <code>Voice</code>.</li>
+            <li>Use the top row to choose track <code>TYPE</code>, <code>ENG</code>, and <code>FX</code>.</li>
+            <li>Move into the parameter grid.</li>
+            <li>Use stick left/right to edit values.</li>
+            <li>Hold <code>SQUARE</code> for precision edits.</li>
+            <li>Release <code>SQUARE</code> to switch to FX params when available.</li>
+            </ol>
+            <h3 id="save-a-project">Save a Project</h3>
+            <ol>
+            <li>Press <code>SELECT</code>.</li>
+            <li>Choose <code>LOAD/SAVE</code>.</li>
+            <li>Press <code>CROSS</code>.</li>
+            <li>Choose <code>SAVE</code> or <code>SAVE AS</code>.</li>
+            <li>Enter a name if prompted and press <code>START</code>.</li>
+            </ol>
+            <h3 id="record-a-sample">Record a Sample</h3>
+            <ol>
+            <li>Set a track to <code>SP</code>.</li>
+            <li>Choose <code>ONESHOT</code> or <code>BEATSLICER</code> with the <code>ENG</code> card.</li>
+            <li>Focus <code>REC</code> and press <code>CROSS</code>.</li>
+            <li>Pick MIC, RESAMPLE, or file/import source where available.</li>
+            <li>Record, crop, preview, then assign.</li>
+            <li>For beat-slicer, set slice cues before pressing <code>SELECT</code> to assign.</li>
+            </ol>
+            <h2 id="quick-reference">Quick Reference</h2>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Goal</th><th>Controls</th></tr></thead><tbody>
+            <tr><td>Play/stop</td><td><code>START</code></td></tr>
+            <tr><td>Open settings</td><td><code>SELECT</code></td></tr>
+            <tr><td>Move between areas</td><td><code>L</code> / <code>R</code></td></tr>
+            <tr><td>Enter focused section</td><td><code>CROSS</code></td></tr>
+            <tr><td>Back/cancel</td><td><code>CIRCLE</code></td></tr>
+            <tr><td>Toggle sequencer step</td><td>Release <code>CROSS</code> on a step</td></tr>
+            <tr><td>Open step automation</td><td><code>TRIANGLE</code> on a sequencer step</td></tr>
+            <tr><td>Track mute/solo actions</td><td><code>SQUARE</code> in sequencer</td></tr>
+            <tr><td>Lane copy/clear actions</td><td><code>CIRCLE</code> in sequencer</td></tr>
+            <tr><td>Edit parameter value</td><td>Stick left/right</td></tr>
+            <tr><td>Precision edit</td><td>Hold <code>SQUARE</code>, then <code>DPAD LEFT/RIGHT</code></td></tr>
+            <tr><td>Save/load project</td><td><code>SELECT</code> -&gt; <code>LOAD/SAVE</code></td></tr>
+            <tr><td>Open presets</td><td><code>SQUARE</code> from Voice top controls</td></tr>
+            <tr><td>Record or edit sample</td><td><code>CROSS</code> on sampler <code>REC</code></td></tr>
+            </tbody></table></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-neutral-800 bg-[#0a0a0a] text-white">
+    <div class="w-full px-3 lg:px-16 py-16">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+            <span class="text-white/60 font-medium text-xs tracking-wider uppercase">Intermynd</span>
+          </a>
+          <p class="text-sm text-white/50 mt-3">DS-8 Drumstream user manual v0.5.</p>
+        </div>
+        <div class="flex flex-wrap gap-4 text-sm text-white/60">
+          <a href="ds8.html" class="hover:text-white transition-colors">DS-8 product page</a>
+          <a href="#manual" class="hover:text-white transition-colors">Back to top</a>
+          <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Itch.io</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.classList.toggle('mobile-menu-open');
+    });
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.classList.remove('mobile-menu-open');
+    }
+  </script>
+</body>
+</html>
