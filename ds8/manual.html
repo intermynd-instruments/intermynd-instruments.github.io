@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The latest DS-8 Drumstream user manual, with access to every versioned manual.">
   <meta property="og:title" content="DS-8 User Manual - Intermynd Instruments">
-  <meta property="og:description" content="Controls, workflows, sampler recording, Step FX, playlist performance, projects, and quick references for DS-8 Drumstream v0.5.">
+  <meta property="og:description" content="DS-8 Drumstream v0.6 controls, workflows, USB plugin setup, USB audio, sampling, arranger performance, Step FX, projects, and quick references.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="../ds8.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -74,7 +74,7 @@
             </p>
             <div class="flex flex-wrap gap-3">
               <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
-                Read v0.5
+                Read v0.6
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
               <a href="../ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
@@ -84,14 +84,15 @@
             <img src="../ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
             <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#a98cff] mb-4">Latest manual</p>
             <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-5xl font-black text-white">v0.5</span>
+              <span class="text-5xl font-black text-white">v0.6</span>
               <span class="text-sm text-white/50">HTML edition</span>
             </div>
-            <p class="text-sm text-white/65 leading-relaxed mb-5">This page always opens the newest manual. Choose a fixed version when you need documentation that matches an older DS-8 release.</p>
+            <p class="text-sm text-white/65 leading-relaxed mb-5">The v0.6 manual covers the required USB kernel-plugin setup, USB multitrack output, USB sampling input, and the complete PS Vita workflow.</p>
             <label for="manual-version" class="manual-version-label">Manual version</label>
             <select id="manual-version" class="manual-version-select" aria-label="Choose a DS-8 manual version" data-current-manual="latest" data-site-root="../">
-              <option value="manual.html" selected>Latest (v0.5)</option>
+              <option value="manual.html" selected>Latest (v0.6)</option>
               <optgroup label="Versioned manuals">
+                <option value="../ds8-manual-v0.6.html">v0.6</option>
                 <option value="../ds8-manual-v0.5.html">v0.5</option>
               </optgroup>
             </select>
@@ -107,10 +108,12 @@
           <aside class="manual-toc lg:sticky lg:top-24">
             <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4">/ Contents</p>
             <nav aria-label="Manual contents" class="flex flex-col gap-1">
+              <a href="#whats-new-v0-6" class="manual-toc-link">What's New in v0.6</a>
               <a href="#core-ideas" class="manual-toc-link">Core Ideas</a>
               <a href="#starting-and-moving-around" class="manual-toc-link">Starting and Moving Around</a>
               <a href="#transport" class="manual-toc-link">Transport</a>
               <a href="#settings-and-projects" class="manual-toc-link">Settings and Projects</a>
+              <a href="#usb-audio-and-midi" class="manual-toc-link">USB Audio and MIDI</a>
               <a href="#sequencer" class="manual-toc-link">Sequencer</a>
               <a href="#step-automation" class="manual-toc-link">Step Automation</a>
               <a href="#voice-editing" class="manual-toc-link">Voice Editing</a>
@@ -123,6 +126,17 @@
           <article class="manual-article max-w-4xl">
             <h1 id="ds-8-user-manual">DS-8 User Manual</h1>
             <p>This manual documents the main controls and workflows for using DS-8 on PS Vita. The UI is controlled by focus: move the focus to a section or control, then use the button shown in the footer to act on it.</p>
+            <section class="manual-release-summary" aria-labelledby="whats-new-v0-6">
+              <p class="manual-release-summary-label">Version highlights</p>
+              <h2 id="whats-new-v0-6">What's New in v0.6</h2>
+              <p>v0.6 expands how DS-8 connects to a music setup:</p>
+              <ul>
+                <li>Record the stereo master and eight individual tracks simultaneously over USB.</li>
+                <li>Send stereo USB audio into DS-8 and record it directly in the sampler.</li>
+                <li>Keep DS-8 in time with other music gear using USB MIDI clock and transport control.</li>
+              </ul>
+              <p class="manual-release-summary-note"><strong>USB setup required:</strong> install the supplied PS Vita USB plugin before using these USB features. DS-8 still works normally without it, but USB audio and USB MIDI will be unavailable.</p>
+            </section>
             <h2 id="core-ideas">Core Ideas</h2>
             <p>DS-8 has three normal work areas: <code>Transport</code>, <code>Sequencer</code>, and <code>Voice</code>. Playlist mode adds a playlist arranger and XY performance area.</p>
             <p>Most screens follow the same rules:</p>
@@ -178,6 +192,40 @@
             <tr><td>Name entry</td><td><code>DPAD LEFT/RIGHT</code> moves the cursor, <code>DPAD UP/DOWN</code> cycles characters, hold <code>SQUARE</code> for the keyboard popup, <code>TRIANGLE</code> deletes, <code>START</code> saves, <code>CIRCLE</code> backs out.</td></tr>
             </tbody></table></div>
             <p>The name keyboard is also used by preset saving.</p>
+            <h2 id="usb-audio-and-midi">USB Audio and MIDI</h2>
+            <p>DS-8 v0.6 can send multitrack audio and MIDI timing over USB, and receive stereo USB audio for sampling. These USB features require the separately installed <code>psvita_usb_midi.skprx</code> kernel plugin. Installing the DS-8 VPK alone does not install or activate the kernel plugin.</p>
+            <div class="manual-callout">
+              <h3>Before You Install</h3>
+              <ul>
+                <li>Back up <code>ur0:tai/config.txt</code> before changing it.</li>
+                <li>Disable <code>VITAUVC00</code>, <code>VITASTICK</code>, or any other plugin that takes over the Vita USB device connection.</li>
+                <li>Turn off VitaShell USB mode before using DS-8 USB features.</li>
+                <li>Incorrect taiHEN configuration or a plugin conflict can prevent normal startup. Hold <code>L</code> while booting to bypass plugins if you need to recover.</li>
+              </ul>
+            </div>
+            <h3 id="install-the-usb-kernel-plugin">Install the USB Kernel Plugin</h3>
+            <ol>
+              <li>Copy <code>psvita_usb_midi.skprx</code> to <code>ur0:tai/</code>.</li>
+              <li>Open <code>ur0:tai/config.txt</code> and find the existing <code>*KERNEL</code> section.</li>
+              <li>Add <code>ur0:tai/psvita_usb_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
+              <li>Save the configuration and reboot the Vita.</li>
+              <li>Launch DS-8 and connect the Vita to the host with USB. The class-compliant device appears as <code>PS Vita USB</code>.</li>
+            </ol>
+            <p>DS-8 already includes the app-side USB component. Only the <code>.skprx</code> kernel plugin needs to be installed manually.</p>
+            <h3 id="usb-audio-channels">USB Audio Channels</h3>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Direction</th><th>Format</th><th>Use</th></tr></thead><tbody>
+            <tr><td>Vita to host</td><td>10 channels at 48 kHz, 16-bit</td><td>Master L/R followed by Tracks 1-8 as discrete pre-FX channels for multitrack recording.</td></tr>
+            <tr><td>Host to Vita</td><td>Stereo at 48 kHz, 16-bit</td><td>USB audio input for the sampler recording, trimming, slicing, and assignment workflow.</td></tr>
+            <tr><td>USB MIDI</td><td>Clock and transport</td><td>Timing Clock, Start, Continue, and Stop for external synchronization.</td></tr>
+            </tbody></table></div>
+            <p>If the kernel plugin is missing or incompatible, DS-8 continues to run but USB audio and USB MIDI are unavailable.</p>
+            <h3 id="remove-or-recover-the-plugin">Remove or Recover the Plugin</h3>
+            <ol>
+              <li>Remove the <code>ur0:tai/psvita_usb_midi.skprx</code> line from <code>ur0:tai/config.txt</code>.</li>
+              <li>Reboot the Vita, then delete the plugin file if you no longer need it.</li>
+              <li>If a conflict prevents normal startup, hold <code>L</code> during boot, remove the line, and reboot again.</li>
+            </ol>
             <h2 id="sequencer">Sequencer</h2>
             <p>The sequencer shows tracks as rows and steps as columns. Move around with the D-pad.</p>
             <div class="manual-table-wrap"><table>
@@ -417,7 +465,7 @@
             <img src="../logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
             <span class="text-white/60 font-medium text-xs tracking-wider uppercase">Intermynd</span>
           </a>
-          <p class="text-sm text-white/50 mt-3">DS-8 Drumstream user manual v0.5.</p>
+          <p class="text-sm text-white/50 mt-3">DS-8 Drumstream user manual v0.6.</p>
         </div>
         <div class="flex flex-wrap gap-4 text-sm text-white/60">
           <a href="../ds8.html" class="hover:text-white transition-colors">DS-8 product page</a>

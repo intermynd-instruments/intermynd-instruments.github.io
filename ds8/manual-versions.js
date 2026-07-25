@@ -1,5 +1,9 @@
 const ds8ManualVersions = [
   {
+    version: '0.6',
+    path: 'ds8-manual-v0.6.html',
+  },
+  {
     version: '0.5',
     path: 'ds8-manual-v0.5.html',
   },
@@ -33,3 +37,39 @@ if (manualVersionSelect && ds8ManualVersions.length > 0) {
     window.location.assign(manualVersionSelect.value);
   });
 }
+
+const vitaFaceButtons = {
+  CROSS: {
+    className: 'vita-button-cross',
+    label: 'Cross',
+  },
+  SQUARE: {
+    className: 'vita-button-square',
+    label: 'Square',
+  },
+  TRIANGLE: {
+    className: 'vita-button-triangle',
+    label: 'Triangle',
+  },
+  CIRCLE: {
+    className: 'vita-button-circle',
+    label: 'Circle',
+  },
+};
+
+document.querySelectorAll('.manual-article code').forEach((code) => {
+  const control = code.textContent.trim();
+  const faceButton = vitaFaceButtons[control];
+
+  if (!faceButton) {
+    return;
+  }
+
+  const icon = document.createElement('span');
+  icon.className = `vita-button-icon ${faceButton.className}`;
+  icon.setAttribute('role', 'img');
+  icon.setAttribute('aria-label', `${faceButton.label} button`);
+  icon.setAttribute('title', `${faceButton.label} button`);
+  icon.dataset.control = control;
+  code.replaceWith(icon);
+});
