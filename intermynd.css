@@ -395,6 +395,34 @@
   color: rgba(255, 255, 255, 0.86);
 }
 
+.manual-version-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.manual-version-select {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 0;
+  background: #171717;
+  color: #fff;
+  padding: 0.75rem 2.5rem 0.75rem 0.85rem;
+  font: 600 0.9rem/1.2 var(--font-sans);
+  cursor: pointer;
+}
+
+.manual-version-select:focus-visible {
+  outline: 2px solid #a98cff;
+  outline-offset: 2px;
+}
+
 .manual-toc {
   border: 1px solid var(--color-border-light);
   background: #fff;

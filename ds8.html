@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DS-8 Drumstream is a homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.">
   <meta property="og:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
-  <meta property="og:description" content="Eight drum tracks, real-time synthesis, sampler recording, Step FX, preset browsing, and portable sequencing on modified PS Vita systems.">
+  <meta property="og:description" content="Eight drum tracks, sampling, USB multitrack audio, arranger mode, Live FX, Step FX, and portable sequencing on modified PS Vita systems.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="ds8.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
-  <meta name="twitter:description" content="A homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.">
+  <meta name="twitter:description" content="A PS Vita groovebox with synthesis, sampling, USB multitrack audio, arranger mode, and live performance effects.">
   <title>DS-8 Drumstream - Intermynd Instruments</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
         <a href="index.html#products" class="hover:text-white transition-colors">Products</a>
         <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
         <a href="#features" class="hover:text-white transition-colors">Features</a>
-        <a href="ds8-manual-v0.5.html" class="hover:text-white transition-colors">Manual</a>
+        <a href="ds8/manual.html" class="hover:text-white transition-colors">Manual</a>
         <a href="#disclaimer" class="hover:text-white transition-colors">Disclaimer</a>
       </div>
       <div class="hidden md:flex items-center gap-4">
@@ -58,7 +58,7 @@
         <a href="index.html#products" class="hover:text-white transition-colors" onclick="closeMenu()">Products</a>
         <a href="#sampler" class="hover:text-white transition-colors" onclick="closeMenu()">Sampler</a>
         <a href="#features" class="hover:text-white transition-colors" onclick="closeMenu()">Features</a>
-        <a href="ds8-manual-v0.5.html" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
+        <a href="ds8/manual.html" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
         <a href="#disclaimer" class="hover:text-white transition-colors" onclick="closeMenu()">Disclaimer</a>
         <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
       </div>
@@ -95,10 +95,10 @@
               DRUMSTREAM<br>DS-8
             </h1>
             <p class="text-xl sm:text-2xl lg:text-3xl text-white/85 max-w-3xl mb-5 font-light leading-tight">
-              Drumstream turns the PS Vta console into an eight-track drum synthesizer, sampler, and performance groovebox.
+              Drumstream turns the PS Vita console into an eight-track drum synthesizer, sampler, and performance groovebox.
             </p>
             <p class="text-sm sm:text-base text-white/65 max-w-2xl mb-8 leading-relaxed">
-              Built for sketching ideas, building grooves, recording samples, resampling patterns, and performing anywhere with direct physical controls.
+              Built for sketching grooves, arranging songs, recording and resampling audio, performing with Live&nbsp;&nbsp;FX, and routing multitrack audio over USB.
             </p>
             <div class="flex flex-wrap gap-3 mb-8">
               <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
@@ -106,10 +106,10 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
               <a href="#overview" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-white/85 hover:border-white hover:text-white transition-all text-sm font-semibold">
-                Explore v0.3
+                Explore DS-8
               </a>
-              <a href="ds8-manual-v0.5.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-white/85 hover:border-white hover:text-white transition-all text-sm font-semibold">
-                User Manual v0.5
+              <a href="ds8/manual.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-white/85 hover:border-white hover:text-white transition-all text-sm font-semibold">
+                User Manual
               </a>
             </div>
             <p class="max-w-2xl text-xs leading-relaxed text-white/50">
@@ -149,12 +149,12 @@
             <div class="p-6 sm:p-8 border-b sm:border-b-0 sm:border-r border-neutral-200">
               <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Sampler</span>
               <h3 class="text-xl font-bold mt-2 mb-3">Record and resample</h3>
-              <p class="text-sm text-neutral-500 leading-relaxed">Capture mic or line input, monitor while recording, or bounce the running engine back into the SP sampler track.</p>
+              <p class="text-sm text-neutral-500 leading-relaxed">Capture with the Vita microphone, import audio, monitor while recording, or bounce the running engine back into the SP sampler track.</p>
             </div>
             <div class="p-6 sm:p-8">
-              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Files</span>
+              <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de]">Workflow</span>
               <h3 class="text-xl font-bold mt-2 mb-3">Projects and presets</h3>
-              <p class="text-sm text-neutral-500 leading-relaxed">Save full <code>.ds8p</code> projects and browse <code>.ds8s</code> sound presets with preview, rename, delete, and load actions.</p>
+              <p class="text-sm text-neutral-500 leading-relaxed">Save complete songs and browse sound presets with preview, rename, delete, and load actions.</p>
             </div>
           </div>
         </div>
@@ -191,11 +191,11 @@
         <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
           <div>
             <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
-              <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 12">V0.3 Sampler</span> <span class="term-block text-[#6f26de]">■</span>
+              <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 7">Sampler</span> <span class="term-block text-[#6f26de]">■</span>
             </p>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-neutral-900">The SP track brings recording, slicing, and resampling into the pattern.</h2>
             <p class="text-neutral-500 leading-relaxed text-sm sm:text-base mb-8">
-              Record from mic or line input, monitor the input through the main output, or resample the engine output into a sampler track with beat-synced arming and feedback prevention.
+              Record with the Vita microphone, import audio, monitor while recording, or resample the engine output into a sampler track with beat-synced arming and feedback prevention.
             </p>
             <div class="grid sm:grid-cols-2 gap-4">
               <div class="bg-white border border-neutral-200 p-5">
@@ -232,29 +232,29 @@
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 text-neutral-900">Built for fast rhythm decisions.</h2>
         <p class="text-neutral-500 max-w-2xl leading-relaxed text-sm sm:text-base">
-          Version 0.3 folds the sampler into the existing synth, sequencer, preset, and project workflow.
+          Route audio over USB, arrange complete performances, and shape effects live without leaving the Vita.
         </p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 bg-[#0a0a0a] products-grid w-full px-2">
         <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
           <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">01</span>
-          <h3 class="text-2xl font-bold text-white mt-4 mb-3">New percussion engines</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">Tom 808, Tom 909, Zap, and FM Hi-Hat join the existing drum synthesis voices.</p>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">USB multitrack out</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Send individual drum tracks over USB to a connected recorder or DAW for separate mixing, processing, and capture.</p>
         </div>
         <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
           <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">02</span>
-          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Step FX</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">Per-step play conditions for every 1st, 2nd, 3rd, or 4th pass, ratchets with flat, fade, and rise velocity shapes, and microtiming nudge up to &plusmn;6 ticks.</p>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">USB audio sampling</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Route USB audio input directly into the sampler workflow for recording, trimming, slicing, and resampling.</p>
         </div>
         <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
           <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">03</span>
-          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Preset browser</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">Save, load, preview, rename, and delete <code>.ds8s</code> presets. A preview voice lets you audition sounds without changing the current track.</p>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Arranger mode</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Build song structures from patterns, set repeat counts, launch sections, and manage lane mutes from one performance view.</p>
         </div>
         <div class="p-6 sm:p-8 lg:p-10 min-h-[260px]">
           <span class="text-5xl font-black text-neutral-800 tracking-tight select-none">04</span>
-          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Smoother workflow</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">Track mute fades avoid abrupt cuts, and the improved keyboard interface makes saving projects and presets faster.</p>
+          <h3 class="text-2xl font-bold text-white mt-4 mb-3">Live&nbsp;&nbsp;FX</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">Shape real-time effects with the XY performance area, BPM-synced delay, DUCKER, repeat, comb, and DJ filter.</p>
         </div>
       </div>
     </section>
@@ -266,23 +266,23 @@
             <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4 terminal-label">
               <span class="term-slash text-neutral-300">/</span> <span class="term-text text-[#6f26de]" style="--char-count: 11">Foundation</span> <span class="term-block text-[#6f26de]">■</span>
             </p>
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-5 text-neutral-900">Everything from earlier builds still matters.</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-5 text-neutral-900">Everything works as one instrument.</h2>
             <p class="text-neutral-500 leading-relaxed text-sm sm:text-base">
-              DS-8 already includes FM Kick, FM Snare, click-free monophonic retrigger crossfades, binary <code>.ds8p</code> project saving, cursor-based naming, unsaved change detection, toast notifications, and a deep pattern generator.
+              DS-8 combines drum synthesis, sampling, sequencing, presets, automation, projects, and performance tools in one focused handheld workflow.
             </p>
           </div>
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white border border-neutral-200 p-5">
-              <h3 class="font-bold mb-2">Pattern generator</h3>
-              <p class="text-sm text-neutral-500 leading-relaxed">Manual, All On, All Off, Alternate, Every N, Euclidean, Random, and Preset seed types with velocity and trigger overrides.</p>
+              <h3 class="font-bold mb-2">Sound engines and presets</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Kick, snare, tom, zap, hi-hat, and FM voices pair with preset preview, saving, renaming, and loading.</p>
             </div>
             <div class="bg-white border border-neutral-200 p-5">
-              <h3 class="font-bold mb-2">Transport</h3>
-              <p class="text-sm text-neutral-500 leading-relaxed">Step Edit auto-advance, 16/32/64-step patterns, beat-start emphasis dots, page toasts, and CPU overload indication.</p>
+              <h3 class="font-bold mb-2">Step FX and sequencing</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Build 16, 32, or 64-step patterns with conditions, ratchets, velocity shapes, microtiming, lane operations, mute, and solo.</p>
             </div>
             <div class="bg-white border border-neutral-200 p-5">
-              <h3 class="font-bold mb-2">Automation</h3>
-              <p class="text-sm text-neutral-500 leading-relaxed">Per-step parameter changes, precision mode, automated-parameter filtering, analog acceleration, and send automation.</p>
+              <h3 class="font-bold mb-2">Automation and generation</h3>
+              <p class="text-sm text-neutral-500 leading-relaxed">Shape per-step parameters and generate patterns with alternate, every-N, Euclidean, random, and preset seed tools.</p>
             </div>
             <div class="bg-white border border-neutral-200 p-5">
               <h3 class="font-bold mb-2">Project system</h3>
@@ -306,12 +306,12 @@
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div>
                 <p class="text-[10px] font-bold tracking-[0.15em] uppercase text-[#6f26de] mb-2">Versioned manual</p>
-                <h3 class="text-2xl font-bold text-neutral-900 mb-3">DS-8 User Manual v0.5</h3>
+                <h3 class="text-2xl font-bold text-neutral-900 mb-3">DS-8 User Manual</h3>
                 <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl">
-                  Controls, desktop key mapping, transport, projects, sequencing, Step FX, voice editing, sampler recording, playlist performance, and quick-reference tables.
+                  PS Vita controls, transport, projects, sequencing, Step FX, voice editing, sampler recording, playlist performance, and quick-reference tables.
                 </p>
               </div>
-              <a href="ds8-manual-v0.5.html" class="inline-flex shrink-0 items-center justify-center gap-2 px-6 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-[#5a1eb2] transition-colors text-sm">
+              <a href="ds8/manual.html" class="inline-flex shrink-0 items-center justify-center gap-2 px-6 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-[#5a1eb2] transition-colors text-sm">
                 Open manual
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
@@ -336,7 +336,7 @@
               DS-8 Drumstream and Intermynd Instruments are not affiliated with, sponsored by, endorsed by, or connected to Sony Interactive Entertainment, Sony Group Corporation, PlayStation, or PS Vita trademarks. Product names and trademarks belong to their respective owners and are used only to describe platform compatibility.
             </p>
             <p>
-              DS-8 is in active development. Bugs, rough edges, performance behavior, audio behavior, file compatibility, and controls may change in future versions.
+              DS-8 is in active development. Bugs, rough edges, performance behavior, audio behavior, project compatibility, and controls may change in future releases.
             </p>
           </div>
         </div>
@@ -347,7 +347,7 @@
       <div class="w-full px-3 lg:px-16 py-24">
         <div class="max-w-3xl mx-auto text-center">
           <p class="text-xs font-semibold text-[#a98cff] tracking-[0.2em] uppercase mb-6">/ Download</p>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-white">Get the current DS-8 build.</h2>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 text-white">Get DS-8 for PS Vita.</h2>
           <p class="text-neutral-300 max-w-xl mx-auto mb-8 leading-relaxed text-sm sm:text-base">
             The latest public download is hosted on Itch.io. Install only if you understand the homebrew requirements for your Vita.
           </p>
@@ -384,7 +384,7 @@
             <a href="#overview" class="hover:text-white transition-colors">Overview</a>
             <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
             <a href="#features" class="hover:text-white transition-colors">Features</a>
-            <a href="ds8-manual-v0.5.html" class="hover:text-white transition-colors">Manual v0.5</a>
+            <a href="ds8/manual.html" class="hover:text-white transition-colors">User manual</a>
           </div>
         </div>
         <div>
