@@ -205,7 +205,8 @@
             </div>
             <h3 id="install-the-usb-kernel-plugin">Install the USB Kernel Plugin</h3>
             <ol>
-              <li>Copy <code>psvita_usb_midi.skprx</code> to <code>ur0:tai/</code>.</li>
+              <li>Download the latest plugin package from the <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de]/35 underline-offset-2 hover:text-[#5a1eb2]">PS Vita USB Audio + MIDI releases page</a> and extract it.</li>
+              <li>Copy the extracted <code>psvita_usb_midi.skprx</code> to <code>ur0:tai/</code>.</li>
               <li>Open <code>ur0:tai/config.txt</code> and find the existing <code>*KERNEL</code> section.</li>
               <li>Add <code>ur0:tai/psvita_usb_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
               <li>Save the configuration and reboot the Vita.</li>
