@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <link rel="icon" href="assets/intermynd-logomark-purple.svg" type="image/svg+xml">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
   <!-- Intermynd Design System -->
   <link rel="stylesheet" href="intermynd.css">
 </head>
-<body class="bg-white text-neutral-900 font-sans antialiased">
+<body class="bg-white text-black font-sans antialiased">
 
   <!-- ================================================================== -->
   <!-- Navbar                                                              -->
@@ -36,17 +37,17 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-primary)]">
     <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center">
-        <img src="logo.svg" alt="" class="h-16 w-auto">
+        <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
       </a>
 
       <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#b4b4b4]">
         <a href="#" class="hover:text-white transition-colors">Link</a>
       </div>
 
       <!-- Desktop CTA -->
       <div class="hidden md:flex items-center gap-4">
-        <a href="#" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">CTA</a>
+        <a href="#" class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">CTA</a>
       </div>
 
       <!-- Hamburger -->
@@ -58,8 +59,8 @@
     </nav>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-[var(--color-primary)]">
-      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-white/70">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#b4b4b4] bg-[var(--color-primary)]">
+      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-[#b4b4b4]">
         <a href="#" class="hover:text-white transition-colors" onclick="closeMenu()">Link</a>
       </div>
     </div>
@@ -70,15 +71,15 @@
   <!-- ================================================================== -->
   <main>
     <!-- Section example -->
-    <section class="border-t border-neutral-200">
+    <section class="border-t border-[#b4b4b4]">
       <div class="w-full px-3 lg:px-16 py-24">
         <p class="section-label">
           <span class="slash">/</span> Section <span>■</span>
         </p>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-neutral-900">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-black">
           Start building.
         </h1>
-        <p class="text-neutral-500 max-w-2xl leading-relaxed text-sm sm:text-base">
+        <p class="text-black max-w-2xl leading-relaxed text-sm sm:text-base">
           Replace this with your content.
         </p>
       </div>
@@ -88,30 +89,29 @@
   <!-- ================================================================== -->
   <!-- Footer                                                              -->
   <!-- ================================================================== -->
-  <footer class="border-t border-neutral-200 bg-white">
+  <footer class="border-t border-[#b4b4b4] bg-white">
     <div class="w-full px-3 lg:px-16 py-16">
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
         <div class="lg:col-span-2">
           <a href="/" class="flex items-center gap-3">
-            <img src="logo.svg" alt="" class="h-8 w-auto">
-            <span class="text-neutral-500 font-medium text-xs tracking-wider uppercase">Intermynd</span>
+            <img src="assets/intermynd-combination-logo-black.svg" alt="Intermynd Instruments" class="h-8 w-auto">
           </a>
-          <p class="text-sm text-neutral-500 mt-3 max-w-xs leading-relaxed">
+          <p class="text-sm text-black mt-3 max-w-xs leading-relaxed">
             Small-batch instruments for musicians who want a more modern workflow.
           </p>
         </div>
         <div>
           <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-4">/ Link</p>
-          <div class="flex flex-col gap-2 text-sm text-neutral-500">
+          <div class="flex flex-col gap-2 text-sm text-black">
             <a href="#" class="hover:text-[var(--color-primary)] transition-colors">Item</a>
             <a href="https://github.com/intermynd-instruments" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-primary)] transition-colors">GitHub</a>
             <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-primary)] transition-colors">Open-source USB plugin</a>
           </div>
         </div>
       </div>
-      <div class="border-t border-neutral-200 pt-8 flex items-center justify-between gap-4">
-        <p class="text-xs text-neutral-400">Intermynd Instruments &copy; 2026</p>
-        <a href="#" class="text-xs text-neutral-400 hover:text-[var(--color-primary)] transition-colors flex items-center gap-1">
+      <div class="border-t border-[#b4b4b4] pt-8 flex items-center justify-between gap-4">
+        <p class="text-xs text-black">Intermynd Instruments &copy; 2026</p>
+        <a href="#" class="text-xs text-black hover:text-[var(--color-primary)] transition-colors flex items-center gap-1">
           Back to top
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>

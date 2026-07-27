@@ -12,6 +12,7 @@
   <meta name="twitter:title" content="DS-8 User Manual">
   <meta name="twitter:description" content="The latest DS-8 Drumstream user manual, with access to every versioned manual.">
   <title>DS-8 User Manual - Intermynd Instruments</title>
+  <link rel="icon" href="../assets/intermynd-logomark-purple.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -30,20 +31,20 @@
   </script>
   <link rel="stylesheet" href="../intermynd.css">
 </head>
-<body class="bg-white text-neutral-900 font-sans antialiased">
+<body class="bg-white text-black font-sans antialiased">
 
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
     <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
       <a href="../index.html" class="flex items-center">
-        <img src="../logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+        <img src="../assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#b4b4b4]">
         <a href="../ds8.html" class="hover:text-white transition-colors">DS-8</a>
         <a href="#manual" class="hover:text-white transition-colors">Manual</a>
         <a href="#quick-reference" class="hover:text-white transition-colors">Quick Reference</a>
       </div>
       <div class="hidden md:flex items-center gap-4">
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
       </div>
       <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
         <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
@@ -51,43 +52,43 @@
         <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
       </button>
     </nav>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-[#6f26de]">
-      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-white/70">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#b4b4b4] bg-[#6f26de]">
+      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-[#b4b4b4]">
         <a href="../ds8.html" class="hover:text-white transition-colors" onclick="closeMenu()">DS-8</a>
         <a href="#manual" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
         <a href="#quick-reference" class="hover:text-white transition-colors" onclick="closeMenu()">Quick Reference</a>
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-white/40 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
+        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="pt-16 bg-[#0a0a0a] text-white relative overflow-hidden">
+    <section class="pt-16 bg-black text-white relative overflow-hidden">
       <div class="absolute inset-0 dot-grid-primary opacity-70"></div>
       <div class="w-full px-3 lg:px-16 py-20 sm:py-24 lg:py-28 relative z-10">
         <div class="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-end">
           <div>
-            <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#a98cff] mb-5">/ Versioned documentation</p>
+            <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-5">/ Versioned documentation</p>
             <h1 class="font-pixel text-[clamp(2.8rem,10vw,9rem)] leading-[1.12] text-white mb-8">DS-8 USER<br>MANUAL</h1>
-            <p class="text-xl sm:text-2xl text-white/80 max-w-3xl font-light leading-tight mb-6">
+            <p class="text-xl sm:text-2xl text-white max-w-3xl font-light leading-tight mb-6">
               Controls, workflows, sampler recording, Step FX, playlist performance, projects, and quick references for DS-8 Drumstream.
             </p>
             <div class="flex flex-wrap gap-3">
-              <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
+              <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
                 Read v0.6
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <a href="../ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white/80 hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
+              <a href="../ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
             </div>
           </div>
-          <aside class="manual-version-panel border border-white/15 bg-white/[0.04] p-6 sm:p-8">
+          <aside class="manual-version-panel border border-[#b4b4b4] bg-black p-6 sm:p-8">
             <img src="../ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
-            <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#a98cff] mb-4">Latest manual</p>
+            <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#6f26de] mb-4">Latest manual</p>
             <div class="flex items-baseline gap-3 mb-4">
               <span class="text-5xl font-black text-white">v0.6</span>
-              <span class="text-sm text-white/50">HTML edition</span>
+              <span class="text-sm text-[#b4b4b4]">HTML edition</span>
             </div>
-            <p class="text-sm text-white/65 leading-relaxed mb-5">The v0.6 manual covers the required USB kernel-plugin setup, USB multitrack output, USB sampling input, and the complete PS Vita workflow.</p>
+            <p class="text-sm text-[#b4b4b4] leading-relaxed mb-5">The v0.6 manual covers the required USB kernel-plugin setup, USB multitrack output, USB sampling input, and the complete PS Vita workflow.</p>
             <label for="manual-version" class="manual-version-label">Manual version</label>
             <select id="manual-version" class="manual-version-select" aria-label="Choose a DS-8 manual version" data-current-manual="latest" data-site-root="../">
               <option value="manual.html" selected>Latest (v0.6)</option>
@@ -96,13 +97,13 @@
                 <option value="../ds8-manual-v0.5.html">v0.5</option>
               </optgroup>
             </select>
-            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#a98cff] transition-colors">Download DS-8 on Itch.io</a>
+            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#6f26de] transition-colors">Download DS-8 on Itch.io</a>
           </aside>
         </div>
       </div>
     </section>
 
-    <section id="manual" class="manual-layout border-t border-neutral-200 bg-white scroll-mt-20">
+    <section id="manual" class="manual-layout border-t border-[#b4b4b4] bg-white scroll-mt-20">
       <div class="w-full px-3 lg:px-16 py-14 lg:py-20">
         <div class="grid lg:grid-cols-[18rem_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
           <aside class="manual-toc lg:sticky lg:top-24">
@@ -205,7 +206,7 @@
             </div>
             <h3 id="install-the-usb-kernel-plugin">Install the USB Kernel Plugin</h3>
             <ol>
-              <li>Download the latest plugin package from the <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de]/35 underline-offset-2 hover:text-[#5a1eb2]">PS Vita USB Audio + MIDI releases page</a> and extract it.</li>
+              <li>Download the latest plugin package from the <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PS Vita USB Audio + MIDI releases page</a> and extract it.</li>
               <li>Copy the extracted <code>psvita_usb_midi.skprx</code> to <code>ur0:tai/</code>.</li>
               <li>Open <code>ur0:tai/config.txt</code> and find the existing <code>*KERNEL</code> section.</li>
               <li>Add <code>ur0:tai/psvita_usb_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
@@ -458,17 +459,16 @@
     </section>
   </main>
 
-  <footer class="border-t border-neutral-800 bg-[#0a0a0a] text-white">
+  <footer class="border-t border-[#b4b4b4] bg-black text-white">
     <div class="w-full px-3 lg:px-16 py-16">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <a href="../index.html" class="flex items-center gap-3">
-            <img src="../logo.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-            <span class="text-white/60 font-medium text-xs tracking-wider uppercase">Intermynd</span>
+            <img src="../assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
           </a>
-          <p class="text-sm text-white/50 mt-3">DS-8 Drumstream user manual v0.6.</p>
+          <p class="text-sm text-[#b4b4b4] mt-3">DS-8 Drumstream user manual v0.6.</p>
         </div>
-        <div class="flex flex-wrap gap-4 text-sm text-white/60">
+        <div class="flex flex-wrap gap-4 text-sm text-[#b4b4b4]">
           <a href="../ds8.html" class="hover:text-white transition-colors">DS-8 product page</a>
           <a href="#manual" class="hover:text-white transition-colors">Back to top</a>
           <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Itch.io</a>
