@@ -194,7 +194,7 @@
             </tbody></table></div>
             <p>The name keyboard is also used by preset saving.</p>
             <h2 id="usb-audio-and-midi">USB Audio and MIDI</h2>
-            <p>DS-8 v0.6 can send multitrack audio and MIDI timing over USB, and receive stereo USB audio for sampling. These USB features require the separately installed <code>psvita_usb_midi.skprx</code> kernel plugin. Installing the DS-8 VPK alone does not install or activate the kernel plugin.</p>
+            <p>DS-8 v0.6 can send multitrack audio and MIDI timing over USB, and receive stereo USB audio for sampling. These USB features require the separately installed <code>psvita_usb_audio_midi.skprx</code> kernel plugin. Installing the DS-8 VPK alone does not install or activate the kernel plugin.</p>
             <div class="manual-callout">
               <h3>Before You Install</h3>
               <ul>
@@ -207,9 +207,9 @@
             <h3 id="install-the-usb-kernel-plugin">Install the USB Kernel Plugin</h3>
             <ol>
               <li>Download the latest plugin package from the <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PS Vita USB Audio + MIDI releases page</a> and extract it.</li>
-              <li>Copy the extracted <code>psvita_usb_midi.skprx</code> to <code>ur0:tai/</code>.</li>
+              <li>Copy the extracted <code>psvita_usb_audio_midi.skprx</code> to <code>ur0:tai/</code>.</li>
               <li>Open <code>ur0:tai/config.txt</code> and find the existing <code>*KERNEL</code> section.</li>
-              <li>Add <code>ur0:tai/psvita_usb_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
+              <li>Add <code>ur0:tai/psvita_usb_audio_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
               <li>Save the configuration and reboot the Vita.</li>
               <li>Launch DS-8 and connect the Vita to the host with USB. The class-compliant device appears as <code>PS Vita USB</code>.</li>
             </ol>
@@ -224,7 +224,7 @@
             <p>If the kernel plugin is missing or incompatible, DS-8 continues to run but USB audio and USB MIDI are unavailable.</p>
             <h3 id="remove-or-recover-the-plugin">Remove or Recover the Plugin</h3>
             <ol>
-              <li>Remove the <code>ur0:tai/psvita_usb_midi.skprx</code> line from <code>ur0:tai/config.txt</code>.</li>
+              <li>Remove the <code>ur0:tai/psvita_usb_audio_midi.skprx</code> line from <code>ur0:tai/config.txt</code>.</li>
               <li>Reboot the Vita, then delete the plugin file if you no longer need it.</li>
               <li>If a conflict prevents normal startup, hold <code>L</code> during boot, remove the line, and reboot again.</li>
             </ol>
