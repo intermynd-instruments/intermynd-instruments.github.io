@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The latest DS-8 Drumstream user manual, with access to every versioned manual.">
   <meta property="og:title" content="DS-8 User Manual - Intermynd Instruments">
-  <meta property="og:description" content="DS-8 Drumstream v0.6 controls, workflows, USB plugin setup, USB audio, sampling, arranger performance, Step FX, projects, and quick references.">
+  <meta property="og:description" content="DS-8 Drumstream v0.7 controls, synth engines, sampler modes, Scene Morphing, sequencing, USB setup, and quick references.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="../ds8.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +75,7 @@
             </p>
             <div class="flex flex-wrap gap-3">
               <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
-                Read v0.6
+                Read v0.7
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
               <a href="../ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
@@ -85,14 +85,15 @@
             <img src="../ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
             <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#6f26de] mb-4">Latest manual</p>
             <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-5xl font-black text-white">v0.6</span>
+              <span class="text-5xl font-black text-white">v0.7</span>
               <span class="text-sm text-[#b4b4b4]">HTML edition</span>
             </div>
-            <p class="text-sm text-[#b4b4b4] leading-relaxed mb-5">The v0.6 manual covers the required USB kernel-plugin setup, USB multitrack output, USB sampling input, and the complete PS Vita workflow.</p>
+            <p class="text-sm text-[#b4b4b4] leading-relaxed mb-5">The v0.7 manual covers the expanded synth and sampler engines, Scene Morphing, Pattern Navigator, pitch ramps, direct slice triggering, USB setup, and the complete PS Vita workflow.</p>
             <label for="manual-version" class="manual-version-label">Manual version</label>
             <select id="manual-version" class="manual-version-select" aria-label="Choose a DS-8 manual version" data-current-manual="latest" data-site-root="../">
-              <option value="manual.html" selected>Latest (v0.6)</option>
+              <option value="manual.html" selected>Latest (v0.7)</option>
               <optgroup label="Versioned manuals">
+                <option value="../ds8-manual-v0.7.html">v0.7</option>
                 <option value="../ds8-manual-v0.6.html">v0.6</option>
                 <option value="../ds8-manual-v0.5.html">v0.5</option>
               </optgroup>
@@ -109,12 +110,13 @@
           <aside class="manual-toc lg:sticky lg:top-24">
             <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4">/ Contents</p>
             <nav aria-label="Manual contents" class="flex flex-col gap-1">
-              <a href="#whats-new-v0-6" class="manual-toc-link">What's New in v0.6</a>
+              <a href="#whats-new-v0-7" class="manual-toc-link">What's New in v0.7</a>
               <a href="#core-ideas" class="manual-toc-link">Core Ideas</a>
               <a href="#starting-and-moving-around" class="manual-toc-link">Starting and Moving Around</a>
               <a href="#transport" class="manual-toc-link">Transport</a>
               <a href="#settings-and-projects" class="manual-toc-link">Settings and Projects</a>
               <a href="#usb-audio-and-midi" class="manual-toc-link">USB Audio and MIDI</a>
+              <a href="#performance-and-credits" class="manual-toc-link">Performance and Credits</a>
               <a href="#sequencer" class="manual-toc-link">Sequencer</a>
               <a href="#step-automation" class="manual-toc-link">Step Automation</a>
               <a href="#voice-editing" class="manual-toc-link">Voice Editing</a>
@@ -127,16 +129,18 @@
           <article class="manual-article max-w-4xl">
             <h1 id="ds-8-user-manual">DS-8 User Manual</h1>
             <p>This manual documents the main controls and workflows for using DS-8 on PS Vita. The UI is controlled by focus: move the focus to a section or control, then use the button shown in the footer to act on it.</p>
-            <section class="manual-release-summary" aria-labelledby="whats-new-v0-6">
+            <section class="manual-release-summary" aria-labelledby="whats-new-v0-7">
               <p class="manual-release-summary-label">Version highlights</p>
-              <h2 id="whats-new-v0-6">What's New in v0.6</h2>
-              <p>v0.6 expands how DS-8 connects to a music setup:</p>
+              <h2 id="whats-new-v0-7">What's New in v0.7</h2>
+              <p>v0.7 turns DS-8 into a deeper sound-design and performance instrument:</p>
               <ul>
-                <li>Record the stereo master and eight individual tracks simultaneously over USB.</li>
-                <li>Send stereo USB audio into DS-8 and record it directly in the sampler.</li>
-                <li>Keep DS-8 in time with other music gear using USB MIDI clock and transport control.</li>
+                <li>Five expanded SYN engines: <code>SH01</code>, <code>MONO</code>, <code>CHORD</code>, redesigned <code>ISOCORE</code>, and <code>VOCODER</code>.</li>
+                <li><code>LOOPER</code> and <code>MELODIC</code> sampler modes, sample normalization, and direct per-step <code>BEATSLICER</code> slice placement.</li>
+                <li>Eight snapshots per track, eight Scene Morphing pads, and scene launches from Playlist rows.</li>
+                <li>Pattern Navigator, sequencer undo/redo, and tempo-synced Step FX pitch ramps.</li>
+                <li>Expanded insert and master effects, including <code>COMP</code>, <code>PHASER</code>, <code>FLANGER</code>, and <code>FFOX</code>.</li>
               </ul>
-              <p class="manual-release-summary-note"><strong>USB setup required:</strong> install the supplied PS Vita USB plugin before using these USB features. DS-8 still works normally without it, but USB audio and USB MIDI will be unavailable.</p>
+              <p class="manual-release-summary-note"><strong>Existing USB users:</strong> DS-8 v0.7 requires the v0.2-compatible PS Vita USB Audio + MIDI plugin. Earlier plugin releases are for DS-8 v0.6.x.</p>
             </section>
             <h2 id="core-ideas">Core Ideas</h2>
             <p>DS-8 has three normal work areas: <code>Transport</code>, <code>Sequencer</code>, and <code>Voice</code>. Playlist mode adds a playlist arranger and XY performance area.</p>
@@ -167,19 +171,19 @@
             <tr><td>BPM</td><td><code>DPAD UP/DOWN</code> changes tempo; stick left/right gives continuous adjustment in Settings.</td></tr>
             <tr><td>Pattern selector</td><td><code>CROSS</code> opens the pattern menu.</td></tr>
             <tr><td>Pattern menu</td><td><code>DPAD UP/DOWN</code> chooses a pattern, <code>APPEND EMPTY</code>, or <code>APPEND CLONE</code>; <code>CROSS</code> confirms; <code>CIRCLE</code> closes.</td></tr>
+            <tr><td>Pattern length</td><td><code>CROSS</code> opens the <code>16 STEPS</code>, <code>32 STEPS</code>, and <code>64 STEPS</code> picker. Use <code>DPAD UP/DOWN</code>, then <code>CROSS</code> to confirm or <code>CIRCLE</code> to cancel.</td></tr>
             <tr><td>Pattern/playlist switch</td><td><code>CROSS</code> opens Playlist view, or returns to Pattern view when Playlist view is active.</td></tr>
             <tr><td>Playlist ON/OFF</td><td>In Playlist view, <code>CROSS</code> toggles playlist playback following.</td></tr>
             <tr><td>Playlist END action</td><td>In Playlist view, <code>CROSS</code> cycles end behavior.</td></tr>
             <tr><td>Playlist ADD</td><td>In Playlist view, <code>CROSS</code> opens the pattern picker for adding a playlist row.</td></tr>
             </tbody></table></div>
-            <p>Pattern length is edited from the Voice parameter grid with the <code>LENGTH</code> card. Press <code>CROSS</code> on <code>LENGTH</code> to cycle the active pattern between available page counts.</p>
+            <p>Shortening a pattern changes its playback endpoint without automatically erasing hidden pages. If you lengthen it again, preserved steps return. Pattern Navigator provides separate <code>KEEP DATA</code> and <code>ERASE DATA</code> choices when shortening.</p>
             <h2 id="settings-and-projects">Settings and Projects</h2>
             <p>Press <code>SELECT</code> from a normal screen to open Settings. Use <code>DPAD UP/DOWN</code> to choose a row and <code>DPAD LEFT/RIGHT</code> to change rows that have values. Press <code>CIRCLE</code> to close.</p>
             <p>Settings rows:</p>
             <div class="manual-table-wrap"><table>
             <thead><tr><th>Row</th><th>Use</th></tr></thead><tbody>
             <tr><td><code>BPM</code></td><td>Change tempo. Stick left/right also edits BPM.</td></tr>
-            <tr><td><code>EXTEND CLONE</code></td><td>Choose how added pattern pages are initialized.</td></tr>
             <tr><td><code>THEME</code></td><td>Change color theme.</td></tr>
             <tr><td><code>LOAD/SAVE</code></td><td>Press <code>CROSS</code> to open Projects.</td></tr>
             <tr><td><code>CLEAR PATTERN</code></td><td>Press <code>CROSS</code> to clear the current pattern.</td></tr>
@@ -194,7 +198,7 @@
             </tbody></table></div>
             <p>The name keyboard is also used by preset saving.</p>
             <h2 id="usb-audio-and-midi">USB Audio and MIDI</h2>
-            <p>DS-8 v0.6 can send multitrack audio and MIDI timing over USB, and receive stereo USB audio for sampling. These USB features require the separately installed <code>psvita_usb_audio_midi.skprx</code> kernel plugin. Installing the DS-8 VPK alone does not install or activate the kernel plugin.</p>
+            <p>DS-8 v0.7 can send multitrack audio and MIDI timing over USB, and receive stereo USB audio for sampling. These USB features require the separately installed v0.2-compatible <code>psvita_usb_audio_midi.skprx</code> kernel plugin. Installing the DS-8 VPK alone does not install or activate the kernel plugin.</p>
             <div class="manual-callout">
               <h3>Before You Install</h3>
               <ul>
@@ -206,7 +210,7 @@
             </div>
             <h3 id="install-the-usb-kernel-plugin">Install the USB Kernel Plugin</h3>
             <ol>
-              <li>Download the latest plugin package from the <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PS Vita USB Audio + MIDI releases page</a> and extract it.</li>
+              <li>Download and extract <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi/releases/tag/v0.2" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PS Vita USB Audio + MIDI v0.2</a>. This is the compatible plugin release for DS-8 v0.7.x.</li>
               <li>Copy the extracted <code>psvita_usb_audio_midi.skprx</code> to <code>ur0:tai/</code>.</li>
               <li>Open <code>ur0:tai/config.txt</code> and find the existing <code>*KERNEL</code> section.</li>
               <li>Add <code>ur0:tai/psvita_usb_audio_midi.skprx</code> on its own line beneath <code>*KERNEL</code>. Do not create a second <code>*KERNEL</code> section.</li>
@@ -228,6 +232,10 @@
               <li>Reboot the Vita, then delete the plugin file if you no longer need it.</li>
               <li>If a conflict prevents normal startup, hold <code>L</code> during boot, remove the line, and reboot again.</li>
             </ol>
+            <h2 id="performance-and-credits">Performance and Credits</h2>
+            <p>Dense projects can demand more from the PS Vita, especially when <code>VOCODER</code> uses 48 analysis bands. If audio glitches or drops out, lower the band count or simplify the project first.</p>
+            <p>Some users choose to run the Vita CPU at 500 MHz for additional headroom. This is optional and at your own risk; it can increase heat and battery use. Follow the official instructions for either <a href="https://github.com/Electry/PSVshell#how-to-use" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PSVshell</a> or <a href="https://github.com/GrapheneCt/PSVshellPlus#installation" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">PSVshellPlus</a>. Their profile formats are not interchangeable.</p>
+            <p><code>CHORD</code> uses wavetables from <a href="https://www.adventurekid.se/akrt/waveforms/adventure-kid-waveforms/" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">Adventure Kid Waveforms</a>, released under CC0 1.0. <code>ISOCORE</code> is inspired by <a href="https://isocore.bandcamp.com/music" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">Isocore</a>.</p>
             <h2 id="sequencer">Sequencer</h2>
             <p>The sequencer shows tracks as rows and steps as columns. Move around with the D-pad.</p>
             <div class="manual-table-wrap"><table>
@@ -237,7 +245,15 @@
             <tr><td><code>TRIANGLE</code></td><td>Open Step Automation for the selected step.</td></tr>
             <tr><td><code>SQUARE</code></td><td>Open the Track Action popup.</td></tr>
             <tr><td><code>CIRCLE</code></td><td>Open Lane Actions when available.</td></tr>
+            <tr><td>Hold <code>L</code> + <code>R</code></td><td>Open Pattern Navigator. Use <code>DPAD LEFT/RIGHT</code> to focus a page and <code>DPAD UP/DOWN</code> to focus a lane, then release either shoulder to open it.</td></tr>
             </tbody></table></div>
+            <h3 id="pattern-navigator">Pattern Navigator</h3>
+            <p>Pattern Navigator shows all four 16-step pages and every lane as one continuous strip. The selected lane stays highlighted across the full pattern, while pages beyond the current length are dimmed.</p>
+            <ul>
+              <li>Focus a disabled page and release <code>L</code> or <code>R</code> to extend to 32 or 64 steps.</li>
+              <li>When the disabled region is genuinely empty, press <code>SQUARE</code> to choose <code>EXTEND: EMPTY</code> or <code>EXTEND: CLONE</code>. Clone repeats page 1 into page 2, then pages 1-2 into pages 3-4.</li>
+              <li>To shorten a pattern, focus page 1 for 16 steps or page 2 for 32 steps and press <code>TRIANGLE</code>. Choose <code>KEEP DATA</code> to preserve hidden pages or <code>ERASE DATA</code> to clear them. The confirmation starts on <code>CANCEL</code>.</li>
+            </ul>
             <h3 id="track-action-popup">Track Action Popup</h3>
             <p>Press <code>SQUARE</code> on an editable track in the sequencer to manage mute and solo states. The popup opens on the current active state when possible.</p>
             <div class="manual-table-wrap"><table>
@@ -254,6 +270,7 @@
             <p>Press <code>CIRCLE</code> on a valid sequencer lane to open lane operations.</p>
             <div class="manual-table-wrap"><table>
             <thead><tr><th>Action</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><code>UNDO</code> / <code>REDO</code></td><td>Step backward or forward through sequencer edits. The action label identifies the edit that will be restored.</td></tr>
             <tr><td><code>COPY TRK</code> / <code>PASTE TRK</code></td><td>Copy or paste the track sound/settings.</td></tr>
             <tr><td><code>COPY STEPS</code></td><td>Copy a selected range of steps on the current page.</td></tr>
             <tr><td><code>COPY ALL</code></td><td>Copy the full active pattern lane.</td></tr>
@@ -285,7 +302,7 @@
             <thead><tr><th>Page</th><th>Use</th></tr></thead><tbody>
             <tr><td><code>SYNTH</code></td><td>Per-step synth and sampler values.</td></tr>
             <tr><td><code>FX</code></td><td>Per-step insert FX values.</td></tr>
-            <tr><td><code>STEP FX</code></td><td>Ratchets, timing nudge, repeats, and conditional triggering.</td></tr>
+            <tr><td><code>STEP FX</code></td><td>Ratchets, timing nudge, tempo-synced pitch ramps, repeats, and conditional triggering.</td></tr>
             <tr><td><code>GENERATE</code></td><td>Build and apply generated blocks from the selected step.</td></tr>
             </tbody></table></div>
             <p>Automation notes:</p>
@@ -295,6 +312,7 @@
             <li>Returning a relative automation value to zero removes that automation for the step.</li>
             <li><code>Only Autos</code> filters the current page to values that already have automation.</li>
             <li><code>NUDGE</code> shifts a step and its full ratchet group by clock ticks.</li>
+            <li><code>RAMP PITCH</code> glides to a <code>-12..+12</code> semitone target. <code>RAMP LEN</code> sets a tempo-synced <code>1/16</code>, <code>1/8</code>, <code>1/4</code>, or <code>1/2</code> duration. Automation-only steps can retarget an already-playing voice without triggering a new note.</li>
             <li>Generate applies from the selected step across the active pattern range.</li>
             </ul>
             <h2 id="voice-editing">Voice Editing</h2>
@@ -331,20 +349,55 @@
             <tr><td>Confirm</td><td><code>CROSS</code> confirms; <code>CIRCLE</code> cancels.</td></tr>
             <tr><td>Name entry</td><td>Same name-entry controls as Projects.</td></tr>
             </tbody></table></div>
-            <p>Loading a preset replaces the selected track's sound profile. Sampler presets include their PCM sample data.</p>
+            <p>Loading a preset replaces the selected track's sound profile. Sampler presets include their sample audio. The sampler engine lists keep <code>ONESHOT</code>, <code>BEATSLICER</code>, <code>LOOPER</code>, and <code>MELODIC</code> separate.</p>
+            <h3 id="track-snapshots">Track Snapshots</h3>
+            <p>Choose <code>SNAPSHOTS</code> from Presets to store and recall eight sound states for the selected track. <code>SQUARE</code> stores the editable Voice, Mixer, swing, and insert-FX values in the focused slot. <code>CROSS</code> recalls the snapshot using the selected morph duration; tapping a pad selects and recalls it directly. Overwriting an occupied slot requires confirmation and starts on <code>CANCEL</code>.</p>
+            <h3 id="scene-morphing">Scene Morphing</h3>
+            <p>Choose <code>SCENE MORPHING</code> from Presets to open eight performance pads. Each scene refers to one existing snapshot for every participating track, so store the required track snapshots first.</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
+            <tr><td><code>DPAD</code></td><td>Select one of eight scene pads.</td></tr>
+            <tr><td><code>CROSS</code></td><td>Launch the selected scene using its transition and launch settings.</td></tr>
+            <tr><td><code>SQUARE</code></td><td>Store a scene from the most recently stored or recalled snapshot on each track.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Edit track participation, snapshot references, duration, curve, launch quantization, discrete-switch point, and optional mute/solo capture.</td></tr>
+            <tr><td>Right stick left/right</td><td>Scrub the active morph manually. Releasing resumes the synchronized transition from the current amount.</td></tr>
+            <tr><td><code>START</code></td><td>Start or stop transport without leaving Scene Morphing.</td></tr>
+            <tr><td><code>CIRCLE</code></td><td>Leave the scene editor or close Scene Morphing.</td></tr>
+            </tbody></table></div>
+            <p>Durations range from <code>INSTANT</code> to <code>16 BARS</code>. Curves are <code>LINEAR</code>, <code>SMOOTH</code>, or <code>STEPPED</code>; launches can be immediate or quantized to the next beat, bar, or pattern end. Discrete controls and captured mute/solo state can switch at the start, midpoint, or end.</p>
             <h3 id="syn-note-picker">SYN Note Picker</h3>
-            <p>On compatible SYN controls, hold <code>CROSS</code> to open the <code>SYN NOTE</code> picker. Use <code>DPAD</code> to choose a note, <code>L</code> / <code>R</code> to change octave, <code>CROSS</code> release to set, and <code>CIRCLE</code> to cancel.</p>
+            <p>On compatible SYN controls, hold <code>CROSS</code> to open the <code>SYN NOTE</code> picker. Use <code>DPAD</code> to choose a note, <code>L</code> / <code>R</code> to change octave, <code>CROSS</code> release to set, and <code>CIRCLE</code> to cancel. Tapping a note selects and previews it without placing a trigger. On <code>CHORD</code>, committing also locks the selected chord shape on that step.</p>
+            <h3 id="synth-engines">SYN Engines</h3>
+            <p>Choose <code>SYN</code> and then select an engine:</p>
+            <div class="manual-table-wrap"><table>
+            <thead><tr><th>Engine</th><th>Character and controls</th></tr></thead><tbody>
+            <tr><td><code>ANALOG</code></td><td>The original flexible synth voice with wavetable and oscillator shaping.</td></tr>
+            <tr><td><code>SH01</code></td><td>SH-101-inspired monophonic synthesis with saw, pulse, sub and noise levels, resonant filter, envelope, and free-running or tempo-synced LFO.</td></tr>
+            <tr><td><code>MONO</code></td><td>Compact three-oscillator monophonic voice with curated oscillator sets, ladder filter, contour, mixer load, feedback, ADSR, and assignable LFO.</td></tr>
+            <tr><td><code>CHORD</code></td><td>Polyphonic wavetable chord engine with 36 chord shapes, eight voicings, optional added note, filtering, and per-step chord selection.</td></tr>
+            <tr><td><code>ISOCORE</code></td><td>Five experimental synthesis cores with two selectable waves, two modulation lanes, and core-specific sound controls and destinations.</td></tr>
+            <tr><td><code>VOCODER</code></td><td>Multiband vocoder using an assigned sample, live microphone, or another track as its exclusive input, with chord carrier, tonal colors, 24/32/48 bands, formant shift, smear, edge, dry blend, envelope, and LFO.</td></tr>
+            </tbody></table></div>
+            <p>For <code>VOCODER</code>, choose <code>SAMPLE</code>, <code>MIC ON</code>, or <code>TRK01</code>-<code>TRK08</code> with <code>INPUT</code>. The source track stays audible; selecting the vocoder's own track is silenced to prevent feedback. <code>INPUT GAIN</code> adds up to 24 dB before analysis. Live microphone audio is heard only while vocoder notes are triggered.</p>
+            <h3 id="effects">Effects</h3>
+            <p>Track insert choices include <code>BITCRUSH</code>, <code>DOWNSAMP</code>, <code>TONE</code>, <code>COMP</code>, <code>TREMOLO</code>, <code>COMB</code>, <code>PHASER</code>, and <code>FLANGER</code>. Send 1 provides tape or BPM-synced delay, Send 2 provides <code>CHVERB</code>, and the master slot also offers <code>DUCKER</code> and <code>FFOX</code>. Press <code>SQUARE</code> from the parameter grid to switch between Voice and FX pages when an insert effect is active.</p>
             <h2 id="sampler-workflow">Sampler Workflow</h2>
-            <p>Sampler tracks use the <code>SP</code> type and fixed sampler engine. The <code>ENG</code> top card selects <code>ONESHOT</code> or <code>BEATSLICER</code>. The <code>REC</code> parameter card opens recording or editing.</p>
+            <p>Sampler tracks use the <code>SP</code> type. The <code>ENG</code> top card selects <code>ONESHOT</code>, <code>BEATSLICER</code>, <code>LOOPER</code>, or <code>MELODIC</code>. The <code>REC</code> parameter card opens recording or editing.</p>
+            <h3 id="looper-and-melodic">Looper and Melodic Modes</h3>
+            <p><code>LOOPER</code> repeats the full sample and repitches it to follow the transport tempo from the loop's original BPM. Its filter offers <code>LP12</code>, <code>BP12</code>, <code>HP12</code>, and <code>NOTCH</code> modes with cutoff, resonance, and a tempo-aware LFO. The crop editor lets you correct the original BPM and shows the duration-derived bar count.</p>
+            <p><code>MELODIC</code> turns a sample into a monophonic playable voice with note, scale, root, ADSR, and the same four-mode filter. Set <code>LOOP START</code>, <code>LOOP END</code>, and <code>XFADE</code> in the crop editor to build a smooth sustain loop. Recognizable pitches in filenames, such as C3, F#, or Ab2, initialize the sample pitch and playable note automatically.</p>
             <h3 id="recording">Recording</h3>
             <p>Focus <code>REC</code> and press <code>CROSS</code>.</p>
             <div class="manual-table-wrap"><table>
             <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
-            <tr><td><code>DPAD UP/DOWN</code></td><td>Select the capture input.</td></tr>
-            <tr><td><code>DPAD LEFT/RIGHT</code> or stick</td><td>Adjust MIC gain when MIC is selected.</td></tr>
-            <tr><td><code>TRIANGLE</code> on MIC</td><td>Toggle input monitor.</td></tr>
-            <tr><td><code>TRIANGLE</code> on RESAMPLE</td><td>Cycle sync mode.</td></tr>
-            <tr><td><code>CROSS</code></td><td>Arm/start capture, disarm, or stop recording depending on state.</td></tr>
+            <tr><td><code>DPAD LEFT/RIGHT</code></td><td>Move through source, source option, routing, and record controls.</td></tr>
+            <tr><td><code>CROSS</code> on <code>SOURCE</code></td><td>Open the capture-source list; use <code>DPAD UP/DOWN</code>, then <code>CROSS</code> to choose or <code>CIRCLE</code> to cancel.</td></tr>
+            <tr><td><code>CROSS</code> on <code>MONITOR</code></td><td>Toggle MIC input monitoring.</td></tr>
+            <tr><td><code>CROSS</code> on <code>SYNC</code></td><td>Cycle RESAMPLE sync through Off, 1 Bar, 2 Bars, 4 Bars, and Manual.</td></tr>
+            <tr><td><code>CROSS</code> on <code>ROUTING</code></td><td>Choose <code>PRE FX</code> or <code>POST FX</code>. Post FX includes send returns and master effects.</td></tr>
+            <tr><td><code>DPAD DOWN</code>, then left/right or stick</td><td>Focus and adjust MIC gain.</td></tr>
+            <tr><td><code>CROSS</code> on <code>ARM</code></td><td>Arm immediate or synchronized capture.</td></tr>
+            <tr><td><code>CROSS</code> while armed or recording</td><td>Disarm or stop recording.</td></tr>
             <tr><td><code>CIRCLE</code></td><td>Cancel without replacing the current sample.</td></tr>
             <tr><td><code>START</code></td><td>Play/stop unless the recorder is armed in a state where transport must not be interrupted.</td></tr>
             </tbody></table></div>
@@ -353,11 +406,11 @@
             <p>After recording or opening an assigned sample, DS-8 shows a crop editor.</p>
             <div class="manual-table-wrap"><table>
             <thead><tr><th>Control</th><th>Action</th></tr></thead><tbody>
-            <tr><td><code>DPAD UP/DOWN</code></td><td>Choose <code>IN</code> or <code>OUT</code>.</td></tr>
+            <tr><td><code>DPAD UP/DOWN</code></td><td>Choose the active marker. Melodic samples begin with <code>LOOP START</code>, <code>LOOP END</code>, and <code>XFADE</code>, followed by <code>IN</code> and <code>OUT</code>.</td></tr>
             <tr><td><code>DPAD LEFT/RIGHT</code></td><td>Fine-move the selected marker in the zoom view.</td></tr>
             <tr><td>Stick left/right</td><td>Move the marker coarsely in the overview.</td></tr>
             <tr><td><code>L</code> / <code>R</code></td><td>Switch pending sample type between one-shot and beat-slicer where available.</td></tr>
-            <tr><td><code>TRIANGLE</code></td><td>Preview the cropped range.</td></tr>
+            <tr><td><code>TRIANGLE</code></td><td>Preview the cropped range. Melodic preview continues through several sustain-loop passes so you can hear the crossfade.</td></tr>
             <tr><td><code>CROSS</code></td><td>Take the crop. One-shots assign immediately; beat-slicer advances to slicing.</td></tr>
             <tr><td><code>SQUARE</code></td><td>Record a replacement take.</td></tr>
             <tr><td><code>CIRCLE</code></td><td>Cancel without replacing the assigned sample.</td></tr>
@@ -371,6 +424,14 @@
             <tr><td>Global slice actions</td><td><code>L</code> / <code>R</code> switches between method controls and waveform row; <code>CROSS</code> adds a cue from the add cursor; <code>SQUARE</code> deletes the focused cue; <code>TRIANGLE</code> previews the current slice; <code>SELECT</code> assigns; <code>CIRCLE</code> cancels.</td></tr>
             </tbody></table></div>
             <p>Slice modes are <code>MANUAL</code>, <code>GRID</code>, and <code>TRANSIENT</code>. Grid values are <code>4</code>, <code>8</code>, <code>12</code>, <code>16</code>, <code>24</code>, and <code>32</code>; transient values are <code>LOW</code>, <code>MID</code>, and <code>HIGH</code>. Cue 1 is fixed at the beginning of the sample.</p>
+            <h3 id="direct-slice-placement">Direct BEATSLICER Slice Placement</h3>
+            <p>To choose the exact slice played by a sequencer step, hold <code>CROSS</code> on that step. The <code>SLICE TRIGGER</code> picker opens as a 4x4 grid:</p>
+            <ul>
+              <li>Use <code>DPAD</code> to select and preview a slice.</li>
+              <li>Use <code>L</code> / <code>R</code> to move through additional 16-slice ranges.</li>
+              <li>Release <code>CROSS</code> to assign the slice, or press <code>CIRCLE</code> to cancel.</li>
+              <li>Assignments appear as <code>S01</code>-style labels in the Sequencer and Pattern Navigator and participate in undo/redo.</li>
+            </ul>
             <h2 id="playlist-and-performance">Playlist and Performance</h2>
             <p>Use the pattern/playlist switch in Transport to enter Playlist view. If the playlist has rows, focus enters the first actionable table cell. If it is empty, focus lands on the add-pattern transport control.</p>
             <p>Playlist table controls:</p>
@@ -378,15 +439,17 @@
             <thead><tr><th>Focus</th><th>Action</th></tr></thead><tbody>
             <tr><td>Row launch cell</td><td><code>CROSS</code> launches or stops the row.</td></tr>
             <tr><td>Pattern cell</td><td><code>SQUARE</code> opens the pattern picker. Hold <code>SQUARE</code> for momentary picker behavior.</td></tr>
+            <tr><td>Scene cell</td><td><code>SQUARE</code> opens the scene chooser. Pick an occupied scene or <code>NONE</code>; when the row starts, its scene launches with its saved transition settings.</td></tr>
             <tr><td>Mute cells</td><td><code>CROSS</code> toggles that lane mute for the row.</td></tr>
             <tr><td>Cycle cell</td><td><code>SQUARE</code> opens the repeat-count picker.</td></tr>
-            <tr><td>Any row</td><td><code>SQUARE</code> toggles row-move mode; then <code>DPAD UP/DOWN</code> reorders rows; <code>SQUARE</code> exits row-move mode.</td></tr>
-            <tr><td>Touch/tap</td><td>Tapping launch and mute cells uses the same action as focusing and pressing the button.</td></tr>
+            <tr><td>Other row cells</td><td><code>SQUARE</code> toggles row-move mode; then <code>DPAD UP/DOWN</code> reorders rows; <code>SQUARE</code> exits row-move mode.</td></tr>
+            <tr><td>Touch/tap</td><td>Tapping launch and mute cells applies their action; tapping a scene cell opens its chooser.</td></tr>
             </tbody></table></div>
             <p>Playlist pickers:</p>
             <div class="manual-table-wrap"><table>
             <thead><tr><th>Picker</th><th>Controls</th></tr></thead><tbody>
             <tr><td>Pattern picker</td><td><code>DPAD</code> picks a pattern or row action, <code>L</code> / <code>R</code> changes pages, <code>SQUARE</code> or <code>CROSS</code> sets depending on the footer, <code>CIRCLE</code> cancels.</td></tr>
+            <tr><td>Scene picker</td><td><code>DPAD</code> picks an occupied scene or <code>NONE</code>, release <code>SQUARE</code> to set, <code>CIRCLE</code> cancels.</td></tr>
             <tr><td>Cycle picker</td><td><code>DPAD</code> picks repeat count or loop, release <code>SQUARE</code> to set, <code>CIRCLE</code> cancels.</td></tr>
             </tbody></table></div>
             <p>Press <code>L</code> / <code>R</code> while Playlist view is active to cycle focus between Transport, the playlist table, and XY performance.</p>
@@ -429,7 +492,7 @@
             <h3 id="record-a-sample">Record a Sample</h3>
             <ol>
             <li>Set a track to <code>SP</code>.</li>
-            <li>Choose <code>ONESHOT</code> or <code>BEATSLICER</code> with the <code>ENG</code> card.</li>
+            <li>Choose <code>ONESHOT</code>, <code>BEATSLICER</code>, <code>LOOPER</code>, or <code>MELODIC</code> with the <code>ENG</code> card.</li>
             <li>Focus <code>REC</code> and press <code>CROSS</code>.</li>
             <li>Pick MIC, RESAMPLE, or imported audio where available.</li>
             <li>Record, crop, preview, then assign.</li>
@@ -447,6 +510,8 @@
             <tr><td>Open step automation</td><td><code>TRIANGLE</code> on a sequencer step</td></tr>
             <tr><td>Track mute/solo actions</td><td><code>SQUARE</code> in sequencer</td></tr>
             <tr><td>Lane copy/clear actions</td><td><code>CIRCLE</code> in sequencer</td></tr>
+            <tr><td>Open Pattern Navigator</td><td>Hold <code>L</code> + <code>R</code> in sequencer</td></tr>
+            <tr><td>Assign a BEATSLICER slice</td><td>Hold <code>CROSS</code> on a step, choose a slice, then release <code>CROSS</code></td></tr>
             <tr><td>Edit parameter value</td><td>Stick left/right</td></tr>
             <tr><td>Precision edit</td><td>Hold <code>SQUARE</code>, then <code>DPAD LEFT/RIGHT</code></td></tr>
             <tr><td>Save/load project</td><td><code>SELECT</code> -&gt; <code>LOAD/SAVE</code></td></tr>
@@ -466,7 +531,7 @@
           <a href="../index.html" class="flex items-center gap-3">
             <img src="../assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
           </a>
-          <p class="text-sm text-[#b4b4b4] mt-3">DS-8 Drumstream user manual v0.6.</p>
+          <p class="text-sm text-[#b4b4b4] mt-3">DS-8 Drumstream user manual v0.7.</p>
         </div>
         <div class="flex flex-wrap gap-4 text-sm text-[#b4b4b4]">
           <a href="../ds8.html" class="hover:text-white transition-colors">DS-8 product page</a>
