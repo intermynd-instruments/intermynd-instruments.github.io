@@ -247,7 +247,15 @@
             <tr><td>USB MIDI</td><td>Clock and transport</td><td>Timing Clock, Start, Continue, and Stop for external synchronization.</td></tr>
             </tbody></table></div>
             <h3 id="usb-host-mode">USB Host Mode for DJ Output</h3>
-            <p>Choose <code>CONNECT USB INTERFACE</code> when the Vita should act as host for a class-compliant UAC1 mixer or sound card. A four-output interface receives MASTER on channels 1/2 and CUE on 3/4. With a stereo interface, MASTER goes to USB and the Vita headphone output becomes CUE. Handheld Vita models need OTG role wiring and external power; PSTV can use its host port. The current driver supports 48 kHz two- or four-channel UAC1 playback in signed 16- or 24-bit PCM. UAC2 is not supported.</p>
+            <p>Choose <code>CONNECT USB INTERFACE</code> when the Vita should act as host for a class-compliant UAC1 mixer or sound card. A four-output interface receives MASTER on channels 1/2 and CUE on 3/4. With a stereo interface, MASTER goes to USB and the Vita headphone output becomes CUE. Handheld Vita models require the correct OTG host cable or adapter; PSTV can use its host port. The current driver supports 48 kHz two- or four-channel UAC1 playback in signed 16- or 24-bit PCM. UAC2 is not supported.</p>
+            <div class="manual-callout">
+              <h3>USB Host Hardware and Power Safety</h3>
+              <ul>
+                <li>USB Host mode on a handheld Vita requires an OTG host cable or adapter made for your Vita model. A Vita Slim (PCH-2000) can use a micro-USB OTG cable or adapter such as this <a href="https://www.amazon.sg/UGREEN-Adapter-Android-Adaptor-compatible/dp/B00LN3LQKQ/" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#6f26de] underline decoration-[#6f26de] underline-offset-2 hover:text-black">UGREEN micro-USB OTG adapter</a>.</li>
+                <li>Do not rely on the Vita to power a USB sound card that draws more current than the Vita can safely provide. Use the sound card's own external power input or connect it through a powered USB hub.</li>
+                <li>The recommended handheld setup is: Vita &rarr; correct OTG cable or adapter &rarr; powered USB hub &rarr; USB sound card. This reduces the risk of power-related instability or damage to your Vita.</li>
+              </ul>
+            </div>
             <p>If the kernel plugin is missing or incompatible, DS-8 continues to run but USB audio and USB MIDI are unavailable.</p>
             <h3 id="remove-or-recover-the-plugin">Remove or Recover the Plugin</h3>
             <ol>
