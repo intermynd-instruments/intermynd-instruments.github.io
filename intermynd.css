@@ -3,12 +3,21 @@
    v1.0
    ========================================================================== */
 
-/* --- Font Face — Graxebeosa (display / pixel) ----------------------------- */
+/* --- Font Face — Intermynd (display) -------------------------------------- */
 @font-face {
-  font-family: 'Pixel';
-  src: url('Nexmod-Regular.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'Intermynd';
+  src: url('assets/fonts/Intermynd-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intermynd';
+  src: url('assets/fonts/Intermynd-Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 /* --- Design Tokens -------------------------------------------------------- */
@@ -36,7 +45,7 @@
 
   /* Typography */
   --font-sans:    'Geist', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-display: 'Pixel', monospace;
+  --font-display: 'Intermynd', 'Geist', system-ui, sans-serif;
 }
 
 /* --- Background Patterns -------------------------------------------------- */

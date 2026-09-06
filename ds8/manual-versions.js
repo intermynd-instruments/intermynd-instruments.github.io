@@ -1,5 +1,9 @@
 const ds8ManualVersions = [
   {
+    version: '0.8',
+    path: 'ds8-manual-v0.8.html',
+  },
+  {
     version: '0.7',
     path: 'ds8-manual-v0.7.html',
   },
