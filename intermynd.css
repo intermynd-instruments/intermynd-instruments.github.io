@@ -525,6 +525,20 @@ html .border-l {
   margin-bottom: 0;
 }
 
+.manual-callout.manual-warning {
+  border: 1px solid #b42318;
+  border-left: 6px solid #b42318;
+  background: #fff1f0;
+}
+
+.manual-callout.manual-warning h3 {
+  color: #9f1c12;
+}
+
+.manual-callout.manual-warning strong {
+  color: #7a271a;
+}
+
 .manual-release-summary {
   margin: 2rem 0 3rem;
   border: 1px solid #6f26de;
