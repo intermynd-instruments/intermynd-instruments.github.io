@@ -14,21 +14,21 @@
   <link rel="icon" href="assets/intermynd-logomark-purple.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
-            display: ['Intermynd', 'Geist', 'system-ui', 'sans-serif'],
+            sans: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+            display: ['Intermynd', 'JetBrains Mono', 'ui-monospace', 'monospace'],
           },
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="intermynd.css?v=20260906-3">
+  <link rel="stylesheet" href="intermynd.css?v=20260913-14">
 </head>
 <body class="bg-white text-black font-sans antialiased">
 
@@ -71,7 +71,7 @@
         <h1 class="mb-8 sm:mb-12">
           <img src="assets/intermynd-logotype-white.svg" alt="Intermynd Instruments" class="w-full max-w-[64rem] h-auto">
         </h1>
-        <p class="text-lg sm:text-xl lg:text-2xl text-white max-w-2xl mb-4 font-light leading-relaxed">
+        <p class="text-lg sm:text-xl lg:text-2xl text-white max-w-2xl sm:max-w-none sm:whitespace-nowrap mb-4 font-light leading-relaxed uppercase">
           Workflow-first instruments for the connected mind.
         </p>
         <p class="text-sm sm:text-base text-[#b4b4b4] max-w-xl mb-12 leading-relaxed">
@@ -311,7 +311,7 @@
             <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
           </a>
           <p class="text-sm text-[#b4b4b4] mt-3 max-w-xs leading-relaxed">
-            Workflow-first instruments for the connected mind.
+            Workflow-first instruments<br>for the connected mind.
           </p>
         </div>
         <div>

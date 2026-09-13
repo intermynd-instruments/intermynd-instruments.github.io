@@ -39,13 +39,107 @@
   /* Deliberately softer than the core palette for non-structural dividers. */
   --color-divider:       rgba(180, 180, 180, 0.24);
 
-  --color-text-heading:  #000000;
-  --color-text-body:     #000000;
+  --color-text-heading:  #222222;
+  --color-text-body:     #222222;
   --color-text-muted:    #b4b4b4;
 
   /* Typography */
-  --font-sans:    'Geist', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-display: 'Intermynd', 'Geist', system-ui, sans-serif;
+  --font-sans:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-display: 'Intermynd', 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  letter-spacing: -0.02em !important;
+  font-weight: 450;
+  text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a.rounded-full {
+  text-transform: uppercase;
+}
+
+/* Use a softer near-black on light surfaces while preserving true black elsewhere. */
+.bg-white {
+  --surface-text-black: var(--color-text-body);
+}
+
+.bg-black {
+  --surface-text-black: #000000;
+}
+
+.text-black {
+  color: var(--surface-text-black, #000000) !important;
+}
+
+/* A half-step weight lift keeps the mono typography crisp without turning bold. */
+.font-light {
+  font-weight: 350 !important;
+}
+
+.font-medium {
+  font-weight: 550 !important;
+}
+
+.font-semibold {
+  font-weight: 650 !important;
+}
+
+.font-bold {
+  font-weight: 750 !important;
+}
+
+.font-extrabold,
+.font-black {
+  font-weight: 800 !important;
+}
+
+/* Keep intentional tracking treatments, but tune them for the wider mono face. */
+.tracking-tight {
+  letter-spacing: -0.04em !important;
+}
+
+.tracking-wide {
+  letter-spacing: 0.01em !important;
+}
+
+.tracking-\[0\.1em\] {
+  letter-spacing: 0.07em !important;
+}
+
+.tracking-\[0\.15em\] {
+  letter-spacing: 0.1em !important;
+}
+
+.tracking-\[0\.18em\] {
+  letter-spacing: 0.12em !important;
+}
+
+.tracking-\[0\.2em\] {
+  letter-spacing: 0.14em !important;
+}
+
+/* Keep all interface copy on one consistent tracking rhythm. */
+body * {
+  letter-spacing: inherit !important;
+}
+
+body *[class] {
+  letter-spacing: inherit !important;
+}
+
+/* Compact labels and controls need neutral spacing at small sizes. */
+body .text-xs,
+body .text-sm,
+body .text-\[10px\],
+body button {
+  letter-spacing: 0 !important;
 }
 
 /* --- Background Patterns -------------------------------------------------- */
@@ -148,9 +242,9 @@ html .border-l {
 /* / Section Name ■ */
 .section-label {
   font-size:    0.75rem;    /* text-xs */
-  font-weight:  600;
+  font-weight:  650;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   color: var(--color-primary);
 }
 
@@ -416,7 +510,7 @@ html .border-l {
   color: #b4b4b4;
   font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -568,7 +662,7 @@ html .border-l {
   color: var(--color-primary);
   font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -737,7 +831,7 @@ html .border-l {
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
 }
 
 .manual-table-wrap tr:last-child td {
