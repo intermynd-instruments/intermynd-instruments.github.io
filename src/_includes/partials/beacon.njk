@@ -1,0 +1,4 @@
+{%- if site.cloudflareBeaconToken %}
+{# Cloudflare Web Analytics. Token is public by design: it ships in page source. #}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflareBeaconToken }}"}'></script>
+{%- endif %}

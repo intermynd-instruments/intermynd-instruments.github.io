@@ -1,0 +1,82 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Deploying to Pages needs these scopes; nothing else is granted.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time, in order (do not cancel: the cache purge in the
+# deploy job only makes sense for the last completed deploy).
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          # Eleventy writes the publishable site here (see eleventy.config.js).
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      # GitHub Pages is behind Cloudflare, so after every deploy the Cloudflare
+      # cache must be purged or visitors keep getting the previous build.
+      # Adding CLOUDFLARE_API_TOKEN as a repository secret enables this step
+      # (Zone -> Cache Purge -> Purge, scoped to intermynd-instruments.com).
+      # Without the secret the deploy still succeeds; the purge is skipped with
+      # a warning instead.
+      - name: Purge Cloudflare cache
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN is not set — skipping Cloudflare cache purge."
+            exit 0
+          fi
+
+          RESPONSE=$(curl -sS --fail-with-body -X POST \
+            "https://api.cloudflare.com/client/v4/zones/3372f90cf6eb9c5a2ab3fd77654b700d/purge_cache" \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything": true}' 2>&1) || {
+            echo "::error::Cloudflare cache purge request failed."
+            echo "$RESPONSE"
+            exit 1
+          }
+
+          if ! grep -q '"success":true' <<<"$RESPONSE"; then
+            echo "::error::Cloudflare cache purge was not successful."
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+          echo "Cloudflare cache purged."

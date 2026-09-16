@@ -1,0 +1,32 @@
+<script>
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heroVideo.play();
+          heroVideo.classList.remove('opacity-0');
+          videoObserver.unobserve(heroVideo);
+        }
+      });
+    }, { threshold: 0.3 });
+    videoObserver.observe(heroVideo);
+  }
+
+  const mediaSlot = document.getElementById('media-slot');
+  if (mediaSlot) {
+    mediaSlot.addEventListener('click', () => {
+      const embedUrl = mediaSlot.dataset.videoEmbed;
+      if (!embedUrl) return;
+      mediaSlot.outerHTML = `
+        <iframe
+          src="${embedUrl}"
+          title="DS-8 demo video"
+          class="absolute inset-0 h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      `;
+    });
+  }
+</script>

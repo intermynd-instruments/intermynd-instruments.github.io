@@ -1,72 +1,109 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DS-8 Drumstream is a homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.">
-  <meta property="og:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
-  <meta property="og:description" content="Eight drum tracks, sampling, USB multitrack audio, arranger mode, Live FX, Step FX, and portable sequencing on modified PS Vita systems.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="ds8.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DS-8 Drumstream - Homebrew groovebox for PS Vita">
-  <meta name="twitter:description" content="A PS Vita groovebox with synthesis, sampling, USB multitrack audio, arranger mode, and live performance effects.">
-  <title>DS-8 Drumstream - Intermynd Instruments</title>
-  <link rel="icon" href="assets/intermynd-logomark-purple.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet">
-  <link rel="preload" href="assets/fonts/Intermynd-Regular.ttf?v=20260906-2" as="font" type="font/ttf" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-            display: ['Intermynd', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-          },
-        }
-      }
+---json
+{
+  "title": "DS-8 Drumstream - Intermynd Instruments",
+  "description": "DS-8 Drumstream is a homebrew drum synthesizer, sampler, and groovebox for modified PS Vita systems.",
+  "ogTitle": "DS-8 Drumstream - Homebrew groovebox for PS Vita",
+  "ogDescription": "Eight drum tracks, sampling, USB multitrack audio, arranger mode, Live FX, Step FX, and portable sequencing on modified PS Vita systems.",
+  "ogImage": "/ds8.png",
+  "twitterTitle": "DS-8 Drumstream - Homebrew groovebox for PS Vita",
+  "twitterDescription": "A PS Vita groovebox with synthesis, sampling, USB multitrack audio, arranger mode, and live performance effects.",
+  "permalink": "/ds8.html",
+  "reveal": true,
+  "preloadDisplayFont": true,
+  "navLinks": [
+    {
+      "href": "/#products",
+      "label": "Products"
+    },
+    {
+      "href": "#sampler",
+      "label": "Sampler"
+    },
+    {
+      "href": "#features",
+      "label": "Features"
+    },
+    {
+      "href": "/ds8/manual.html",
+      "label": "Manual"
+    },
+    {
+      "href": "#disclaimer",
+      "label": "Disclaimer"
     }
-  </script>
-  <link rel="stylesheet" href="intermynd.css?v=20260913-14">
-</head>
-<body class="bg-white text-black font-sans antialiased">
+  ],
+  "navCta": {
+    "href": "https://intermynd-instruments.itch.io/ds-8",
+    "label": "Download on Itch",
+    "external": true
+  },
+  "footerColumns": [
+    {
+      "label": "DS-8",
+      "links": [
+        {
+          "href": "#overview",
+          "label": "Overview"
+        },
+        {
+          "href": "#sampler",
+          "label": "Sampler"
+        },
+        {
+          "href": "#features",
+          "label": "Features"
+        },
+        {
+          "href": "/ds8/manual.html",
+          "label": "User manual"
+        }
+      ]
+    },
+    {
+      "label": "Product",
+      "links": [
+        {
+          "href": "/#products",
+          "label": "All products"
+        },
+        {
+          "href": "https://intermynd-instruments.itch.io/ds-8",
+          "label": "Itch.io page",
+          "external": true
+        },
+        {
+          "href": "https://intermynd.redbubble.com",
+          "label": "Official merch shop",
+          "external": true
+        },
+        {
+          "href": "https://github.com/intermynd-instruments",
+          "label": "GitHub",
+          "external": true
+        },
+        {
+          "href": "https://github.com/intermynd-instruments/psvita-usb-audio-midi",
+          "label": "Open-source USB plugin",
+          "external": true
+        }
+      ]
+    },
+    {
+      "label": "Notice",
+      "links": [
+        {
+          "href": "#disclaimer",
+          "label": "Homebrew disclaimer"
+        }
+      ]
+    }
+  ]
+}
+---
+{% extends "layouts/base.njk" %}
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
-    <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center">
-        <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#b4b4b4]">
-        <a href="index.html#products" class="hover:text-white transition-colors">Products</a>
-        <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
-        <a href="#features" class="hover:text-white transition-colors">Features</a>
-        <a href="ds8/manual.html" class="hover:text-white transition-colors">Manual</a>
-        <a href="#disclaimer" class="hover:text-white transition-colors">Disclaimer</a>
-      </div>
-      <div class="hidden md:flex items-center gap-4">
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
-      </div>
-      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
-        <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
-      </button>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#b4b4b4] bg-[#6f26de]">
-      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-[#b4b4b4]">
-        <a href="index.html#products" class="hover:text-white transition-colors" onclick="closeMenu()">Products</a>
-        <a href="#sampler" class="hover:text-white transition-colors" onclick="closeMenu()">Sampler</a>
-        <a href="#features" class="hover:text-white transition-colors" onclick="closeMenu()">Features</a>
-        <a href="ds8/manual.html" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
-        <a href="#disclaimer" class="hover:text-white transition-colors" onclick="closeMenu()">Disclaimer</a>
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
-      </div>
-    </div>
-  </header>
-
+{% block body %}
+{% raw %}
   <main>
     <section class="pt-16 relative bg-black text-white">
       <div class="absolute inset-0 dot-grid"></div>
@@ -82,8 +119,8 @@
                 loop
                 class="relative z-10 w-full h-auto object-contain opacity-0 transition-opacity duration-1000"
               >
-                <source src="img/vid.webm" type="video/webm">
-                <source src="img/vid.mp4" type="video/mp4">
+                <source src="/img/vid.webm" type="video/webm">
+                <source src="/img/vid.mp4" type="video/mp4">
               </video>
               <div class="ds8-pulse-ring ds8-pulse-ring-one"></div>
               <div class="ds8-pulse-ring ds8-pulse-ring-two"></div>
@@ -110,7 +147,7 @@
               <a href="#overview" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">
                 Explore DS-8
               </a>
-              <a href="ds8/manual.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">
+              <a href="/ds8/manual.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">
                 User Manual
               </a>
             </div>
@@ -174,7 +211,7 @@
               aria-label="Play DS-8 demo video"
               data-video-embed="https://www.youtube.com/embed/CkVb2TvM700?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=1"
             >
-              <img src="img/ds8-slicer.jpg" alt="DS-8 sampler slicer preview" class="absolute inset-0 h-full w-full object-cover">
+              <img src="/img/ds8-slicer.jpg" alt="DS-8 sampler slicer preview" class="absolute inset-0 h-full w-full object-cover">
               <div class="absolute inset-0 z-20 flex items-center justify-center">
                 <span class="inline-flex items-center gap-3 rounded-full border border-[#b4b4b4] bg-black px-8 py-3 text-sm font-bold tracking-[0.18em] uppercase text-white transition-colors group-hover:border-white group-hover:bg-black">
                   Play video
@@ -219,7 +256,7 @@
           </div>
           <div class="text-white">
             <figure class="space-y-4">
-              <img src="img/psvita-jungle.jpg" alt="DS-8 on a PS Vita in hand" class="w-full h-auto object-cover">
+              <img src="/img/psvita-jungle.jpg" alt="DS-8 on a PS Vita in hand" class="w-full h-auto object-cover">
             </figure>
           </div>
         </div>
@@ -312,7 +349,7 @@
                   Required USB kernel-plugin installation, USB audio and MIDI, PS Vita controls, transport, projects, sequencing, Step FX, sampling, arranger performance, and quick-reference tables.
                 </p>
               </div>
-              <a href="ds8/manual.html" class="inline-flex shrink-0 items-center justify-center gap-2 px-6 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-black transition-colors text-sm">
+              <a href="/ds8/manual.html" class="inline-flex shrink-0 items-center justify-center gap-2 px-6 py-3 bg-[#6f26de] text-white font-semibold rounded-full hover:bg-black transition-colors text-sm">
                 Open manual
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
@@ -384,116 +421,7 @@
       </div>
     </section>
   </main>
+{% endraw %}
+{% endblock %}
 
-  <footer class="border-t border-[#b4b4b4] bg-black text-white">
-    <div class="w-full px-3 lg:px-16 py-16">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
-        <div class="lg:col-span-2">
-          <a href="index.html" class="flex items-center gap-3">
-            <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-          </a>
-          <p class="text-sm text-[#b4b4b4] mt-3 max-w-xs leading-relaxed">
-            Workflow-first instruments<br>for the connected mind.
-          </p>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ DS-8</p>
-          <div class="flex flex-col gap-2 text-sm text-[#b4b4b4]">
-            <a href="#overview" class="hover:text-white transition-colors">Overview</a>
-            <a href="#sampler" class="hover:text-white transition-colors">Sampler</a>
-            <a href="#features" class="hover:text-white transition-colors">Features</a>
-            <a href="ds8/manual.html" class="hover:text-white transition-colors">User manual</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Product</p>
-          <div class="flex flex-col gap-2 text-sm text-[#b4b4b4]">
-            <a href="index.html#products" class="hover:text-white transition-colors">All products</a>
-            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Itch.io page</a>
-            <a href="https://intermynd.redbubble.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Official merch shop</a>
-            <a href="https://github.com/intermynd-instruments" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-            <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Open-source USB plugin</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Notice</p>
-          <a href="#disclaimer" class="text-sm text-[#b4b4b4] hover:text-white transition-colors">Homebrew disclaimer</a>
-        </div>
-      </div>
-      <div class="border-t border-[#b4b4b4] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-[#b4b4b4]">Intermynd Instruments &copy; 2026</p>
-        <a href="#" class="text-xs text-[#b4b4b4] hover:text-white transition-colors flex items-center gap-1">
-          Back to top
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-      const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            heroVideo.play();
-            heroVideo.classList.remove('opacity-0');
-            videoObserver.unobserve(heroVideo);
-          }
-        });
-      }, { threshold: 0.3 });
-      videoObserver.observe(heroVideo);
-    }
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuBtn.classList.toggle('mobile-menu-open');
-    });
-    function closeMenu() {
-      mobileMenu.classList.add('hidden');
-      menuBtn.classList.remove('mobile-menu-open');
-    }
-
-    const fadeSections = document.querySelectorAll('.fade-section');
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    fadeSections.forEach(s => fadeObserver.observe(s));
-
-    const termLabels = document.querySelectorAll('.terminal-label');
-    const termObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('terminal-active'), 200);
-          termObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    termLabels.forEach(l => termObserver.observe(l));
-
-    const mediaSlot = document.getElementById('media-slot');
-    if (mediaSlot) {
-      mediaSlot.addEventListener('click', () => {
-        const embedUrl = mediaSlot.dataset.videoEmbed;
-        if (!embedUrl) return;
-        mediaSlot.outerHTML = `
-          <iframe
-            src="${embedUrl}"
-            title="DS-8 demo video"
-            class="absolute inset-0 h-full w-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        `;
-      });
-    }
-  </script>
-</body>
-</html>
+{% block scripts %}{% include "partials/scripts-ds8.njk" %}{% endblock %}

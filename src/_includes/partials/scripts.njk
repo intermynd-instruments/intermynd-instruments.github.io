@@ -1,0 +1,38 @@
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.classList.toggle('mobile-menu-open');
+  });
+  function closeMenu() {
+    mobileMenu?.classList.add('hidden');
+    menuBtn?.classList.remove('mobile-menu-open');
+  }
+{%- if reveal %}
+
+  // Section fade-in
+  const fadeSections = document.querySelectorAll('.fade-section');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeSections.forEach(s => fadeObserver.observe(s));
+
+  // Terminal label animations
+  const termLabels = document.querySelectorAll('.terminal-label');
+  const termObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('terminal-active'), 200);
+        termObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  termLabels.forEach(l => termObserver.observe(l));
+{%- endif %}
+</script>

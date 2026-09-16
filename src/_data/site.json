@@ -1,0 +1,13 @@
+{
+  "name": "Intermynd Instruments",
+  "url": "https://intermynd-instruments.com",
+  "year": 2026,
+  "cloudflareBeaconToken": "0e122fb83a7347d1a81970221720baaf",
+  "links": {
+    "itch": "https://intermynd-instruments.itch.io/ds-8",
+    "merch": "https://intermynd.redbubble.com",
+    "github": "https://github.com/intermynd-instruments",
+    "usbPlugin": "https://github.com/intermynd-instruments/psvita-usb-audio-midi",
+    "youtube": "https://www.youtube.com/@intermynd-instruments"
+  }
+}

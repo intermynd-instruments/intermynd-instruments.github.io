@@ -1,0 +1,22 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description }}">
+  <meta property="og:title" content="{{ ogTitle | default(title) }}">
+  <meta property="og:description" content="{{ ogDescription | default(description) }}">
+  <meta property="og:type" content="website">
+  {%- if ogImage %}
+  {# Absolute, so scrapers resolve it correctly. These used to be page-relative. #}
+  <meta property="og:image" content="{{ site.url }}{{ ogImage }}">
+  {%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) }}">
+  <meta name="twitter:description" content="{{ twitterDescription | default(ogDescription) | default(description) }}">
+  <title>{{ title }}</title>
+  <link rel="icon" href="/assets/intermynd-logomark-purple.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  {%- if preloadDisplayFont %}
+  <link rel="preload" href="/assets/fonts/Intermynd-Regular.ttf?v=20260906-2" as="font" type="font/ttf" crossorigin>
+  {%- endif %}
+  <link rel="stylesheet" href="{{ css.href }}">
+</head>

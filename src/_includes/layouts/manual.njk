@@ -1,0 +1,74 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+<main>
+  <section class="pt-16 bg-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid-primary opacity-70"></div>
+    <div class="w-full px-3 lg:px-16 py-20 sm:py-24 lg:py-28 relative z-10">
+      <div class="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-end">
+        <div>
+          <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-5">/ Versioned documentation</p>
+          <h1 class="font-display text-[clamp(2.8rem,10vw,9rem)] leading-[0.82] text-white mb-8">DS-8 USER<br>MANUAL</h1>
+          <p class="text-xl sm:text-2xl text-white max-w-3xl font-light leading-tight mb-6">
+            {{ heroLede }}
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
+              Read v{{ displayVersion }}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
+          </div>
+        </div>
+        <aside class="manual-version-panel border border-[#b4b4b4] bg-black p-6 sm:p-8">
+          <img src="/ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
+          <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#6f26de] mb-4">{{ panelEyebrow }}</p>
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="text-5xl font-black text-white">v{{ displayVersion }}</span>
+            <span class="text-sm text-[#b4b4b4]">HTML edition</span>
+          </div>
+          <p class="text-sm text-[#b4b4b4] leading-relaxed mb-5">{{ blurb }}</p>
+          <label for="manual-version" class="manual-version-label">Manual version</label>
+          <select id="manual-version" class="manual-version-select" aria-label="Choose a DS-8 manual version">
+            <option value="/ds8/manual.html"{% if manualVersion == "latest" %} selected{% endif %}>Latest (v{{ manuals[0].version }})</option>
+            <optgroup label="Versioned manuals">
+              {%- for manual in manuals %}
+              <option value="{{ manual.url }}"{% if manualVersion == manual.version %} selected{% endif %}>v{{ manual.version }}</option>
+              {%- endfor %}
+            </optgroup>
+          </select>
+          <a href="{{ site.links.itch }}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#6f26de] transition-colors">Download DS-8 on Itch.io</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="manual" class="manual-layout border-t border-[#b4b4b4] bg-white scroll-mt-20">
+    <div class="w-full px-3 lg:px-16 py-14 lg:py-20">
+      <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[18rem_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
+        <aside class="manual-toc lg:sticky lg:top-24">
+          <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4">/ Contents</p>
+          <nav aria-label="Manual contents" class="flex flex-col gap-1">
+            {%- for item in toc %}
+            <a href="{{ item.href }}" class="manual-toc-link">{{ item.label }}</a>
+            {%- endfor %}
+          </nav>
+        </aside>
+        <article class="manual-article min-w-0 w-full max-w-4xl">
+{% block article %}{% endblock %}
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Options are rendered at build time; this only handles navigation.
+  const manualVersionSelect = document.getElementById('manual-version');
+  manualVersionSelect?.addEventListener('change', () => {
+    window.location.assign(manualVersionSelect.value);
+  });
+</script>
+{% endblock %}

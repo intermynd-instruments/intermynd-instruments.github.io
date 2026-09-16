@@ -1,0 +1,31 @@
+<footer class="border-t border-[#b4b4b4] bg-black text-white">
+  <div class="w-full px-3 lg:px-16 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+      <div class="lg:col-span-2">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
+        </a>
+        <p class="text-sm text-[#b4b4b4] mt-3 max-w-xs leading-relaxed">
+          Workflow-first instruments<br>for the connected mind.
+        </p>
+      </div>
+      {%- for column in footerColumns %}
+      <div>
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ {{ column.label }}</p>
+        <div class="flex flex-col gap-2 text-sm text-[#b4b4b4]">
+          {%- for link in column.links %}
+          <a href="{{ link.href }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="hover:text-white transition-colors">{{ link.label }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="border-t border-[#b4b4b4] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[#b4b4b4]">Intermynd Instruments &copy; {{ site.year }}</p>
+      <a href="#" class="text-xs text-[#b4b4b4] hover:text-white transition-colors flex items-center gap-1">
+        Back to top
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>

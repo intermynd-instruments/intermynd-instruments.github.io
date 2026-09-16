@@ -1,67 +1,90 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Workflow-first instruments for the connected mind. Explore DS-8 Drumstream, a drum synthesizer, sampler, sequencer, and performance groovebox for PS Vita.">
-  <meta property="og:title" content="Intermynd Instruments — Workflow-first instruments">
-  <meta property="og:description" content="Explore DS-8 Drumstream for PS Vita and the workflow-first approach behind Intermynd Instruments.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Intermynd Instruments — Workflow-first instruments">
-  <meta name="twitter:description" content="Explore DS-8 Drumstream for PS Vita and the workflow-first approach behind Intermynd Instruments.">
-  <title>Intermynd Instruments — Workflow-first musical instruments</title>
-  <link rel="icon" href="assets/intermynd-logomark-purple.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-            display: ['Intermynd', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-          },
-        }
-      }
+---json
+{
+  "title": "Intermynd Instruments — Workflow-first musical instruments",
+  "description": "Workflow-first instruments for the connected mind. Explore DS-8 Drumstream, a drum synthesizer, sampler, sequencer, and performance groovebox for PS Vita.",
+  "ogTitle": "Intermynd Instruments — Workflow-first instruments",
+  "ogDescription": "Explore DS-8 Drumstream for PS Vita and the workflow-first approach behind Intermynd Instruments.",
+  "twitterTitle": "Intermynd Instruments — Workflow-first instruments",
+  "twitterDescription": "Explore DS-8 Drumstream for PS Vita and the workflow-first approach behind Intermynd Instruments.",
+  "permalink": "/index.html",
+  "reveal": true,
+  "navLinks": [
+    {
+      "href": "#products",
+      "label": "Products"
+    },
+    {
+      "href": "#approach",
+      "label": "Approach"
+    },
+    {
+      "href": "#development",
+      "label": "In development"
     }
-  </script>
-  <link rel="stylesheet" href="intermynd.css?v=20260913-14">
-</head>
-<body class="bg-white text-black font-sans antialiased">
+  ],
+  "navCta": {
+    "href": "#interest",
+    "label": "Hardware updates"
+  },
+  "footerColumns": [
+    {
+      "label": "Navigate",
+      "links": [
+        {
+          "href": "#products",
+          "label": "Products"
+        },
+        {
+          "href": "#approach",
+          "label": "Approach"
+        },
+        {
+          "href": "#development",
+          "label": "In development"
+        }
+      ]
+    },
+    {
+      "label": "Connect",
+      "links": [
+        {
+          "href": "https://intermynd.redbubble.com",
+          "label": "Official merch shop",
+          "external": true
+        },
+        {
+          "href": "https://github.com/intermynd-instruments",
+          "label": "GitHub",
+          "external": true
+        },
+        {
+          "href": "https://github.com/intermynd-instruments/psvita-usb-audio-midi",
+          "label": "Open-source USB plugin",
+          "external": true
+        },
+        {
+          "href": "https://www.youtube.com/@intermynd-instruments",
+          "label": "Subscribe on YouTube",
+          "external": true
+        }
+      ]
+    },
+    {
+      "label": "Stay in touch",
+      "links": [
+        {
+          "href": "#interest",
+          "label": "Hardware interest"
+        }
+      ]
+    }
+  ]
+}
+---
+{% extends "layouts/base.njk" %}
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
-    <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center">
-        <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#b4b4b4]">
-        <a href="#products" class="hover:text-white transition-colors">Products</a>
-        <a href="#approach" class="hover:text-white transition-colors">Approach</a>
-        <a href="#development" class="hover:text-white transition-colors">In development</a>
-      </div>
-      <div class="hidden md:flex items-center gap-4">
-        <a href="#interest" class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Hardware updates</a>
-      </div>
-      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
-        <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
-      </button>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#b4b4b4] bg-[#6f26de]">
-      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-[#b4b4b4]">
-        <a href="#products" class="hover:text-white transition-colors" onclick="closeMenu()">Products</a>
-        <a href="#approach" class="hover:text-white transition-colors" onclick="closeMenu()">Approach</a>
-        <a href="#development" class="hover:text-white transition-colors" onclick="closeMenu()">In development</a>
-        <a href="#interest" class="inline-flex self-start px-4 py-2 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Hardware updates</a>
-      </div>
-    </div>
-  </header>
-
+{% block body %}
+{% raw %}
   <!-- Hero -->
   <section class="pt-16 relative bg-[#6f26de]">
     <div class="absolute inset-0 dot-grid"></div>
@@ -69,7 +92,7 @@
       <div>
         <span class="hero-blink text-[#b4b4b4] text-xl sm:text-2xl mb-4 block">■</span>
         <h1 class="mb-8 sm:mb-12">
-          <img src="assets/intermynd-logotype-white.svg" alt="Intermynd Instruments" class="w-full max-w-[64rem] h-auto">
+          <img src="/assets/intermynd-logotype-white.svg" alt="Intermynd Instruments" class="w-full max-w-[64rem] h-auto">
         </h1>
         <p class="text-lg sm:text-xl lg:text-2xl text-white max-w-2xl sm:max-w-none sm:whitespace-nowrap mb-4 font-light leading-relaxed uppercase">
           Workflow-first instruments for the connected mind.
@@ -78,7 +101,7 @@
           Start with DS-8: an eight-track drum synthesizer, sampler, sequencer, and performance groovebox for PS Vita. More instruments are in development.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="ds8.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
+          <a href="/ds8.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
             Explore DS-8
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -106,8 +129,8 @@
         <!-- Drumstream -->
         <div class="group">
           <div class="aspect-square flex items-center justify-center bg-black p-6 sm:p-8 lg:p-10 relative overflow-hidden">
-            <img src="ds8.png" alt="DS-8 Drumstream" class="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-0">
-            <img src="ds8.png" alt="DS-8 Drumstream zoomed" class="absolute inset-0 w-full h-full object-contain p-2 sm:p-3 lg:p-4 opacity-0 scale-150 transition-opacity duration-300 group-hover:opacity-100">
+            <img src="/ds8.png" alt="DS-8 Drumstream" class="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-0">
+            <img src="/ds8.png" alt="DS-8 Drumstream zoomed" class="absolute inset-0 w-full h-full object-contain p-2 sm:p-3 lg:p-4 opacity-0 scale-150 transition-opacity duration-300 group-hover:opacity-100">
           </div>
           <div class="border-t border-[#b4b4b4]"></div>
           <div class="p-6 sm:p-8 lg:p-10">
@@ -123,15 +146,15 @@
                 <span class="text-xl sm:text-2xl font-bold text-white">Free download</span>
                 <p class="text-xs text-[#b4b4b4] mt-1">Available on Itch.io</p>
               </div>
-              <a href="ds8.html" class="inline-flex items-center px-6 py-2.5 bg-[#6f26de] text-white text-xs font-bold tracking-[0.15em] uppercase whitespace-nowrap hover:bg-white hover:text-black transition-colors rounded-full">Find out more</a>
+              <a href="/ds8.html" class="inline-flex items-center px-6 py-2.5 bg-[#6f26de] text-white text-xs font-bold tracking-[0.15em] uppercase whitespace-nowrap hover:bg-white hover:text-black transition-colors rounded-full">Find out more</a>
             </div>
           </div>
         </div>
         <!-- Polydeck -->
         <div class="group polydeck-group">
           <div class="aspect-square flex items-center justify-center bg-[#dfdfdf] p-6 sm:p-8 lg:p-10 relative overflow-hidden">
-            <img src="pd12-top.jpeg" alt="Polydeck" class="polydeck-top w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-0">
-            <img src="pd12-closeup.jpeg" alt="Polydeck closeup" class="polydeck-closeup absolute inset-0 w-full h-full object-contain p-4 sm:p-5 lg:p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <img src="/pd12-top.jpeg" alt="Polydeck" class="polydeck-top w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-0">
+            <img src="/pd12-closeup.jpeg" alt="Polydeck closeup" class="polydeck-closeup absolute inset-0 w-full h-full object-contain p-4 sm:p-5 lg:p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div class="absolute left-1/2 -translate-x-1/2 bottom-3 flex gap-2 z-10">
               <button class="color-dot w-4 h-4 rounded-full border-2 border-white bg-black ring-2 ring-[#6f26de]" data-color="black" aria-label="Black finish"></button>
               <button class="color-dot w-4 h-4 rounded-full border-2 border-black bg-white" data-color="white" aria-label="White finish"></button>
@@ -303,178 +326,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-[#b4b4b4] bg-black text-white">
-    <div class="w-full px-3 lg:px-16 py-16">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
-        <div class="lg:col-span-2">
-          <a href="#" class="flex items-center gap-3">
-            <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-          </a>
-          <p class="text-sm text-[#b4b4b4] mt-3 max-w-xs leading-relaxed">
-            Workflow-first instruments<br>for the connected mind.
-          </p>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Navigate</p>
-          <div class="flex flex-col gap-2 text-sm text-[#b4b4b4]">
-            <a href="#products" class="hover:text-white transition-colors">Products</a>
-            <a href="#approach" class="hover:text-white transition-colors">Approach</a>
-            <a href="#development" class="hover:text-white transition-colors">In development</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Connect</p>
-          <div class="flex flex-col gap-2 text-sm text-[#b4b4b4]">
-            <a href="https://intermynd.redbubble.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Official merch shop</a>
-            <a href="https://github.com/intermynd-instruments" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-            <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Open-source USB plugin</a>
-            <a href="https://www.youtube.com/@intermynd-instruments" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Subscribe on YouTube</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-4">/ Stay in touch</p>
-          <a href="#interest" class="text-sm text-[#b4b4b4] hover:text-white transition-colors">Hardware interest</a>
-        </div>
-      </div>
-      <div class="border-t border-[#b4b4b4] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-[#b4b4b4]">Intermynd Instruments &copy; 2026</p>
-        <a href="#" class="text-xs text-[#b4b4b4] hover:text-white transition-colors flex items-center gap-1">
-          Back to top
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
+{% endraw %}
+{% endblock %}
 
-  <script>
-    const preorderConfig = {
-      formId: '1FAIpQLSfe2xR1AIReXivFOCHPhWrc5Ktr_Y6SwDIyHt7f_AppAZg-tw',
-      fields: {
-        country: '235803725',
-        product: '1870252213',
-      },
-    };
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuBtn.classList.toggle('mobile-menu-open');
-    });
-    function closeMenu() {
-      mobileMenu.classList.add('hidden');
-      menuBtn.classList.remove('mobile-menu-open');
-    }
-
-    // Section fade-in
-    const fadeSections = document.querySelectorAll('.fade-section');
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    fadeSections.forEach(s => fadeObserver.observe(s));
-
-    // Terminal label animations
-    const termLabels = document.querySelectorAll('.terminal-label');
-    const termObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('terminal-active'), 200);
-          termObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    termLabels.forEach(l => termObserver.observe(l));
-
-    // Polydeck color switcher
-    document.querySelectorAll('.polydeck-group').forEach(group => {
-      group.addEventListener('click', (e) => {
-        const dot = e.target.closest('.color-dot');
-        if (!dot) return;
-        const color = dot.dataset.color;
-        group.querySelectorAll('.color-dot').forEach(d => d.classList.remove('ring-2', 'ring-[#6f26de]'));
-        dot.classList.add('ring-2', 'ring-[#6f26de]');
-        const top = group.querySelector('.polydeck-top');
-        const closeup = group.querySelector('.polydeck-closeup');
-        if (color === 'white') {
-          top.src = 'pd12-top-white.jpg';
-          closeup.src = 'pd12-closeup-white.jpg';
-        } else {
-          top.src = 'pd12-top.jpeg';
-          closeup.src = 'pd12-closeup.jpeg';
-        }
-      });
-    });
-
-    // Mobile image cycle for Polydeck
-    if ('ontouchstart' in window || window.innerWidth < 768) {
-      const group = document.querySelector('.polydeck-group');
-      if (group) {
-        const top = group.querySelector('.polydeck-top');
-        const closeup = group.querySelector('.polydeck-closeup');
-        let showing = true;
-        setInterval(() => {
-          showing = !showing;
-          top.style.opacity = showing ? '1' : '0';
-          closeup.style.opacity = showing ? '0' : '1';
-        }, 2000);
-      }
-    }
-
-    const preorderForm = document.getElementById('preorder-form');
-    const preorderProduct = document.getElementById('preorder-product');
-    const preorderStatus = document.getElementById('preorder-status');
-    const preorderSubmit = document.getElementById('preorder-submit');
-    const preorderLinks = document.querySelectorAll('[data-preorder-product]');
-
-    function setPreorderStatus(message, tone = 'neutral') {
-      preorderStatus.textContent = message;
-      preorderStatus.className = 'min-h-[1.25rem] text-sm';
-      if (tone === 'success') preorderStatus.classList.add('text-[#6f26de]');
-      else if (tone === 'error') preorderStatus.classList.add('text-black');
-      else preorderStatus.classList.add('text-black');
-    }
-
-    function setSelectedProduct(product) {
-      if (!product) return;
-      const match = Array.from(preorderProduct.options).find(option => option.value === product);
-      if (match) preorderProduct.value = product;
-    }
-
-    preorderLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        setSelectedProduct(link.dataset.preorderProduct);
-      });
-    });
-
-    const requestedProduct = new URLSearchParams(window.location.search).get('product');
-    setSelectedProduct(requestedProduct);
-
-    preorderForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      if (!preorderForm.reportValidity()) return;
-
-      const { formId, fields } = preorderConfig;
-      const missingConfig = !formId || !fields.country || !fields.product;
-      if (missingConfig) {
-        setPreorderStatus('The interest form is not available yet. Please check back soon.', 'error');
-        return;
-      }
-
-      const params = new URLSearchParams({
-        [`entry.${fields.country}`]: document.getElementById('preorder-country').value.trim(),
-        [`entry.${fields.product}`]: preorderProduct.value,
-      });
-      const prefilledUrl = `https://docs.google.com/forms/d/e/${formId}/viewform?${params.toString()}`;
-
-      setPreorderStatus('Opening the interest form...');
-      window.location.href = prefilledUrl;
-    });
-  </script>
-</body>
-</html>
+{% block scripts %}{% include "partials/scripts-index.njk" %}{% endblock %}

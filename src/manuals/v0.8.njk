@@ -1,135 +1,86 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DS-8 Drumstream v0.8 user manual for PS Vita, including new navigation, DJ Mode, PCM POLY, 16-slot LOOPER, performance workflows, and USB setup.">
-  <meta property="og:title" content="DS-8 User Manual v0.8 - Intermynd Instruments">
-  <meta property="og:description" content="DS-8 Drumstream v0.8 controls, new navigation, DJ Mode, PCM POLY, 16-slot LOOPER, sequencing, USB setup, and quick references.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="ds8.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DS-8 User Manual v0.8">
-  <meta name="twitter:description" content="Versioned DS-8 Drumstream v0.8 user manual for PS Vita.">
-  <title>DS-8 User Manual v0.8 - Intermynd Instruments</title>
-  <link rel="icon" href="assets/intermynd-logomark-purple.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet">
-  <link rel="preload" href="assets/fonts/Intermynd-Regular.ttf?v=20260906-2" as="font" type="font/ttf" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-            display: ['Intermynd', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-          },
-        }
-      }
+---json
+{
+  "title": "DS-8 User Manual v0.8 - Intermynd Instruments",
+  "description": "DS-8 Drumstream v0.8 user manual for PS Vita, including new navigation, DJ Mode, PCM POLY, 16-slot LOOPER, performance workflows, and USB setup.",
+  "ogTitle": "DS-8 User Manual v0.8 - Intermynd Instruments",
+  "ogDescription": "DS-8 Drumstream v0.8 controls, new navigation, DJ Mode, PCM POLY, 16-slot LOOPER, sequencing, USB setup, and quick references.",
+  "twitterTitle": "DS-8 User Manual v0.8",
+  "twitterDescription": "Versioned DS-8 Drumstream v0.8 user manual for PS Vita.",
+  "permalink": "/ds8-manual-v0.8.html",
+  "manualVersion": "0.8",
+  "panelEyebrow": "Versioned manual",
+  "heroLede": "Controls, the new navigation system, DJ Mode, synths, samplers, performance workflows, projects, and quick references for DS-8 Drumstream.",
+  "blurb": "The v0.8 manual covers the new global navigation system, two-deck DJ Mode, PCM POLY and GRANULAR engines, the 16-slot stereo LOOPER, Ableton Link, and the complete PS Vita workflow.",
+  "footerNote": "DS-8 Drumstream user manual v0.8.",
+  "toc": [
+    {
+      "href": "#whats-new-v0-8",
+      "label": "What's New in v0.8"
+    },
+    {
+      "href": "#core-ideas",
+      "label": "Core Ideas"
+    },
+    {
+      "href": "#starting-and-moving-around",
+      "label": "Starting and Moving Around"
+    },
+    {
+      "href": "#transport",
+      "label": "Transport"
+    },
+    {
+      "href": "#settings-and-projects",
+      "label": "Settings and Projects"
+    },
+    {
+      "href": "#usb-audio-and-midi",
+      "label": "USB Audio and MIDI"
+    },
+    {
+      "href": "#performance-and-credits",
+      "label": "Performance and Credits"
+    },
+    {
+      "href": "#sequencer",
+      "label": "Sequencer"
+    },
+    {
+      "href": "#step-automation",
+      "label": "Step Automation"
+    },
+    {
+      "href": "#voice-editing",
+      "label": "Voice Editing"
+    },
+    {
+      "href": "#sampler-workflow",
+      "label": "Sampler Workflow"
+    },
+    {
+      "href": "#playlist-and-performance",
+      "label": "Playlist and Performance"
+    },
+    {
+      "href": "#dj-mode",
+      "label": "DJ Mode"
+    },
+    {
+      "href": "#fast-workflows",
+      "label": "Fast Workflows"
+    },
+    {
+      "href": "#quick-reference",
+      "label": "Quick Reference"
     }
-  </script>
-  <link rel="stylesheet" href="intermynd.css?v=20260913-14">
-</head>
-<body class="bg-white text-black font-sans antialiased">
+  ]
+}
+---
+{% extends "layouts/manual.njk" %}
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#6f26de]">
-    <nav class="w-full px-3 lg:px-16 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center">
-        <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#b4b4b4]">
-        <a href="ds8.html" class="hover:text-white transition-colors">DS-8</a>
-        <a href="#manual" class="hover:text-white transition-colors">Manual</a>
-        <a href="#quick-reference" class="hover:text-white transition-colors">Quick Reference</a>
-      </div>
-      <div class="hidden md:flex items-center gap-4">
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">Download on Itch</a>
-      </div>
-      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
-        <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
-        <span class="hamburger-line hamburger-bot block w-6 h-[2px] bg-white rounded-full"></span>
-      </button>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#b4b4b4] bg-[#6f26de]">
-      <div class="px-6 py-6 flex flex-col gap-5 text-lg font-medium text-[#b4b4b4]">
-        <a href="ds8.html" class="hover:text-white transition-colors" onclick="closeMenu()">DS-8</a>
-        <a href="#manual" class="hover:text-white transition-colors" onclick="closeMenu()">Manual</a>
-        <a href="#quick-reference" class="hover:text-white transition-colors" onclick="closeMenu()">Quick Reference</a>
-        <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="inline-flex self-start px-4 py-2 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">Download on Itch</a>
-      </div>
-    </div>
-  </header>
+{% block article %}
+{% raw %}
 
-  <main>
-    <section class="pt-16 bg-black text-white relative overflow-hidden">
-      <div class="absolute inset-0 dot-grid-primary opacity-70"></div>
-      <div class="w-full px-3 lg:px-16 py-20 sm:py-24 lg:py-28 relative z-10">
-        <div class="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-20 items-end">
-          <div>
-            <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#6f26de] mb-5">/ Versioned documentation</p>
-            <h1 class="font-display text-[clamp(2.8rem,10vw,9rem)] leading-[0.82] text-white mb-8">DS-8 USER<br>MANUAL</h1>
-            <p class="text-xl sm:text-2xl text-white max-w-3xl font-light leading-tight mb-6">
-              Controls, the new navigation system, DJ Mode, synths, samplers, performance workflows, projects, and quick references for DS-8 Drumstream.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <a href="#manual" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#b4b4b4] transition-colors text-sm">
-                Read v0.8
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a href="ds8.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold">Back to DS-8</a>
-            </div>
-          </div>
-          <aside class="manual-version-panel border border-[#b4b4b4] bg-black p-6 sm:p-8">
-            <img src="ds8.png" alt="DS-8 Drumstream" class="w-full max-h-64 object-contain mb-8">
-            <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-[#6f26de] mb-4">Versioned manual</p>
-            <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-5xl font-black text-white">v0.8</span>
-              <span class="text-sm text-[#b4b4b4]">HTML edition</span>
-            </div>
-            <p class="text-sm text-[#b4b4b4] leading-relaxed mb-5">The v0.8 manual covers the new global navigation system, two-deck DJ Mode, PCM POLY and GRANULAR engines, the 16-slot stereo LOOPER, Ableton Link, and the complete PS Vita workflow.</p>
-            <label for="manual-version" class="manual-version-label">Manual version</label>
-            <select id="manual-version" class="manual-version-select" aria-label="Choose a DS-8 manual version" data-current-manual="0.8" data-site-root="">
-              <option value="ds8/manual.html">Latest (v0.8)</option>
-              <optgroup label="Versioned manuals">
-                <option value="ds8-manual-v0.8.html" selected>v0.8</option>
-                <option value="ds8-manual-v0.7.html">v0.7</option>
-                <option value="ds8-manual-v0.6.html">v0.6</option>
-                <option value="ds8-manual-v0.5.html">v0.5</option>
-              </optgroup>
-            </select>
-            <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#6f26de] transition-colors">Download DS-8 on Itch.io</a>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="manual" class="manual-layout border-t border-[#b4b4b4] bg-white scroll-mt-20">
-      <div class="w-full px-3 lg:px-16 py-14 lg:py-20">
-        <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[18rem_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
-          <aside class="manual-toc lg:sticky lg:top-24">
-            <p class="text-xs font-semibold text-[#6f26de] tracking-[0.2em] uppercase mb-4">/ Contents</p>
-            <nav aria-label="Manual contents" class="flex flex-col gap-1">
-              <a href="#whats-new-v0-8" class="manual-toc-link">What's New in v0.8</a>
-              <a href="#core-ideas" class="manual-toc-link">Core Ideas</a>
-              <a href="#starting-and-moving-around" class="manual-toc-link">Starting and Moving Around</a>
-              <a href="#transport" class="manual-toc-link">Transport</a>
-              <a href="#settings-and-projects" class="manual-toc-link">Settings and Projects</a>
-              <a href="#usb-audio-and-midi" class="manual-toc-link">USB Audio and MIDI</a>
-              <a href="#performance-and-credits" class="manual-toc-link">Performance and Credits</a>
-              <a href="#sequencer" class="manual-toc-link">Sequencer</a>
-              <a href="#step-automation" class="manual-toc-link">Step Automation</a>
-              <a href="#voice-editing" class="manual-toc-link">Voice Editing</a>
-              <a href="#sampler-workflow" class="manual-toc-link">Sampler Workflow</a>
-              <a href="#playlist-and-performance" class="manual-toc-link">Playlist and Performance</a>
-              <a href="#dj-mode" class="manual-toc-link">DJ Mode</a>
-              <a href="#fast-workflows" class="manual-toc-link">Fast Workflows</a>
-              <a href="#quick-reference" class="manual-toc-link">Quick Reference</a>
-            </nav>
-          </aside>
-          <article class="manual-article min-w-0 w-full max-w-4xl">
             <h1 id="ds-8-user-manual">DS-8 User Manual</h1>
             <p>This manual documents the main controls and workflows for using DS-8 on PS Vita. The UI is controlled by focus: move the focus to a section or control, then use the button shown in the footer to act on it.</p>
             <div class="manual-callout">
@@ -602,46 +553,5 @@
             <tr><td>Open Track Prep</td><td>Double-tap a loaded deck waveform</td></tr>
             <tr><td>Record sequencer to a deck</td><td>Double-tap an empty deck</td></tr>
             </tbody></table></div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-[#b4b4b4] bg-black text-white">
-    <div class="w-full px-3 lg:px-16 py-16">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div>
-          <a href="index.html" class="flex items-center gap-3">
-            <img src="assets/intermynd-combination-logo-white.svg" alt="Intermynd Instruments" class="h-8 w-auto">
-          </a>
-          <p class="text-sm text-[#b4b4b4] mt-3">DS-8 Drumstream user manual v0.8.</p>
-        </div>
-        <div class="flex flex-wrap gap-4 text-sm text-[#b4b4b4]">
-          <a href="ds8.html" class="hover:text-white transition-colors">DS-8 product page</a>
-          <a href="#manual" class="hover:text-white transition-colors">Back to top</a>
-          <a href="https://intermynd-instruments.itch.io/ds-8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Itch.io</a>
-          <a href="https://intermynd.redbubble.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Official merch shop</a>
-          <a href="https://github.com/intermynd-instruments" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-          <a href="https://github.com/intermynd-instruments/psvita-usb-audio-midi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Open-source USB plugin</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuBtn.classList.toggle('mobile-menu-open');
-    });
-    function closeMenu() {
-      mobileMenu.classList.add('hidden');
-      menuBtn.classList.remove('mobile-menu-open');
-    }
-
-  </script>
-  <script src="ds8/manual-versions.js?v=20260906-3"></script>
-</body>
-</html>
+{% endraw %}
+{% endblock %}

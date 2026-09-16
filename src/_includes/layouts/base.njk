@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+{% include "partials/head.njk" %}
+<body class="bg-white text-black font-sans antialiased">
+{% include "partials/nav.njk" %}
+{% block body %}{% endblock %}
+{% if footer == "compact" %}{% include "partials/footer-compact.njk" %}{% else %}{% include "partials/footer-columns.njk" %}{% endif %}
+{% include "partials/scripts.njk" %}
+{% block scripts %}{% endblock %}
+{% include "partials/beacon.njk" %}
+</body>
+</html>
