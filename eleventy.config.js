@@ -1,5 +1,16 @@
 import { minify } from "html-minifier-terser";
 
+/**
+ * @typedef {{ page: { outputPath?: string } }} EleventyContext
+ * @typedef {{
+ *   addPassthroughCopy: (copy: Record<string, string>) => void,
+ *   addTransform: (
+ *     name: string,
+ *     transform: (this: EleventyContext, content: string) => string | Promise<string>
+ *   ) => void
+ * }} EleventyConfig
+ */
+
 /** Face buttons the manuals reference as `<code>CROSS</code>` and friends. */
 const VITA_BUTTONS = {
   CROSS: { className: "vita-button-cross", label: "Cross" },
@@ -19,16 +30,56 @@ const ROOT_IMAGES = [
   "pd12-closeup-white.jpg",
 ];
 
-const MEDIA = [
-  "img/ds8-slicer.jpg",
-  "img/psvita-jungle.jpg",
-  "img/vid.mp4",
-  "img/vid.webm",
-];
+const MEDIA = ["img/ds8-slicer.jpg", "img/psvita-jungle.jpg", "img/vid.mp4", "img/vid.webm"];
 
 const JETBRAINS_MONO =
   "node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2";
 
+/**
+ * @this {EleventyContext}
+ * @param {string} content
+ * @returns {string}
+ */
+function renderVitaButtons(content) {
+  const outputPath = this.page.outputPath || "";
+  if (!outputPath.endsWith(".html") || !outputPath.includes("manual")) {
+    return content;
+  }
+
+  return content.replace(/<code>(CROSS|SQUARE|TRIANGLE|CIRCLE)<\/code>/g, (_match, control) => {
+    const button = VITA_BUTTONS[/** @type {keyof typeof VITA_BUTTONS} */ (control)];
+    return (
+      `<span class="vita-button-icon ${button.className}" role="img" ` +
+      `aria-label="${button.label} button" title="${button.label} button" ` +
+      `data-control="${control}"></span>`
+    );
+  });
+}
+
+/**
+ * @this {EleventyContext}
+ * @param {string} content
+ * @returns {Promise<string>}
+ */
+async function minifyHtml(content) {
+  if (!(this.page.outputPath || "").endsWith(".html")) {
+    return content;
+  }
+
+  return minify(content, {
+    collapseWhitespace: true,
+    // Collapse to a single space rather than removing it: the design leans on
+    // whitespace between inline elements, which full collapsing would eat.
+    conservativeCollapse: true,
+    removeComments: true,
+    minifyCSS: true,
+    minifyJS: true,
+  });
+}
+
+/**
+ * @param {EleventyConfig} eleventyConfig
+ */
 export default function (eleventyConfig) {
   // --- What gets published --------------------------------------------------
   // GitHub Pages served the entire repository, including .DS_Store, four unused
@@ -52,40 +103,8 @@ export default function (eleventyConfig) {
   // --- Build-time rendering of what used to be client-side work -------------
   // manual-versions.js rewrote these `<code>` elements into CSS-drawn icons on
   // every page load. Doing it here removes the script and the layout shift.
-  eleventyConfig.addTransform("vita-buttons", function (content) {
-    const outputPath = this.page.outputPath || "";
-    if (!outputPath.endsWith(".html") || !outputPath.includes("manual")) {
-      return content;
-    }
-
-    return content.replace(
-      /<code>(CROSS|SQUARE|TRIANGLE|CIRCLE)<\/code>/g,
-      (_match, control) => {
-        const { className, label } = VITA_BUTTONS[control];
-        return (
-          `<span class="vita-button-icon ${className}" role="img" ` +
-          `aria-label="${label} button" title="${label} button" ` +
-          `data-control="${control}"></span>`
-        );
-      },
-    );
-  });
-
-  eleventyConfig.addTransform("minify-html", async function (content) {
-    if (!(this.page.outputPath || "").endsWith(".html")) {
-      return content;
-    }
-
-    return minify(content, {
-      collapseWhitespace: true,
-      // Collapse to a single space rather than removing it: the design leans on
-      // whitespace between inline elements, which full collapsing would eat.
-      conservativeCollapse: true,
-      removeComments: true,
-      minifyCSS: true,
-      minifyJS: true,
-    });
-  });
+  eleventyConfig.addTransform("vita-buttons", renderVitaButtons);
+  eleventyConfig.addTransform("minify-html", minifyHtml);
 
   return {
     dir: {

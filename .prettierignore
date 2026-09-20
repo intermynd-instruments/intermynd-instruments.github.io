@@ -1,0 +1,9 @@
+_site/
+_tmp/
+assets/
+coverage/
+img/
+node_modules/
+reports/
+src/**/*.njk
+src/css/

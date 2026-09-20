@@ -33,7 +33,20 @@ export default {
 
   eleventyComputed: {
     // "latest" tracks whatever sits at the top of _data/manuals.json.
-    displayVersion: (data) =>
-      data.manualVersion === "latest" ? data.manuals[0].version : data.manualVersion,
+    /**
+     * @param {{ manualVersion: string, manuals: Array<{ version: string }> }} data
+     */
+    displayVersion: (data) => {
+      if (data.manualVersion !== "latest") {
+        return data.manualVersion;
+      }
+
+      const latestVersion = data.manuals[0]?.version;
+      if (!latestVersion) {
+        throw new Error("At least one manual version is required.");
+      }
+
+      return latestVersion;
+    },
   },
 };

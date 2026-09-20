@@ -9,30 +9,13 @@
  *   node scripts/hash-css.js         # hashed filename, for production builds
  *   node scripts/hash-css.js --dev   # stable filename, for `tailwindcss --watch`
  */
-import { createHash } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname } from "node:path";
+import { publishStylesheet } from "./hash-css-lib.js";
 
 const DEV = process.argv.includes("--dev");
-const SOURCE = "_tmp/intermynd.css";
-const DATA_FILE = "src/_data/css.json";
+const result = publishStylesheet({ dev: DEV });
 
-function write(file, contents) {
-  mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, contents);
-}
-
-if (DEV) {
-  // In dev, Tailwind writes straight into the served directory and keeps a
-  // stable name so its --watch rebuilds are picked up without a data change.
-  write(DATA_FILE, `${JSON.stringify({ href: "/css/intermynd.css" }, null, 2)}\n`);
+if (result.bytes === null) {
   console.log("css: dev mode -> /css/intermynd.css");
 } else {
-  const css = readFileSync(SOURCE);
-  const hash = createHash("sha256").update(css).digest("hex").slice(0, 10);
-  const href = `/css/intermynd.${hash}.css`;
-
-  write(`_site${href}`, css);
-  write(DATA_FILE, `${JSON.stringify({ href }, null, 2)}\n`);
-  console.log(`css: ${(css.length / 1024).toFixed(1)} KiB -> ${href}`);
+  console.log(`css: ${(result.bytes / 1024).toFixed(1)} KiB -> ${result.href}`);
 }

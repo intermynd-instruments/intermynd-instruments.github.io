@@ -4,22 +4,47 @@
   "private": true,
   "description": "Static site for Intermynd Instruments, built with Eleventy and Tailwind CSS.",
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "build": "run-s clean css:build css:hash site:build",
     "clean": "node -e \"import('node:fs').then(fs => { fs.rmSync('_site', { recursive: true, force: true }); fs.rmSync('_tmp', { recursive: true, force: true }); })\"",
     "css:build": "tailwindcss -i src/css/intermynd.css -o _tmp/intermynd.css --minify",
     "css:hash": "node scripts/hash-css.js",
     "css:dev": "node scripts/hash-css.js --dev && tailwindcss -i src/css/intermynd.css -o _site/css/intermynd.css --watch",
+    "format": "prettier --write \"**/*.{js,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,yml,yaml}\"",
+    "lint": "eslint . --max-warnings=0",
+    "prepare": "husky",
     "site:build": "eleventy",
     "site:watch": "eleventy --serve",
+    "test": "vitest run --reporter=verbose",
+    "test:coverage": "vitest run --coverage --reporter=verbose",
+    "test:ci": "vitest run --coverage --reporter=verbose --reporter=junit --outputFile=reports/junit.xml",
+    "typecheck": "tsc --noEmit",
+    "validate": "run-s validate:docs format:check lint typecheck test:coverage build",
+    "validate:ci": "run-s validate:docs format:check lint typecheck test:ci build",
+    "validate:docs": "node scripts/validate-agent-docs.js",
+    "validate:fast": "run-s validate:docs format:check lint typecheck test",
     "dev": "run-p css:dev site:watch",
     "serve": "npm run dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@eslint/js": "^10.0.1",
     "@fontsource-variable/jetbrains-mono": "^5.1.1",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/node": "^26.6.2",
+    "@vitest/coverage-v8": "^5.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
     "html-minifier-terser": "^7.2.0",
+    "husky": "^9.1.7",
     "npm-run-all": "^4.1.5",
-    "tailwindcss": "^3.4.17"
+    "prettier": "^3.9.8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
   }
 }
