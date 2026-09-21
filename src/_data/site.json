@@ -2,7 +2,7 @@
   "name": "Intermynd Instruments",
   "url": "https://intermynd-instruments.com",
   "year": 2026,
-  "cloudflareBeaconToken": "********************************",
+  "cloudflareBeaconToken": "0e122fb83a7347d1a81970221720baaf",
   "datadog": {
     "applicationId": "cd729284-471c-4fd6-af2f-ff0c89807b9b",
     "clientToken": "pubb2c61f2ffad61c5eefa39b4853a2dcf7",

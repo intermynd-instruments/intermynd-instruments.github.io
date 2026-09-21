@@ -1,4 +1,4 @@
-import { cpSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,8 +7,8 @@ import { Eleventy } from "@11ty/eleventy";
 import { afterAll, beforeAll, describe, expect, test } from "vitest";
 
 import rumComputedData from "../src/_data/eleventyComputed.js";
+import { SRC_DIR, buildSite, countOccurrences, removeDir } from "./helpers/build-site.js";
 
-const SRC_DIR = fileURLToPath(new URL("../src/", import.meta.url));
 const PACKAGE_JSON = JSON.parse(
   readFileSync(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8"),
 );
@@ -39,15 +39,6 @@ const VALID_CONFIG = Object.fromEntries(
 );
 
 /**
- * @param {string} haystack
- * @param {string} needle
- * @returns {number}
- */
-function countOccurrences(haystack, needle) {
-  return haystack.split(needle).length - 1;
-}
-
-/**
  * Matches a minified-or-not `key: value` pair, tolerant of quotes and spacing.
  * html-minifier-terser rewrites `true` to `!0`, so raw booleans allow both.
  * @param {string} key
@@ -64,55 +55,6 @@ function optionPattern(key, value, kind) {
     return new RegExp(`${key}\\s*:\\s*(?:${escaped}|!${value === "true" ? 0 : 1})\\b`);
   }
   return new RegExp(`${key}\\s*:\\s*${escaped}\\b`);
-}
-
-/**
- * @param {string} dir
- * @returns {Map<string, string>} HTML page contents keyed by site-relative path
- */
-function readHtmlPages(dir) {
-  /** @type {Map<string, string>} */
-  const pages = new Map();
-  /** @type {string[]} */
-  const pending = [dir];
-  while (pending.length > 0) {
-    const current = /** @type {string} */ (pending.pop());
-    for (const entry of readdirSync(current, { withFileTypes: true })) {
-      const fullPath = path.join(current, entry.name);
-      if (entry.isDirectory()) {
-        pending.push(fullPath);
-      } else if (entry.name.endsWith(".html")) {
-        pages.set(
-          path.relative(dir, fullPath).split(path.sep).join("/"),
-          readFileSync(fullPath, "utf8"),
-        );
-      }
-    }
-  }
-  return pages;
-}
-
-/**
- * @param {"build" | "serve"} runMode
- * @param {string} [inputDir]
- * @returns {Promise<{ outputDir: string, pages: Map<string, string> }>}
- */
-async function buildSite(runMode, inputDir = SRC_DIR) {
-  const outputDir = mkdtempSync(path.join(tmpdir(), "rum-build-"));
-  // source: "cli" freezes the constructor input/output so the config file's
-  // dir block cannot override them in a programmatic run.
-  const eleventy = new Eleventy(inputDir, outputDir, { runMode, quietMode: true, source: "cli" });
-  await eleventy.write();
-  return { outputDir, pages: readHtmlPages(outputDir) };
-}
-
-/**
- * @param {string | undefined} dir
- */
-function removeDir(dir) {
-  if (dir) {
-    rmSync(dir, { recursive: true, force: true });
-  }
 }
 
 describe("Datadog RUM snippet in production builds", () => {
