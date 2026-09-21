@@ -18,5 +18,6 @@
   {%- if preloadDisplayFont %}
   <link rel="preload" href="/assets/fonts/Intermynd-Regular.ttf?v=20260906-2" as="font" type="font/ttf" crossorigin>
   {%- endif %}
+  {% include "partials/datadog-rum.njk" %}
   <link rel="stylesheet" href="{{ css.href }}">
 </head>

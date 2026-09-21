@@ -14,6 +14,6 @@
     "target": "ES2022",
     "types": ["node", "vitest/globals"]
   },
-  "include": ["*.js", "scripts/**/*.js", "src/**/*.js", "tests/**/*.js"],
+  "include": ["*.js", "scripts/**/*.js", "src/**/*.js", "tests/**/*.js", "types/**/*.d.ts"],
   "exclude": ["_site", "_tmp", "coverage", "node_modules"]
 }

@@ -1,0 +1,31 @@
+{%- if datadogRum %}
+{#- Datadog RUM, production builds only (datadogRum is null otherwise). The stub queues the init callback until the async CDN bundle loads and drains it; the getInitConfiguration guard makes re-inclusion a no-op. Session replay starts automatically from sessionReplaySampleRate: never call startSessionReplayRecording(). -#}
+<script>
+  window.DD_RUM = window.DD_RUM || {
+    q: [],
+    onReady: function (callback) {
+      this.q.push(callback);
+    },
+  };
+  window.DD_RUM.onReady(function () {
+    if (window.DD_RUM.getInitConfiguration()) {
+      return;
+    }
+    window.DD_RUM.init({
+      applicationId: "{{ datadogRum.applicationId }}",
+      clientToken: "{{ datadogRum.clientToken }}",
+      site: "{{ datadogRum.site }}",
+      service: "{{ datadogRum.service }}",
+      env: "{{ datadogRum.env }}",
+      version: "{{ appVersion }}",
+      sessionSampleRate: {{ datadogRum.sessionSampleRate }},
+      sessionReplaySampleRate: {{ datadogRum.sessionReplaySampleRate }},
+      trackResources: {{ datadogRum.trackResources }},
+      trackUserInteractions: {{ datadogRum.trackUserInteractions }},
+      trackLongTasks: {{ datadogRum.trackLongTasks }},
+      defaultPrivacyLevel: "{{ datadogRum.defaultPrivacyLevel }}",
+    });
+  });
+</script>
+<script src="https://www.datadoghq-browser-agent.com/ap1/v7/datadog-rum.js" crossorigin async></script>
+{%- endif %}

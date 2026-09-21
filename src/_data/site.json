@@ -2,7 +2,20 @@
   "name": "Intermynd Instruments",
   "url": "https://intermynd-instruments.com",
   "year": 2026,
-  "cloudflareBeaconToken": "0e122fb83a7347d1a81970221720baaf",
+  "cloudflareBeaconToken": "********************************",
+  "datadog": {
+    "applicationId": "cd729284-471c-4fd6-af2f-ff0c89807b9b",
+    "clientToken": "pubb2c61f2ffad61c5eefa39b4853a2dcf7",
+    "site": "ap1.datadoghq.com",
+    "service": "intermynd-instruments",
+    "env": "prod",
+    "sessionSampleRate": 100,
+    "sessionReplaySampleRate": 20,
+    "trackResources": true,
+    "trackUserInteractions": true,
+    "trackLongTasks": true,
+    "defaultPrivacyLevel": "mask"
+  },
   "links": {
     "itch": "https://intermynd-instruments.itch.io/ds-8",
     "merch": "https://intermynd.redbubble.com",

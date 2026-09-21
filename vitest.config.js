@@ -8,7 +8,12 @@ export default defineConfig({
     pool: "threads",
     coverage: {
       provider: "v8",
-      include: ["scripts/hash-css-lib.js", "src/manuals/manuals.11tydata.js"],
+      include: [
+        "scripts/hash-css-lib.js",
+        "src/_data/appVersion.js",
+        "src/_data/eleventyComputed.js",
+        "src/manuals/manuals.11tydata.js",
+      ],
       reporter: ["text", "json-summary", "html"],
       reportsDirectory: "coverage",
       thresholds: {

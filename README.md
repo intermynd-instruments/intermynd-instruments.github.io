@@ -112,3 +112,13 @@ Cloudflare Web Analytics (RUM) runs through the beacon in `src/_includes/partial
 served from `https://static.cloudflareinsights.com/beacon.min.js`. Metrics are viewable in the
 Cloudflare dashboard under **Web Analytics**. Zone-level HTTP analytics are separate and are queried
 through the Cloudflare GraphQL API.
+
+Datadog RUM also runs on every page via `src/_includes/partials/datadog-rum.njk`, included once from
+`src/_includes/partials/head.njk`. The pinned async CDN loader
+(`https://www.datadoghq-browser-agent.com/ap1/v7/datadog-rum.js`) initializes with the public
+browser configuration in `src/_data/site.json` under `datadog` (application ID and `pub…` client
+token are public by design). The snippet renders only in production builds (`npm run build`) —
+`npm run dev` emits none of it — and a missing or invalid `datadog` block fails the build. The
+`version` tag comes from `package.json` through `src/_data/appVersion.js`. Session replay samples
+20% of sessions and starts automatically; `defaultPrivacyLevel` is explicitly `mask`, so page text
+and inputs never leave the browser. Metrics are viewable in Datadog under **UX Monitoring → RUM**.
