@@ -1,12 +1,4 @@
 <script>
-  const preorderConfig = {
-    formId: '1FAIpQLSfe2xR1AIReXivFOCHPhWrc5Ktr_Y6SwDIyHt7f_AppAZg-tw',
-    fields: {
-      country: '235803725',
-      product: '1870252213',
-    },
-  };
-
   // Polydeck finish switcher
   document.querySelectorAll('.polydeck-group').forEach(group => {
     group.addEventListener('click', (e) => {
@@ -41,54 +33,4 @@
       }, 2000);
     }
   }
-
-  const preorderForm = document.getElementById('preorder-form');
-  const preorderProduct = document.getElementById('preorder-product');
-  const preorderStatus = document.getElementById('preorder-status');
-  const preorderLinks = document.querySelectorAll('[data-preorder-product]');
-
-  function setPreorderStatus(message, tone = 'neutral') {
-    preorderStatus.textContent = message;
-    preorderStatus.className = 'min-h-[1.25rem] text-sm';
-    if (tone === 'success') preorderStatus.classList.add('text-[#6f26de]');
-    else if (tone === 'error') preorderStatus.classList.add('text-black');
-    else preorderStatus.classList.add('text-black');
-  }
-
-  function setSelectedProduct(product) {
-    if (!product) return;
-    const match = Array.from(preorderProduct.options).find(option => option.value === product);
-    if (match) preorderProduct.value = product;
-  }
-
-  preorderLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      setSelectedProduct(link.dataset.preorderProduct);
-    });
-  });
-
-  const requestedProduct = new URLSearchParams(window.location.search).get('product');
-  setSelectedProduct(requestedProduct);
-
-  preorderForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    if (!preorderForm.reportValidity()) return;
-
-    const { formId, fields } = preorderConfig;
-    const missingConfig = !formId || !fields.country || !fields.product;
-    if (missingConfig) {
-      setPreorderStatus('The interest form is not available yet. Please check back soon.', 'error');
-      return;
-    }
-
-    const params = new URLSearchParams({
-      [`entry.${fields.country}`]: document.getElementById('preorder-country').value.trim(),
-      [`entry.${fields.product}`]: preorderProduct.value,
-    });
-    const prefilledUrl = `https://docs.google.com/forms/d/e/${formId}/viewform?${params.toString()}`;
-
-    setPreorderStatus('Opening the interest form...');
-    window.location.href = prefilledUrl;
-  });
 </script>

@@ -75,8 +75,6 @@ There is no authentication gate and no external service must be running.
    navigate to an older manual.
 6. Stop the development process when finished.
 
-Do not submit the hardware-interest form during QA because it navigates to a real Google Form.
-
 ## Development workflow
 
 - Treat existing uncommitted and untracked files as user work.

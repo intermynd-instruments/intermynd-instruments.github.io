@@ -8,9 +8,11 @@
       <a href="{{ link.href }}" class="hover:text-white transition-colors">{{ link.label }}</a>
       {%- endfor %}
     </div>
+    {% if navCta %}
     <div class="hidden md:flex items-center gap-4">
       <a href="{{ navCta.href }}"{% if navCta.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="px-4 py-1.5 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-xs font-semibold tracking-wide uppercase">{{ navCta.label }}</a>
     </div>
+    {% endif %}
     <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 w-7 h-7 justify-center items-end z-50" aria-label="Toggle menu">
       <span class="hamburger-line hamburger-top block w-6 h-[2px] bg-white rounded-full"></span>
       <span class="hamburger-line hamburger-mid block w-5 h-[2px] bg-white rounded-full"></span>
@@ -22,7 +24,9 @@
       {%- for link in navLinks %}
       <a href="{{ link.href }}" class="hover:text-white transition-colors" onclick="closeMenu()">{{ link.label }}</a>
       {%- endfor %}
+      {% if navCta %}
       <a href="{{ navCta.href }}"{% if navCta.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex self-start px-4 py-2 rounded-full border border-[#b4b4b4] text-white hover:border-white hover:text-white transition-all text-sm font-semibold tracking-wide uppercase" onclick="closeMenu()">{{ navCta.label }}</a>
+      {% endif %}
     </div>
   </div>
 </header>

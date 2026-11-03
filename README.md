@@ -1,8 +1,7 @@
 # Intermynd Instruments
 
 The public-facing site for Intermynd Instruments: a project catalog featuring DS-8 Drumstream,
-Trackspace, Polydeck, and Kaiser-1, five versions of the DS-8 manual, and a Google-Forms preorder
-flow.
+Trackspace, Polydeck, and Kaiser-1, plus five versions of the DS-8 manual.
 
 Served from GitHub Pages behind Cloudflare at
 [https://intermynd-instruments.com](https://intermynd-instruments.com).
