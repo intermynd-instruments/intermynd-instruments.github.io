@@ -46,7 +46,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       # GitHub Pages is behind Cloudflare, so after every deploy the Cloudflare
       # cache must be purged or visitors keep getting the previous build.
