@@ -87,6 +87,7 @@ export default function (eleventyConfig) {
   // here reaches _site.
   eleventyConfig.addPassthroughCopy({ CNAME: "CNAME" });
   eleventyConfig.addPassthroughCopy({ "assets/*.svg": "assets" });
+  eleventyConfig.addPassthroughCopy({ "assets/trackspace-logo.png": "assets/trackspace-logo.png" });
   eleventyConfig.addPassthroughCopy({ "assets/fonts/*.ttf": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({
     [JETBRAINS_MONO]: "assets/fonts/jetbrains-mono-latin-wght-normal.woff2",
